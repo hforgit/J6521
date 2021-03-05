@@ -1,0 +1,20 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\xy_apl_logic.obj",
+".\Objects\xy_fml_buzzer.obj",
+".\Objects\xy_fml_ctrl.obj",
+".\Objects\xy_fml_display.obj",
+".\Objects\xy_fml_motor.obj",
+".\Objects\xy_fml_relay.obj",
+".\Objects\xy_fml_test.obj",
+".\Objects\xy_fml_touch.obj",
+".\Objects\xy_hal_ad.obj",
+".\Objects\xy_hal_alg.obj",
+".\Objects\xy_hal_isr.obj",
+".\Objects\xy_hal_port.obj",
+".\Objects\xy_hal_serial.obj",
+".\Objects\xy_hal_timer.obj",
+".\Objects\xy_sys_variable.obj" 
+TO ".\Objects\BATHROOMMASTER" 
+
+PRINT(".\Listings\BATHROOMMASTER.map")

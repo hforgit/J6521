@@ -1,0 +1,69 @@
+C51 COMPILER V9.01   XY_HAL_ALG                                                            03/04/2021 15:08:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_ALG
+OBJECT MODULE PLACED IN .\Objects\xy_hal_alg.obj
+COMPILER INVOKED BY: D:\MDK5\C51\BIN\C51.EXE 03_HAL\xy_hal_alg.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\01_APL;.\0
+                    -2_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_hal_alg.lst) OBJECT(.\Objects\xy_hal_alg.obj)
+
+line level    source
+
+   1          #include "xy_sys_headfile.h"
+   2          
+   3          /*********************************************************************************************************
+             -**************
+   4          * Function Name: 
+   5          * Description  : 
+   6          * Arguments    : None
+   7          * Return Value : None
+   8          **********************************************************************************************************
+             -*************/
+   9          unsigned char hal_alg_chk_crc8(unsigned char* p_buffer, unsigned char buf_size)
+  10          {
+  11   1              unsigned char i;
+  12   1          unsigned char crc = 0;
+  13   1              
+  14   1          while(buf_size--)
+  15   1          {
+  16   2              for(i=0x80; i>0; i>>=1)
+  17   2              {
+  18   3                  if((crc & 0x80) != 0)
+  19   3                  {
+  20   4                      crc <<= 1;
+  21   4                      crc ^= 0x07; // X8 + X2 + X + 1
+  22   4                  }
+  23   3                  else
+  24   3                  {
+  25   4                      crc <<= 1;
+  26   4                  }
+  27   3      
+  28   3                  if((*p_buffer & i) != 0)
+  29   3                  {
+  30   4                      crc ^= 0x07;
+  31   4                  }
+  32   3              }
+  33   2              p_buffer++;
+  34   2          }
+  35   1      
+  36   1          return crc;
+  37   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     57    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.01   XY_HAL_ALG                                                            03/04/2021 15:08:22 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

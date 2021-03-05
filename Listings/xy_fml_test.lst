@@ -1,0 +1,461 @@
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_TEST
+OBJECT MODULE PLACED IN .\Objects\xy_fml_test.obj
+COMPILER INVOKED BY: D:\MDK5\C51\BIN\C51.EXE 02_FML\xy_fml_test.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\01_APL;.\
+                    -02_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_fml_test.lst) OBJECT(.\Objects\xy_fml_test.obj)
+
+line level    source
+
+   1          #include "xy_sys_headfile.h"
+   2          
+   3          static unsigned char  errcod;
+   4          
+   5          /*********************************************************************************************************
+             -**************
+   6          * Function Name: 
+   7          * Description  : 
+   8          * Arguments    : None
+   9          * Return Value : None
+  10          **********************************************************************************************************
+             -*************/
+  11          void fml_test_old_dis(unsigned char* table)
+  12          {
+  13   1              static unsigned char s_bit = 0; 
+  14   1      
+  15   1              table[0] = 0x68;
+  16   1              table[1] = 0x02;
+  17   1              switch(errcod)
+  18   1              {
+  19   2                      case 0:
+  20   2                              if(s_bit == 0)
+  21   2                              {
+  22   3                                      table[2] = 0x07;
+  23   3                                      table[3] = 0x7F;
+  24   3                              }
+  25   2                              else
+  26   2                              {
+  27   3                                      table[2] = s_bit <  4 ? 0x01 << (s_bit-1) : 0x00;
+  28   3                                      table[3] = s_bit >= 4 ? 0x01 << (s_bit-4) : 0x00;
+  29   3                              }
+  30   2                              s_bit++;
+  31   2                              if(s_bit > 10)
+  32   2                                      s_bit = 0;
+  33   2                              break;
+  34   2                      case 1:
+  35   2                              table[2] = 0x00;
+  36   2                              table[3] = 0x5C;
+  37   2                              break;
+  38   2                      case 2:
+  39   2                              table[2] = 0x00;
+  40   2                              table[3] = 0x7C;
+  41   2                              break;
+  42   2                      case 3:
+  43   2                              table[2] = 0x00;
+  44   2                              table[3] = 0x58;
+  45   2                              break;
+  46   2                      case 4:
+  47   2                              table[2] = 0x07;
+  48   2                              table[3] = 0x7F;
+  49   2                              s_bit = 0;
+  50   2                              break;
+  51   2                      default:
+  52   2                              table[2] = 0x00;
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 2   
+
+  53   2                              table[3] = 0x00;
+  54   2                              break;
+  55   2              }
+  56   1              table[4] = table[0] + table[1] + table[2] + table[3];
+  57   1              table[5] = 0x16;        
+  58   1      }
+  59          
+  60          /*********************************************************************************************************
+             -**************
+  61          * Function Name: 
+  62          * Description  : 
+  63          * Arguments    : None
+  64          * Return Value : None
+  65          **********************************************************************************************************
+             -*************/
+  66          void fml_test_new_dis(unsigned char* table)
+  67          {
+  68   1              static unsigned char s_bit = 0; 
+  69   1              static unsigned char s_sequence = 0;
+  70   1      
+  71   1              table[0] = DISPLAY_DATA_HEAD_XY >> 8 & 0xFF;
+  72   1              table[1] = DISPLAY_DATA_HEAD_XY & 0xFF;
+  73   1              table[2] = DISPLAY_DATA_LENGTH;
+  74   1              table[3] = DISPLAY_DATA_VERSION;
+  75   1              table[4] = s_sequence;
+  76   1              table[5] = DISPLAY_DATA_COMMAND;
+  77   1              if(errcod)
+  78   1              {
+  79   2                      table[6] = 0x79;
+  80   2                      table[7] = DISPLAY_TABLE_SEG(errcod);
+  81   2                      table[8] = 0x00;
+  82   2              }
+  83   1              else
+  84   1              {
+  85   2                      if(s_bit == 0)
+  86   2                      {
+  87   3                              table[6] = 0xFF;
+  88   3                              table[7] = 0xFF;
+  89   3                              table[8] = 0x80;
+  90   3                      }
+  91   2                      else if(s_bit < 4)
+  92   2                      {
+  93   3                              table[6] = (s_bit == 1 ? 0x80 : 0x00);
+  94   3                              table[7] = (s_bit == 2 ? 0x80 : 0x00);
+  95   3                              table[8] = (s_bit == 3 ? 0x80 : 0x00);
+  96   3                      }
+  97   2                      else
+  98   2                      {
+  99   3                              table[6] = (0x01 << (s_bit - 4));
+ 100   3                              table[7] = (0x01 << (s_bit - 4));
+ 101   3                              table[8] = 0x00;
+ 102   3                      }
+ 103   2                      s_bit++;
+ 104   2                      if(s_bit > 10)
+ 105   2                              s_bit = 0;
+ 106   2              }
+ 107   1              table[9] = hal_alg_chk_crc8(table, 9);
+ 108   1              
+ 109   1              s_sequence++;
+ 110   1      }
+ 111          
+ 112          /*********************************************************************************************************
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 3   
+
+             -**************
+ 113          * Function Name: 
+ 114          * Description  : 
+ 115          * Arguments    : None
+ 116          * Return Value : None
+ 117          **********************************************************************************************************
+             -*************/
+ 118          void fml_test_uart(unsigned char mode)
+ 119          {
+ 120   1              static unsigned char s_table[16] = {0};
+ 121   1      
+ 122   1              switch(mode)
+ 123   1              {
+ 124   2                      case 0:                         ///< old protocol
+ 125   2                              fml_test_old_dis(s_table);      
+ 126   2                              hal_serial_uart_tx_display(s_table, 6);
+ 127   2                              break;
+ 128   2                      case 1:                         ///< new protocol
+ 129   2                              fml_test_new_dis(s_table);              
+ 130   2                              hal_serial_uart_tx_display(s_table, 10);
+ 131   2                              break;
+ 132   2                      case 2:
+ 133   2                              fml_test_old_dis(s_table);
+ 134   2                              fml_test_new_dis(s_table+6);            
+ 135   2                              hal_serial_uart_tx_display(s_table, 16);
+ 136   2                              break;
+ 137   2                      default:
+ 138   2                              break;
+ 139   2              }
+ 140   1      }
+ 141          
+ 142          /*********************************************************************************************************
+             -**************
+ 143          * Function Name: 
+ 144          * Description  : 
+ 145          * Arguments    : None
+ 146          * Return Value : None
+ 147          **********************************************************************************************************
+             -*************/
+ 148          void fml_test_delay(void)
+ 149          {
+ 150   1              unsigned int i, j;
+ 151   1      
+ 152   1              for(i=0; i<100; i++)
+ 153   1              {       
+ 154   2                      for(j=0; j<1000; j++)
+ 155   2                      {
+ 156   3                              ;
+ 157   3                      }
+ 158   2                      watchdog();
+ 159   2              }
+ 160   1              fml_test_uart(0);
+ 161   1              for(i=0; i<100; i++)
+ 162   1              {
+ 163   2                      for(j=0; j<1000; j++)
+ 164   2                      {
+ 165   3                              ;
+ 166   3                      }
+ 167   2                      watchdog();
+ 168   2              }
+ 169   1              fml_test_uart(1);
+ 170   1      }
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 4   
+
+ 171          
+ 172          /*********************************************************************************************************
+             -**************
+ 173          * Function Name: 
+ 174          * Description  : 
+ 175          * Arguments    : None
+ 176          * Return Value : None
+ 177          **********************************************************************************************************
+             -*************/
+ 178          void fml_test_port(void)
+ 179          {
+ 180   1              /*1*/
+ 181   1              #ifdef TEST_FUNC_NUMB_01
+ 182   1              PTC_on();
+ 183   1              fml_test_delay();
+ 184   1              PTC_off();
+ 185   1              #endif
+ 186   1      
+ 187   1              /*4*/
+ 188   1              #ifdef TEST_FUNC_NUMB_04
+ 189   1              blow_fan_on();
+ 190   1              fml_test_delay();
+ 191   1              blow_fan_off();
+ 192   1              #endif
+ 193   1      
+ 194   1              /*5*/
+ 195   1              #ifdef TEST_FUNC_NUMB_05
+ 196   1              light_on();
+ 197   1              fml_test_delay();
+ 198   1              light_off();
+ 199   1              #endif
+ 200   1              
+ 201   1      }
+ 202          
+ 203          /*********************************************************************************************************
+             -**************
+ 204          * Function Name: 
+ 205          * Description  : 
+ 206          * Arguments    : None
+ 207          * Return Value : None
+ 208          **********************************************************************************************************
+             -*************/
+ 209          void fml_test_motor(void)
+ 210          {
+ 211   1              /*6*/
+ 212   1              #ifdef TEST_FUNC_NUMB_06
+ 213   1              blow_motor_step4_on();
+ 214   1              fml_test_delay();
+ 215   1              blow_motor_step4_off();
+ 216   1              #endif
+ 217   1              
+ 218   1              /*7*/
+ 219   1              #ifdef TEST_FUNC_NUMB_07
+ 220   1              blow_motor_step3_on();
+ 221   1              fml_test_delay();
+ 222   1              blow_motor_step3_off();
+ 223   1              #endif
+ 224   1              
+ 225   1              /*8*/
+ 226   1              #ifdef TEST_FUNC_NUMB_08
+ 227   1              blow_motor_step2_on();
+ 228   1              fml_test_delay();
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 5   
+
+ 229   1              blow_motor_step2_off();
+ 230   1              #endif
+ 231   1      
+ 232   1              /*9*/
+ 233   1              #ifdef TEST_FUNC_NUMB_09
+ 234   1              blow_motor_step1_on();
+ 235   1              fml_test_delay();
+ 236   1              blow_motor_step1_off();
+ 237   1              #endif
+ 238   1              
+ 239   1              /*10*/
+ 240   1              #ifdef TEST_FUNC_NUMB_10
+ 241   1              absorb_motor_step4_on();
+ 242   1              fml_test_delay();
+ 243   1              absorb_motor_step4_off();
+ 244   1              #endif
+ 245   1              
+ 246   1              /*11*/
+ 247   1              #ifdef TEST_FUNC_NUMB_11
+ 248   1              absorb_motor_step3_on();
+ 249   1              fml_test_delay();
+ 250   1              absorb_motor_step3_off();
+ 251   1              #endif
+ 252   1      
+ 253   1              /*12*/
+ 254   1              #ifdef TEST_FUNC_NUMB_12
+ 255   1              absorb_motor_step2_on();
+ 256   1              fml_test_delay();
+ 257   1              absorb_motor_step2_off();
+ 258   1              #endif
+ 259   1      
+ 260   1              /*13*/
+ 261   1              #ifdef TEST_FUNC_NUMB_13
+ 262   1              absorb_motor_step1_on();
+ 263   1              fml_test_delay();
+ 264   1              absorb_motor_step1_off();
+ 265   1              #endif
+ 266   1              
+ 267   1      }
+ 268          
+ 269          /*********************************************************************************************************
+             -**************
+ 270          * Function Name: 
+ 271          * Description  : 
+ 272          * Arguments    : None
+ 273          * Return Value : None
+ 274          **********************************************************************************************************
+             -*************/
+ 275          void fml_test_temp(datall* p_data)
+ 276          {
+ 277   1              unsigned int timeout = 0;
+ 278   1              
+ 279   1              while(1)
+ 280   1              {
+ 281   2                      if(p_data->uart.rec_uart1_ok)
+ 282   2                      {
+ 283   3                              break;
+ 284   3                      }
+ 285   2                      timeout++;
+ 286   2                      if(timeout > 60000)
+ 287   2                      {
+ 288   3                              timeout = 60000;
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 6   
+
+ 289   3                      }
+ 290   2                      watchdog();
+ 291   2              }
+ 292   1              if(p_data->temperature.value == 0)                      ///< short circuit
+ 293   1              {
+ 294   2                      errcod = 1;
+ 295   2              }
+ 296   1              else if(p_data->temperature.value > 80)         ///< cut circuit
+ 297   1              {
+ 298   2                      errcod = 2;
+ 299   2              }
+ 300   1              else if(timeout == 60000)                                       ///< lost uart from display
+ 301   1              {
+ 302   2                      errcod = 3;
+ 303   2              }
+ 304   1              else
+ 305   1              {
+ 306   2                      errcod = 0;
+ 307   2              }
+ 308   1      }
+ 309          
+ 310          /*********************************************************************************************************
+             -**************
+ 311          * Function Name: 
+ 312          * Description  : 
+ 313          * Arguments    : None
+ 314          * Return Value : None
+ 315          **********************************************************************************************************
+             -*************/
+ 316          void fml_test_init(void)
+ 317          {       
+ 318   1              blow_fan_off();
+ 319   1              light_off();
+ 320   1              absorb_fan_off();
+ 321   1              PTC_off();
+ 322   1      
+ 323   1              blow_motor_step1_off();
+ 324   1              blow_motor_step2_off();
+ 325   1              blow_motor_step3_off();
+ 326   1              blow_motor_step4_off();
+ 327   1              
+ 328   1              absorb_motor_step1_off();
+ 329   1              absorb_motor_step2_off();
+ 330   1              absorb_motor_step3_off();
+ 331   1              absorb_motor_step4_off();
+ 332   1      
+ 333   1      }
+ 334          
+ 335          /*********************************************************************************************************
+             -**************
+ 336          * Function Name: 
+ 337          * Description  : 
+ 338          * Arguments    : None
+ 339          * Return Value : None
+ 340          **********************************************************************************************************
+             -*************/
+ 341          switchstate fml_test_check(void) 
+ 342          {
+ 343   1              static unsigned char s_count = 0;
+ 344   1              
+ 345   1              if(self_test() == 0)
+ 346   1              {
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 7   
+
+ 347   2                      s_count++;
+ 348   2                      if(s_count > 1)
+ 349   2                      {
+ 350   3                              fml_test_init();
+ 351   3                              return YES;
+ 352   3                      }
+ 353   2              }
+ 354   1              else
+ 355   1              {
+ 356   2                      s_count = 0;
+ 357   2              }
+ 358   1              return NO;
+ 359   1      }
+ 360          
+ 361          /*********************************************************************************************************
+             -**************
+ 362          * Function Name: 
+ 363          * Description  : 
+ 364          * Arguments    : None
+ 365          * Return Value : None
+ 366          **********************************************************************************************************
+             -*************/
+ 367          void fml_test_logic(datall* p_data)
+ 368          {
+ 369   1              static unsigned char s_step = 0;
+ 370   1      
+ 371   1              if(YES == p_data->testmode)
+ 372   1              {
+ 373   2                      watchdog();
+ 374   2                      
+ 375   2                      switch(s_step)
+ 376   2                      {
+ 377   3                              case 0:
+ 378   3                                      s_step++;
+ 379   3                                      p_data->buzzer.burn_bee_on = ON;        
+ 380   3                                      fml_test_uart(2);
+ 381   3                                      break;
+ 382   3                              case 1:
+ 383   3                                      if(OFF == p_data->buzzer.burn_bee_on)   ///< start test beep
+ 384   3                                      {
+ 385   4                                              fml_test_port();                
+ 386   4                                              fml_test_motor();        
+ 387   4                                              s_step++;
+ 388   4                                      }                               
+ 389   3                                      break;
+ 390   3                              case 2:
+ 391   3                                      fml_test_temp(p_data);
+ 392   3                                      s_step = 0;
+ 393   3                                      break;
+ 394   3                              default:
+ 395   3                                      break;
+ 396   3                      }
+ 397   2              }       
+ 398   1      }
+ 399          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1392    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     22      13
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/04/2021 15:08:21 PAGE 8   
+
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

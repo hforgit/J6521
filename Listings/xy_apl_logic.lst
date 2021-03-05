@@ -1,0 +1,186 @@
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE XY_APL_LOGIC
+OBJECT MODULE PLACED IN .\Objects\xy_apl_logic.obj
+COMPILER INVOKED BY: D:\MDK5\C51\BIN\C51.EXE 01_APL\xy_apl_logic.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\01_APL;.
+                    -\02_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_apl_logic.lst) OBJECT(.\Objects\xy_apl_logic.obj)
+
+line level    source
+
+   1          #include "xy_sys_headfile.h"
+   2          
+   3          static datall* s_p_data = &g_datall;
+   4          
+   5          /*********************************************************************************************************
+             -**************
+   6          * Function Name: 
+   7          * Description  : 
+   8          * Arguments    : None
+   9          * Return Value : None
+  10          **********************************************************************************************************
+             -*************/
+  11          void apl_init_data(void)
+  12          {
+  13   1              fml_buzzer_init_data(s_p_data);
+  14   1              fml_ctrl_init_data(s_p_data);
+  15   1              fml_touch_init_data(s_p_data);
+  16   1              fml_motor_init_data(s_p_data);
+  17   1      }
+  18          
+  19          /*********************************************************************************************************
+             -**************
+  20          * Function Name: 
+  21          * Description  : 
+  22          * Arguments    : None
+  23          * Return Value : None
+  24          **********************************************************************************************************
+             -*************/
+  25          void apl_config_data(void)
+  26          {
+  27   1              s_p_data->buzzer.normal_bee_on  = ON; 
+  28   1              s_p_data->keytype                       = REMOTE;
+  29   1              memset(&g_timebase.isTrigInterrupt, 0, sizeof(g_timebase));
+  30   1      }
+  31          
+  32          /*********************************************************************************************************
+             -**************
+  33          * Function Name: 
+  34          * Description  : 
+  35          * Arguments    : None
+  36          * Return Value : None
+  37          **********************************************************************************************************
+             -*************/
+  38          void apl_config_register(void)
+  39          {
+  40   1              fml_ctrl_init_reg();
+  41   1      }
+  42          
+  43          /*********************************************************************************************************
+             -**************
+  44          * Function Name: 
+  45          * Description  : 
+  46          * Arguments    : None
+  47          * Return Value : None
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 2   
+
+  48          **********************************************************************************************************
+             -*************/
+  49          void apl_initialize(void)
+  50          {
+  51   1              apl_init_data();
+  52   1              apl_config_data();
+  53   1              apl_config_register();
+  54   1      }
+  55          
+  56          /*********************************************************************************************************
+             -**************
+  57          * Function Name: 
+  58          * Description  : 
+  59          * Arguments    : None
+  60          * Return Value : None
+  61          **********************************************************************************************************
+             -*************/
+  62          void apl_logic_ctrl(void)
+  63          {
+  64   1              /* period: 125us */
+  65   1              if (g_timebase.isTrigInterrupt)
+  66   1          {
+  67   2                      g_timebase.isTrigInterrupt = 0;
+  68   2                      g_timebase.timebase_125us++;
+  69   2      
+  70   2          }
+  71   1      
+  72   1              /* period: 1ms */
+  73   1          if (g_timebase.timebase_125us >= 8)
+  74   1          {
+  75   2              g_timebase.timebase_125us = 0;
+  76   2                      g_timebase.timebase_1ms++;
+  77   2      
+  78   2                      fml_buzzer_timer_cnt(s_p_data);
+  79   2                      fml_motor_timer_ctrl(s_p_data);
+  80   2                      fml_motor_ctrl_move(s_p_data);
+  81   2              }
+  82   1      
+  83   1              /* period: 10ms */
+  84   1          if (g_timebase.timebase_1ms >= 10)
+  85   1          {
+  86   2              g_timebase.timebase_1ms = 0;
+  87   2              g_timebase.timebase_10ms++;
+  88   2                      g_timebase.timebase_100ms++;
+  89   2              g_timebase.timebase_250ms++;
+  90   2      
+  91   2                      fml_ctrl_key_logic(s_p_data);
+  92   2                      fml_touch_ctrl_logic(s_p_data);
+  93   2          }
+  94   1      
+  95   1              /* period: 50ms */
+  96   1          if (g_timebase.timebase_10ms >= 5)
+  97   1          {
+  98   2                      g_timebase.timebase_10ms = 0;
+  99   2      
+ 100   2                      fml_buzzer_deal(s_p_data);
+ 101   2          }
+ 102   1      
+ 103   1              /* period: 100ms */
+ 104   1          if (g_timebase.timebase_100ms >= 9)
+ 105   1          {
+ 106   2              g_timebase.timebase_100ms = 0;
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 3   
+
+ 107   2      
+ 108   2                      fml_ctrl_icon_display(s_p_data);
+ 109   2          }
+ 110   1      
+ 111   1              /* period: 250ms */
+ 112   1          if (g_timebase.timebase_250ms >= 24)
+ 113   1          {
+ 114   2              g_timebase.timebase_250ms = 0;
+ 115   2                      g_timebase.timebase_500ms++;
+ 116   2      
+ 117   2                      fml_relay_ctrl(s_p_data);
+ 118   2                      fml_display_conf_symbol(s_p_data);
+ 119   2                      fml_display_tx_data(s_p_data);
+ 120   2                      watchdog();     
+ 121   2          }
+ 122   1      
+ 123   1              /* period: 500ms */
+ 124   1          if (g_timebase.timebase_500ms >= 2)
+ 125   1          {
+ 126   2              g_timebase.timebase_500ms = 0;
+ 127   2              g_timebase.timebase_1s++;
+ 128   2      
+ 129   2                      #ifdef XY_SYS_TEST_MODE
+ 130   2                              s_p_data->testmode = fml_test_check();
+ 131   2                              fml_test_logic(s_p_data);
+ 132   2                      #endif
+ 133   2          }
+ 134   1      
+ 135   1              /* period: 1s */
+ 136   1          if (g_timebase.timebase_1s >= 2)
+ 137   1          {
+ 138   2              g_timebase.timebase_1s = 0;
+ 139   2      
+ 140   2                      fml_ctrl_deal_timer(s_p_data);
+ 141   2                      fml_ctrl_work_time(s_p_data);
+ 142   2                      fml_ctrl_deal_alarm(s_p_data);
+ 143   2          }
+ 144   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    435    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      3    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

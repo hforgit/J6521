@@ -1,0 +1,106 @@
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/04/2021 15:08:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_AD
+OBJECT MODULE PLACED IN .\Objects\xy_hal_ad.obj
+COMPILER INVOKED BY: D:\MDK5\C51\BIN\C51.EXE 03_HAL\xy_hal_ad.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\01_APL;.\02
+                    -_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_hal_ad.lst) OBJECT(.\Objects\xy_hal_ad.obj)
+
+line level    source
+
+   1          #include "xy_sys_headfile.h"
+   2          
+   3          const unsigned int AdcTable[100] = 
+   4          { 
+   5                  1022,   1056,   1092,   1128,   1164,   1200,   1237,   1275,   1312,   1350,           // 0     9
+   6                  1389,   1428,   1467,   1506,   1546,   1585,   1625,   1665,   1705,   1745,           // 10    19
+   7                  1785,   1825,   1865,   1905,   1945,   1984,   2024,   2063,   2102,   2140,           // 20    29
+   8                  2179,   2217,   2255,   2292,   2329,   2366,   2402,   2438,   2473,   2508,           // 30    39
+   9                  2543,   2577,   2610,   2643,   2675,   2707,   2739,   2770,   2800,   2830,           // 40    49
+  10                  2859,   2888,   2916,   2944,   2971,   2997,   3023,   3049,   3074,   3098,           // 50    59
+  11                  3122,   3145,   3169,   3191,   3213,   3234,   3255,   3275,   3295,   3314,           // 60    69
+  12                  3334,   3352,   3370,   3388,   3405,   3422,   3438,   3454,   3470,   3485,           // 70    79
+  13                  3500,   3515,   3529,   3542,   3556,   3569,   3582,   3594,   3606,   3618,           // 80    89
+  14                  3630,   3641,   3652,   3662,   3673,   3683,   3693,   3702,   3712,   3721,           // 90    99 
+  15          };
+  16          
+  17          /*********************************************************************************************************
+             -**************
+  18          * Function Name: 
+  19          * Description  : 
+  20          * Arguments    : None
+  21          * Return Value : None
+  22          **********************************************************************************************************
+             -*************/
+  23          unsigned char hal_ad_cal_temperature(unsigned char* pbuffer)
+  24          {
+  25   1              unsigned char i = 0;
+  26   1              unsigned int temp;
+  27   1              static unsigned int s_pri_tmp;
+  28   1      
+  29   1              temp = pbuffer[0];
+  30   1              temp <<= 8;
+  31   1              temp += pbuffer[1];
+  32   1      
+  33   1              if(temp < AdcTable[i])
+  34   1              {
+  35   2                      return (0);
+  36   2              }
+  37   1              else
+  38   1              {
+  39   2                      while(++i)
+  40   2                      {
+  41   3                              if(temp < AdcTable[i])
+  42   3                                      break;
+  43   3                      }
+  44   2                      
+  45   2                      if(i < (sizeof(AdcTable) / sizeof(unsigned int)))
+  46   2                      {
+  47   3                              temp -= AdcTable[i-1];
+  48   3                              temp *= 10;
+  49   3                              temp /= AdcTable[i] - AdcTable[i-1];
+  50   3                              temp += (i-1)*10;
+  51   3                              
+  52   3                              if(YES == ALG_CHK_BACK_DIFF(s_pri_tmp, temp, 5))                ///< 0.5
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/04/2021 15:08:22 PAGE 2   
+
+  53   3                              {
+  54   4                                      s_pri_tmp = temp;
+  55   4                              }
+  56   3                              
+  57   3                              temp = s_pri_tmp;
+  58   3                                              
+  59   3                              if(YES == ALG_CHK_ROUNDING(temp))
+  60   3                              {
+  61   4                                      temp += 10;
+  62   4                              }
+  63   3                                              
+  64   3                              if(temp > 999)
+  65   3                                      temp = 999;
+  66   3      
+  67   3                              return (temp/10);
+  68   3                      }
+  69   2                      else
+  70   2                      {
+  71   3                              return (99);
+  72   3                      }
+  73   2              }
+  74   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    464    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    202       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
