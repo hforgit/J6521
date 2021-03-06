@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/04/2021 15:08:22 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/06/2021 13:59:20 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_ISR
@@ -62,7 +62,7 @@ line level    source
   48   2                      RCAP2H=0xfc;     //溢出时间：时钟为Fsys，则12000*（1/Fsys）=0.5ms;
   49   2                      RCAP2L=0xbe;
   50   2                      
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/04/2021 15:08:22 PAGE 2   
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/06/2021 13:59:20 PAGE 2   
 
   51   2                      hal_serial_uart_rx_touch(s_buff);
   52   2              }
@@ -81,62 +81,79 @@ line level    source
   63   1              if(SSCON0&0x02)    //发送标志位判断
   64   1              {
   65   2                      SSCON0 &= 0xFD;
-  66   2                      s_p_data->uart.send_uart1_ok = 1;
-  67   2      
-  68   2          }
-  69   1              if((SSCON0&0x01))  //接收标志位判断
-  70   1              {
-  71   2                      SSCON0 &= 0xFE;
-  72   2      
-  73   2                      hal_serial_uart_rx_display(SSDAT);
-  74   2          }
-  75   1      }
-  76          
-  77          /*********************************************************************************************************
+  66   2                      s_p_data->uart.send_byte_ok = 1;
+  67   2      //              s_p_data->uart.send_uart1_ok = 1;
+  68   2                      
+  69   2          }
+  70   1              if((SSCON0&0x01))  //接收标志位判断
+  71   1              {
+  72   2                      SSCON0 &= 0xFE;
+  73   2      
+  74   2                      hal_serial_uart_rx_display(SSDAT);
+  75   2          }
+  76   1      }
+  77          
+  78          /*********************************************************************************************************
              -**************
-  78          * Function Name: 
-  79          * Description  : 
-  80          * Arguments    : None
-  81          * Return Value : None
-  82          **********************************************************************************************************
+  79          * Function Name: 
+  80          * Description  : 
+  81          * Arguments    : None
+  82          * Return Value : None
+  83          **********************************************************************************************************
              -*************/
-  83          void hal_irq_ex2_isr(void) interrupt 10
-  84          {       
-  85   1              IE1 &= 0XF7;
-  86   1              INT2F = 0x00;
-  87   1              TR2 = 1;
-  88   1              RCAP2H=0xfc;             
-  89   1              RCAP2L=0xbe;
-  90   1      }
-  91          
-  92          /*********************************************************************************************************
+  84          void hal_irq_ex2_isr(void) interrupt 10
+  85          {       
+  86   1              IE1 &= 0XF7;
+  87   1              INT2F = 0x00;
+  88   1              TR2 = 1;
+  89   1              RCAP2H=0xfc;             
+  90   1              RCAP2L=0xbe;
+  91   1      }
+  92          
+  93          /*********************************************************************************************************
              -**************
-  93          * Function Name: 
-  94          * Description  : 
-  95          * Arguments    : None
-  96          * Return Value : None
-  97          **********************************************************************************************************
+  94          * Function Name: 
+  95          * Description  : 
+  96          * Arguments    : None
+  97          * Return Value : None
+  98          **********************************************************************************************************
              -*************/
-  98          
-  99          void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
- 100          {
- 101   1              unsigned char i;
- 102   1      
- 103   1              for(i=0; i<length; i++)
- 104   1              {
- 105   2                      SSDAT = p_buffer[i];
- 106   2                      while(!s_p_data->uart.send_uart1_ok);
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/04/2021 15:08:22 PAGE 3   
+  99          
+ 100          void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
+ 101          {
+ 102   1              static unsigned char i = 0;
+ 103   1      
+ 104   1              SSDAT = p_buffer[i];
+ 105   1              if(s_p_data->uart.send_byte_ok)
+ 106   1              {
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/06/2021 13:59:20 PAGE 3   
 
- 107   2                      s_p_data->uart.send_uart1_ok = 0;
- 108   2              }
- 109   1      }
+ 107   2                      s_p_data->uart.send_byte_ok = 0;
+ 108   2                      i++;
+ 109   2                      if(i >= length)
+ 110   2                      {
+ 111   3                              i = 0;
+ 112   3                              s_p_data->uart.send_data = 0;
+ 113   3                      }
+ 114   2              }
+ 115   1      }
+ 116          //void hal_irq_uart2_send(unsigned char* p_buffer, unsigned char length)
+ 117          //{
+ 118          //      unsigned char i = 0;
+ 119          
+ 120          //      for(i=0; i<length; i++)
+ 121          //      {
+ 122          //              SSDAT = p_buffer[i];
+ 123          //              while(!s_p_data->uart.send_uart1_ok);
+ 124          //              s_p_data->uart.send_uart1_ok = 0;
+ 125          //      }
+ 126          //}
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    395    ----
+   CODE SIZE        =    386    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =      5       3
+   XDATA SIZE       =      6    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

@@ -119,14 +119,14 @@ void fml_display_tx_data(datall* p_data)
 	switch(p_data->uart.rec_protocol)
 	{
 		case RESET:
-			s_send_mode ^= 0;				//s_send_mode ^= 1;
+			s_send_mode ^= 1;				//s_send_mode ^= 1;
 			temp_disp = 100;
 			break;
 		case OLD:
 			s_send_mode = 0;
 			break;
 		case NEW:
-			s_send_mode = 0;				//s_send_mode = 1;
+			s_send_mode = 1;				//s_send_mode = 1;
 			temp_disp = p_data->temperature.value;
 			break;
 		default:
@@ -193,10 +193,7 @@ void fml_display_tx_data(datall* p_data)
 		s_sequence++;
 		send_size = 10;
 	}
-	p_data->uart.send_uart1_len = send_size;
-	memcpy(p_data->uart.send_uart1_dat,s_table,send_size);
-	p_data->uart.send_data = 1;
-//	hal_serial_uart_tx_display(s_table, send_size);
+	hal_serial_uart_tx_display(s_table, send_size);
 }
 
 /***********************************************************************************************************************
@@ -208,7 +205,6 @@ void fml_display_tx_data(datall* p_data)
 void fml_display_ack_remote(displaycontrol* p_disp)
 {
 	static unsigned char s_table[7] = {0};
-//	static uartdata* p_data = &g_datall.uart;
 
 	s_table[0] = DISPLAY_DATA_HEAD_XY >> 8 & 0xFF;
 	s_table[1] = DISPLAY_DATA_HEAD_XY & 0xFF;
@@ -217,11 +213,7 @@ void fml_display_ack_remote(displaycontrol* p_disp)
 	s_table[4] = p_disp->sequence;
 	s_table[5] = p_disp->command;
 	s_table[6] = hal_alg_chk_crc8(s_table, 6);
-	
-//	p_data->uart.send_uart1_len = 7;
-//	memcpy(p_data->uart.send_uart1_dat,s_table,7);
-//	p_data->uart.send_data = 1;
-//	hal_serial_uart_tx_display(s_table, 7);
+	hal_serial_uart_tx_display(s_table, 7);
 }
 
 /***********************************************************************************************************************

@@ -63,9 +63,8 @@ void hal_irq_uart1_isr(void) interrupt 7
 	if(SSCON0&0x02)    //发送标志位判断
 	{
 		SSCON0 &= 0xFD;
-		s_p_data->uart.send_byte_ok = 1;
-//		s_p_data->uart.send_uart1_ok = 1;
-		
+		s_p_data->uart.send_uart1_ok = 1;
+
     }
 	if((SSCON0&0x01))  //接收标志位判断
 	{
@@ -96,31 +95,15 @@ void hal_irq_ex2_isr(void) interrupt 10
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
+
 void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
 {
-	static unsigned char i = 0;
+	unsigned char i;
 
-	SSDAT = p_buffer[i];
-	if(s_p_data->uart.send_byte_ok)
+	for(i=0; i<length; i++)
 	{
-		s_p_data->uart.send_byte_ok = 0;
-		i++;
-		if(i >= length)
-		{
-			i = 0;
-			s_p_data->uart.send_data = 0;
-		}
+		SSDAT = p_buffer[i];
+		while(!s_p_data->uart.send_uart1_ok);
+		s_p_data->uart.send_uart1_ok = 0;
 	}
 }
-
-//void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
-//{
-//	unsigned char i = 0;
-
-//	for(i=0; i<length; i++)
-//	{
-//		SSDAT = p_buffer[i];
-//		while(!s_p_data->uart.send_uart1_ok);
-//		s_p_data->uart.send_uart1_ok = 0;
-//	}
-//}

@@ -201,11 +201,6 @@ typedef struct UartData
 	unsigned char 	 rec_uart1_ok;	
 	unsigned char 	 rec_uart1_dat[11];	
 	unsigned char 	 send_uart1_ok;
-	
-	unsigned char  	 send_data;
-	unsigned char 	 send_byte_ok;
-	unsigned char 	 send_uart1_len;
-	unsigned char 	 send_uart1_dat[16];
 } uartdata;
 
 typedef struct workModuleFlag

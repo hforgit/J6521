@@ -118,21 +118,34 @@ void fml_test_new_dis(unsigned char* table)
 void fml_test_uart(unsigned char mode)
 {
 	static unsigned char s_table[16] = {0};
+	static uartdata* p_test = &g_datall.uart;
 
 	switch(mode)
 	{
 		case 0:				///< old protocol
-			fml_test_old_dis(s_table);	
-			hal_serial_uart_tx_display(s_table, 6);
+			fml_test_old_dis(s_table);
+		
+			p_test->send_uart1_len = 6;
+			memcpy(p_test->send_uart1_dat,s_table,6);
+			p_test->send_data = 1;
+//			hal_serial_uart_tx_display(s_table, 6);
 			break;
 		case 1:				///< new protocol
-			fml_test_new_dis(s_table);		
-			hal_serial_uart_tx_display(s_table, 10);
+			fml_test_new_dis(s_table);
+		
+			p_test->send_uart1_len = 10;
+			memcpy(p_test->send_uart1_dat,s_table,10);
+			p_test->send_data = 1;				
+//			hal_serial_uart_tx_display(s_table, 10);
 			break;
 		case 2:
 			fml_test_old_dis(s_table);
-			fml_test_new_dis(s_table+6);		
-			hal_serial_uart_tx_display(s_table, 16);
+			fml_test_new_dis(s_table+6);
+		
+			p_test->send_uart1_len = 16;
+			memcpy(p_test->send_uart1_dat,s_table,16);
+			p_test->send_data = 1;		
+//			hal_serial_uart_tx_display(s_table, 16);
 			break;
 		default:
 			break;

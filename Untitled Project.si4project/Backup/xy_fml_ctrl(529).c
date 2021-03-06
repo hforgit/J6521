@@ -43,8 +43,6 @@ void fml_ctrl_init_data(datall* p_data)
 	p_data->uart.rec_protocol 					= RESET;
 
 	p_data->display.disp_icon_data 				= 0;
-	p_data->uart.send_data						= 0;
-	p_data->uart.send_byte_ok				 	= 0;
 }
 
 /***********************************************************************************************************************
@@ -487,7 +485,7 @@ void fml_ctrl_deal_automode(workmoduleflag* p_mode)							//check
 	static unsigned char s_time_dry_tmp = 0;
 	static unsigned int  s_time_dry_min = 0;
 	static switchstate 	 s_state    = RESET;
-
+	
 	if((YES == p_mode->flag_work_warmdry) || (YES == p_mode->flag_work_colddry))
 	{
 		if(YES == p_mode->flag_work_warmdry)
@@ -573,7 +571,7 @@ void fml_ctrl_deal_mode(datall* p_data)
 	static switchstate   s_onetime[2] = {STEP1, RESET};
 	static unsigned char s_timecount_cur = 0, s_timecount_pri = 0;
 	static unsigned char s_time_ptc_worktime = 0;
-
+	
 	fml_ctrl_deal_automode(&p_data->remote.workmode);
 	switch(p_data->remote.workmode.workmode_current)
 	{
@@ -945,7 +943,7 @@ void fml_ctrl_key_logic(datall* p_data)
 
 	if(REMOTE != p_data->keytype)
 		return;
-
+	
 	fml_ctrl_deal_key(p_data);								///< analysis key value 
 	fml_ctrl_deal_mode(p_data);								///< control relay by diff mode
 	fml_ctrl_deal_motor(p_data);								///< update motor step

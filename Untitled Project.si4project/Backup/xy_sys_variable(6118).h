@@ -10,11 +10,19 @@ typedef enum SwitchState
 	SET,
 	ON,
 	OFF,
+	OPEN,
+	CLOSE,
 	YES,
 	NO,
+	DRY,
+	WET,
 	STEP1,
 	STEP2,
 	STEP3,
+	STEP4,
+	POSITIVE,
+	NEGATIVE,
+	UNSUPPORT,
 	REMOTE,
 	TOUCH,
 	WARM,
@@ -26,6 +34,7 @@ typedef enum SwitchState
 typedef enum MotorStep
 {
 	ANGLE_0_STEP 		= 0,
+	ANGLE_1_STEP 		= 12,
 	ANGLE_3_STEP 		= 36,
 	ANGLE_60_STEP 		= 683,
 	ANGLE_90_STEP 		= 1024,
@@ -46,7 +55,7 @@ typedef enum MotorStep
 
 typedef	enum TempAlarm
 {
-//	ALARM_LOW_TEMP  = 0,
+	ALARM_LOW_TEMP  = 0,
 	ALARM_HIGH_TEMP = 80,
 } tempalarm;
 
@@ -54,7 +63,15 @@ typedef enum TimerClock
 {
 	CLOCK_DELAYTIMER_0S = 0,
 	CLOCK_DELAYTIMER_1S,
-	CLOCK_DELAYTIMER_10S = 10,
+	CLOCK_DELAYTIMER_2S,
+	CLOCK_DELAYTIMER_3S,
+	CLOCK_DELAYTIMER_4S,
+	CLOCK_DELAYTIMER_5S,
+	CLOCK_DELAYTIMER_6S,
+	CLOCK_DELAYTIMER_7S,
+	CLOCK_DELAYTIMER_8S,
+	CLOCK_DELAYTIMER_9S,
+	CLOCK_DELAYTIMER_10S,
 	CLOCK_DELAYTIMER_CYC = 120,
 
 	#ifdef XY_SYS_DEBUG_MODE
@@ -82,6 +99,7 @@ typedef enum DisplaySymbol
 	SYM_ABSORB_OFF,
 	SYM_WARM_ON,
 	SYM_WARM_OFF,
+	SYM_WARM_TWINKLE_DRY_WET,
 	SYM_WARM_TWINKLE_STANDBY,
 	SYM_WARM_TWINKLE_ABSORB,
 } displaysymbol;
@@ -105,6 +123,7 @@ typedef enum KeyState
 	KEY_SWING,
 	KEY_RAV,
 	KEY_COLD_DRY,
+	KEY_DRY_WET,
 	KEY_STANDBY,
 	KEY_WARM_DRY,
 } keystate;
@@ -144,6 +163,7 @@ typedef struct timeBase
 	unsigned char    timebase_125us;
     unsigned char    timebase_1ms;
     unsigned char    timebase_10ms;
+    unsigned char    timebase_50ms;
     unsigned char    timebase_100ms;
     unsigned char    timebase_250ms;
     unsigned char    timebase_500ms;
@@ -201,11 +221,6 @@ typedef struct UartData
 	unsigned char 	 rec_uart1_ok;	
 	unsigned char 	 rec_uart1_dat[11];	
 	unsigned char 	 send_uart1_ok;
-	
-	unsigned char  	 send_data;
-	unsigned char 	 send_byte_ok;
-	unsigned char 	 send_uart1_len;
-	unsigned char 	 send_uart1_dat[16];
 } uartdata;
 
 typedef struct workModuleFlag

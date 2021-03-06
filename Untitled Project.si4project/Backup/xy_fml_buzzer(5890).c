@@ -89,7 +89,7 @@ void fml_buzzer_deal(datall* p_data)
 			p_data->buzzer.long_bee_on=OFF;
 		}
 	}	
-	else if(p_data->buzzer.burn_bee_on==ON)					//bee rings twice 
+	else if(p_data->buzzer.burn_bee_on==ON)		
 	{
 		if(p_data->buzzer.burn_bee_count==0)
 		{

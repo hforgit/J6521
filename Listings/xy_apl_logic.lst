@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 1   
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/06/2021 13:59:18 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_APL_LOGIC
@@ -62,7 +62,7 @@ line level    source
   45          * Description  : 
   46          * Arguments    : None
   47          * Return Value : None
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 2   
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/06/2021 13:59:18 PAGE 2   
 
   48          **********************************************************************************************************
              -*************/
@@ -88,88 +88,92 @@ line level    source
   66   1          {
   67   2                      g_timebase.isTrigInterrupt = 0;
   68   2                      g_timebase.timebase_125us++;
-  69   2      
-  70   2          }
-  71   1      
-  72   1              /* period: 1ms */
-  73   1          if (g_timebase.timebase_125us >= 8)
-  74   1          {
-  75   2              g_timebase.timebase_125us = 0;
-  76   2                      g_timebase.timebase_1ms++;
-  77   2      
-  78   2                      fml_buzzer_timer_cnt(s_p_data);
-  79   2                      fml_motor_timer_ctrl(s_p_data);
-  80   2                      fml_motor_ctrl_move(s_p_data);
-  81   2              }
-  82   1      
-  83   1              /* period: 10ms */
-  84   1          if (g_timebase.timebase_1ms >= 10)
-  85   1          {
-  86   2              g_timebase.timebase_1ms = 0;
-  87   2              g_timebase.timebase_10ms++;
-  88   2                      g_timebase.timebase_100ms++;
-  89   2              g_timebase.timebase_250ms++;
-  90   2      
-  91   2                      fml_ctrl_key_logic(s_p_data);
-  92   2                      fml_touch_ctrl_logic(s_p_data);
-  93   2          }
-  94   1      
-  95   1              /* period: 50ms */
-  96   1          if (g_timebase.timebase_10ms >= 5)
-  97   1          {
-  98   2                      g_timebase.timebase_10ms = 0;
-  99   2      
- 100   2                      fml_buzzer_deal(s_p_data);
- 101   2          }
- 102   1      
- 103   1              /* period: 100ms */
- 104   1          if (g_timebase.timebase_100ms >= 9)
- 105   1          {
- 106   2              g_timebase.timebase_100ms = 0;
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/04/2021 15:08:20 PAGE 3   
+  69   2          }
+  70   1      
+  71   1              /* period: 1ms */
+  72   1          if (g_timebase.timebase_125us >= 8)
+  73   1          {
+  74   2              g_timebase.timebase_125us = 0;
+  75   2                      g_timebase.timebase_1ms++;
+  76   2      
+  77   2                      fml_buzzer_timer_cnt(s_p_data);
+  78   2                      fml_motor_timer_ctrl(s_p_data);
+  79   2                      fml_motor_ctrl_move(s_p_data);
+  80   2                      
+  81   2                      if(s_p_data->uart.send_data == 1)
+  82   2                      {
+  83   3                              hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);                
+  84   3                      }
+  85   2              }
+  86   1      
+  87   1              /* period: 10ms */
+  88   1          if (g_timebase.timebase_1ms >= 10)
+  89   1          {
+  90   2              g_timebase.timebase_1ms = 0;
+  91   2              g_timebase.timebase_10ms++;
+  92   2                      g_timebase.timebase_100ms++;
+  93   2              g_timebase.timebase_250ms++;
+  94   2      
+  95   2                      fml_ctrl_key_logic(s_p_data);
+  96   2                      fml_touch_ctrl_logic(s_p_data);
+  97   2          }
+  98   1      
+  99   1              /* period: 50ms */
+ 100   1          if (g_timebase.timebase_10ms >= 5)
+ 101   1          {
+ 102   2                      g_timebase.timebase_10ms = 0;
+ 103   2      
+ 104   2                      fml_buzzer_deal(s_p_data);
+ 105   2          }
+ 106   1      
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/06/2021 13:59:18 PAGE 3   
 
- 107   2      
- 108   2                      fml_ctrl_icon_display(s_p_data);
- 109   2          }
- 110   1      
- 111   1              /* period: 250ms */
- 112   1          if (g_timebase.timebase_250ms >= 24)
- 113   1          {
- 114   2              g_timebase.timebase_250ms = 0;
- 115   2                      g_timebase.timebase_500ms++;
- 116   2      
- 117   2                      fml_relay_ctrl(s_p_data);
- 118   2                      fml_display_conf_symbol(s_p_data);
- 119   2                      fml_display_tx_data(s_p_data);
- 120   2                      watchdog();     
- 121   2          }
- 122   1      
- 123   1              /* period: 500ms */
- 124   1          if (g_timebase.timebase_500ms >= 2)
- 125   1          {
- 126   2              g_timebase.timebase_500ms = 0;
- 127   2              g_timebase.timebase_1s++;
- 128   2      
- 129   2                      #ifdef XY_SYS_TEST_MODE
- 130   2                              s_p_data->testmode = fml_test_check();
- 131   2                              fml_test_logic(s_p_data);
- 132   2                      #endif
- 133   2          }
- 134   1      
- 135   1              /* period: 1s */
- 136   1          if (g_timebase.timebase_1s >= 2)
- 137   1          {
- 138   2              g_timebase.timebase_1s = 0;
- 139   2      
- 140   2                      fml_ctrl_deal_timer(s_p_data);
- 141   2                      fml_ctrl_work_time(s_p_data);
- 142   2                      fml_ctrl_deal_alarm(s_p_data);
- 143   2          }
- 144   1      }
+ 107   1              /* period: 100ms */
+ 108   1          if (g_timebase.timebase_100ms >= 9)
+ 109   1          {
+ 110   2              g_timebase.timebase_100ms = 0;
+ 111   2      
+ 112   2                      fml_ctrl_icon_display(s_p_data);
+ 113   2          }
+ 114   1      
+ 115   1              /* period: 250ms */
+ 116   1          if (g_timebase.timebase_250ms >= 24)
+ 117   1          {
+ 118   2              g_timebase.timebase_250ms = 0;
+ 119   2                      g_timebase.timebase_500ms++;
+ 120   2      
+ 121   2                      fml_relay_ctrl(s_p_data);
+ 122   2                      fml_display_conf_symbol(s_p_data);
+ 123   2                      fml_display_tx_data(s_p_data);
+ 124   2                      watchdog();     
+ 125   2          }
+ 126   1      
+ 127   1              /* period: 500ms */
+ 128   1          if (g_timebase.timebase_500ms >= 2)
+ 129   1          {
+ 130   2              g_timebase.timebase_500ms = 0;
+ 131   2              g_timebase.timebase_1s++;
+ 132   2      
+ 133   2                      #ifdef XY_SYS_TEST_MODE
+ 134   2                              s_p_data->testmode = fml_test_check();
+ 135   2                              fml_test_logic(s_p_data);
+ 136   2                      #endif
+ 137   2          }
+ 138   1      
+ 139   1              /* period: 1s */
+ 140   1          if (g_timebase.timebase_1s >= 2)
+ 141   1          {
+ 142   2              g_timebase.timebase_1s = 0;
+ 143   2      
+ 144   2                      fml_ctrl_deal_timer(s_p_data);
+ 145   2                      fml_ctrl_work_time(s_p_data);
+ 146   2                      fml_ctrl_deal_alarm(s_p_data);
+ 147   2          }
+ 148   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    435    ----
+   CODE SIZE        =    487    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      3    ----
    PDATA SIZE       =   ----    ----

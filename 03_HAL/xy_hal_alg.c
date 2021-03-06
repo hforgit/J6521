@@ -1,11 +1,6 @@
 #include "xy_sys_headfile.h"
 
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
+
 unsigned char hal_alg_chk_crc8(unsigned char* p_buffer, unsigned char buf_size)
 {
 	unsigned char i;
