@@ -99,17 +99,36 @@ void hal_irq_ex2_isr(void) interrupt 10
 void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
 {
 	static unsigned char i = 0;
-
-	SSDAT = p_buffer[i];
-	if(s_p_data->uart.send_byte_ok)
-	{
-		s_p_data->uart.send_byte_ok = 0;
-		i++;
-		if(i >= length)
+	static unsigned char s_count = 0;
+	
+	if(s_p_data->uart.send_data)
+	{	
+		if(s_p_data->uart.send_byte_ok)
 		{
-			i = 0;
-			s_p_data->uart.send_data = 0;
+			s_p_data->uart.send_byte_ok = 0;
+			SSDAT = p_buffer[i];
+			s_count = 0;
+			i++;
+			if(i >= length)
+			{
+				i = 0;
+				s_p_data->uart.send_data = 0;
+			}
 		}
+		else
+		{
+			s_count++;
+			if(s_count >= 200)
+			{
+				s_p_data->uart.send_data = 0;
+			}
+		}
+	}
+	else
+	{
+		i = 0;
+		s_count = 0;
+		s_p_data->uart.send_byte_ok = 1;
 	}
 }
 

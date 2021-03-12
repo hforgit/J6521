@@ -11,9 +11,9 @@ void fml_motor_init_data(datall* p_data)
 	memset((char *)&p_data->motor, 0, sizeof(p_data->motor)); 			
 
 	p_data->motor.blow_target_step_pri	= TARGET_LOW_SWING;
-	p_data->motor.blow_motor_step_pri	= TARGET_HIGH_SWING;
+	p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;
 	
-	p_data->motor.blow_motor_step 		= MAX_RESET_STEP;			///< checkself max step
+	p_data->motor.blow_motor_step		= MAX_RESET_STEP;			///< checkself max step
 		p_data->motor.absorb_motor_step = MAX_RESET_STEP;			///< checkself max step
 }
 
@@ -86,7 +86,7 @@ void fml_motor_timer_ctrl(datall* p_data)
 {
 	static unsigned char s_count = 0;
 
-	if(ON == p_data->remote.keyctrl.keystate_open_swing)
+	if(ON == p_data->remote.keyctrl.keystate_open_swing)  
 	{
 		s_count++;
 		if(s_count > 2)
@@ -277,7 +277,7 @@ void fml_motor_save_step(datall* p_data)
 	if(((WORKMODULE_BLOW == p_data->remote.workmode.workmode_current)
 		|| (WORKMODULE_WARM == p_data->remote.workmode.workmode_current)))
 	{
-		if((ON == p_data->remote.keyctrl.keystate_fan_blow) && (p_data->motor.blow_motor_step > TARGET_LOW_SWING))
+		if((ON == p_data->remote.keyctrl.keystate_fan_blow) && (p_data->motor.blow_motor_step > TARGET_LOW_SWING)) //?
 		{
 			p_data->motor.blow_motor_step_pri = p_data->motor.blow_motor_step;
 		}

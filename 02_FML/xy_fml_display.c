@@ -39,7 +39,7 @@ void fml_display_conf_warm(datall* p_data)
 		s_count_2s++;
 		if(s_count_2s >= 4)
 			s_count_2s = 0;
-		
+
 		if(s_count_2s < 2)
 		{
 			DISPLAY_SYMBOL_WARM_ON;
@@ -102,9 +102,9 @@ void fml_display_tx_data(datall* p_data)
 {
 	unsigned char send_size = 0;
 	unsigned char temp_disp = 0;
-	static unsigned char s_send_mode = 0;	
+	static unsigned char s_send_mode = 0;
 	static unsigned char s_table[10] = {0};
-	static unsigned char s_sequence  = 0;	
+	static unsigned char s_sequence  = 0;
 	
 	#ifdef XY_SYS_DEBUG_MODE
 		unsigned char temp;

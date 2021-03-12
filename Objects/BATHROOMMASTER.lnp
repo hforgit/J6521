@@ -1,5 +1,5 @@
-".\Objects\STARTUP.obj",
 ".\Objects\main.obj",
+".\Objects\STARTUP.obj",
 ".\Objects\xy_apl_logic.obj",
 ".\Objects\xy_fml_buzzer.obj",
 ".\Objects\xy_fml_ctrl.obj",

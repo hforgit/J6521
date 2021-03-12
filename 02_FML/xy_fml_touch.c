@@ -8,7 +8,7 @@
 ***********************************************************************************************************************/
 void fml_touch_init_data(datall* p_data)
 {
-	p_data->touch.current.dat		= 0;
+	p_data->touch.current.dat = 0;
 }
 
 /***********************************************************************************************************************
@@ -147,7 +147,7 @@ void fml_touch_deal_motor(motorcontrol* p_motor)
 		if(RESET_STEP_ZERO  == p_motor->blow_target_step)
 		{
 			p_motor->blow_target_step = TARGET_STEP_BLOW;
-			//p_motor->blow_target_step_pri = TARGET_STEP_BLOW;
+			//p_motor->blow_target_step_pri = TARGET_STEP_BLOW;				//?
 		}
 	}
 	else

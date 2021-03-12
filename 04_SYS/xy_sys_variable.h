@@ -58,7 +58,7 @@ typedef enum TimerClock
 	CLOCK_DELAYTIMER_CYC = 120,
 
 	#ifdef XY_SYS_DEBUG_MODE
-		CLOCK_WORKTIME_120MIN 	  = 7200,	//72,
+		CLOCK_WORKTIME_120MIN 	  = 7200,		//72,			
 		CLOCK_WARMDRY_WARM_10MIN  = 600,	//30,
 		CLOCK_COLDDRY_COLD_10MIN  = 600,	//30,
 		CLOCK_WARMDRY_ABSORB_5MIN = 300,	//15,
@@ -203,7 +203,7 @@ typedef struct UartData
 	unsigned char 	 send_uart1_ok;
 	
 	unsigned char  	 send_data;
-	unsigned char 	 send_byte_ok;
+	unsigned char	 send_byte_ok;
 	unsigned char 	 send_uart1_len;
 	unsigned char 	 send_uart1_dat[16];
 } uartdata;

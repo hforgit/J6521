@@ -78,10 +78,7 @@ void apl_logic_ctrl(void)
 		fml_motor_timer_ctrl(s_p_data);
 		fml_motor_ctrl_move(s_p_data);
 		
-		if(s_p_data->uart.send_data == 1)
-		{
-			hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);		
-		}
+		hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);		
 	}
 
 	/* period: 10ms */
@@ -89,8 +86,6 @@ void apl_logic_ctrl(void)
     {
         g_timebase.timebase_1ms = 0;
         g_timebase.timebase_10ms++;
-		g_timebase.timebase_100ms++;
-        g_timebase.timebase_250ms++;
 
 		fml_ctrl_key_logic(s_p_data);
 		fml_touch_ctrl_logic(s_p_data);
@@ -100,12 +95,14 @@ void apl_logic_ctrl(void)
     if (g_timebase.timebase_10ms >= 5)
     {
 		g_timebase.timebase_10ms = 0;
+		g_timebase.timebase_100ms++;
+        g_timebase.timebase_250ms++;
 
 		fml_buzzer_deal(s_p_data);
     }
 
 	/* period: 100ms */
-    if (g_timebase.timebase_100ms >= 9)
+    if (g_timebase.timebase_100ms >= 2)
     {
         g_timebase.timebase_100ms = 0;
 
@@ -113,7 +110,7 @@ void apl_logic_ctrl(void)
     }
 
 	/* period: 250ms */
-    if (g_timebase.timebase_250ms >= 24)
+    if (g_timebase.timebase_250ms >= 5)
     {
         g_timebase.timebase_250ms = 0;
 		g_timebase.timebase_500ms++;

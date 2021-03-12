@@ -24,7 +24,7 @@ void hal_serial_Init(void)
 ***********************************************************************************************************************/
 void hal_serial_uart_rx_touch(unsigned char dat)
 {
-	uartdata* s_p_uart = &g_datall.uart;
+	uartdata* s_p_uart = &g_datall.uart;							//?
 	static switchstate   s_state = STEP1;
 	static unsigned char s_uart_numb = 0;
 	static unsigned char s_uart_buffer[sizeof(s_p_uart->rec_uart0_dat)] = {0};	
@@ -95,6 +95,15 @@ void hal_serial_uart_rx_display(unsigned char dat)
 					/* wait for next legal command */
 					s_uart_numb = 1;
 				}
+				else if(s_uart_numb == 2)
+				{
+					s_uart_numb = 0;
+				}
+//				else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
+//				{
+//					s_uart_buffer[0] = (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF)
+//					s_uart_numb = 1;
+//				}
 			}
 			/* new version protocol about display */
 			else if(s_uart_buffer[0] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
@@ -110,6 +119,10 @@ void hal_serial_uart_rx_display(unsigned char dat)
 				{
 					/* wait for next legal command */
 					s_uart_numb = 1;
+				}
+				else
+				{
+					s_uart_numb = 0;
 				}
 			}
 			else
