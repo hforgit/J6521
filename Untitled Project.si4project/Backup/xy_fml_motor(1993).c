@@ -8,7 +8,7 @@
 ***********************************************************************************************************************/
 void fml_motor_init_data(datall* p_data)
 {
-	memset((char *)&p_data->motor, 0, sizeof(p_data->motor));				//reset motor step
+	memset((char *)&p_data->motor, 0, sizeof(p_data->motor)); 			
 
 	p_data->motor.blow_target_step_pri	= TARGET_LOW_SWING;
 	p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;

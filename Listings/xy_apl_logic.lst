@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/12/2021 09:41:53 PAGE 1   
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/15/2021 13:22:02 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_APL_LOGIC
@@ -62,7 +62,7 @@ line level    source
   45          * Description  : 
   46          * Arguments    : None
   47          * Return Value : None
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/12/2021 09:41:53 PAGE 2   
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/15/2021 13:22:02 PAGE 2   
 
   48          **********************************************************************************************************
              -*************/
@@ -100,7 +100,7 @@ line level    source
   78   2                      fml_motor_timer_ctrl(s_p_data);
   79   2                      fml_motor_ctrl_move(s_p_data);
   80   2                      
-  81   2                      hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);                
+  81   2                      hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);
   82   2              }
   83   1      
   84   1              /* period: 10ms */
@@ -108,17 +108,17 @@ line level    source
   86   1          {
   87   2              g_timebase.timebase_1ms = 0;
   88   2              g_timebase.timebase_10ms++;
-  89   2      
-  90   2                      fml_ctrl_key_logic(s_p_data);
-  91   2                      fml_touch_ctrl_logic(s_p_data);
-  92   2          }
-  93   1      
-  94   1              /* period: 50ms */
-  95   1          if (g_timebase.timebase_10ms >= 5)
-  96   1          {
-  97   2                      g_timebase.timebase_10ms = 0;
-  98   2                      g_timebase.timebase_100ms++;
-  99   2              g_timebase.timebase_250ms++;
+  89   2              g_timebase.timebase_250ms++;
+  90   2      
+  91   2                      fml_ctrl_key_logic(s_p_data);
+  92   2                      fml_touch_ctrl_logic(s_p_data);
+  93   2          }
+  94   1      
+  95   1              /* period: 50ms */
+  96   1          if (g_timebase.timebase_10ms >= 5)
+  97   1          {
+  98   2                      g_timebase.timebase_10ms = 0;
+  99   2                      g_timebase.timebase_100ms++;
  100   2      
  101   2                      fml_buzzer_deal(s_p_data);
  102   2          }
@@ -126,7 +126,7 @@ line level    source
  104   1              /* period: 100ms */
  105   1          if (g_timebase.timebase_100ms >= 2)
  106   1          {
-C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/12/2021 09:41:53 PAGE 3   
+C51 COMPILER V9.01   XY_APL_LOGIC                                                          03/15/2021 13:22:02 PAGE 3   
 
  107   2              g_timebase.timebase_100ms = 0;
  108   2      
@@ -134,7 +134,7 @@ line level    source
  110   2          }
  111   1      
  112   1              /* period: 250ms */
- 113   1          if (g_timebase.timebase_250ms >= 5)
+ 113   1          if (g_timebase.timebase_250ms >= 24)
  114   1          {
  115   2              g_timebase.timebase_250ms = 0;
  116   2                      g_timebase.timebase_500ms++;
@@ -170,7 +170,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    476    ----
+   CODE SIZE        =    478    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      3    ----
    PDATA SIZE       =   ----    ----

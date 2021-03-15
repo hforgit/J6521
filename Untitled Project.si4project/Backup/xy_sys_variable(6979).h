@@ -263,27 +263,27 @@ typedef struct remoteData
 
 typedef struct displayControl
 {
-	unsigned char	length;
-	unsigned char 	version;
-	unsigned char 	sequence;
-	dispcommand 	command;
-	unsigned char* 	p_buffer;
-	unsigned char 	checkcode;
+	unsigned char 	 length;
+	unsigned char 	 version;
+	unsigned char 	 sequence;
+	dispcommand 	 command;
+	unsigned char* 	 p_buffer;
+	unsigned char 	 checkcode;
 } displaycontrol;
 
 typedef struct dataAll
 {
-	motorcontrol	motor;
-	displaycontent	display;
-	uartdata		uart;
-	buzzercontrol	buzzer;
-	tempdata		temperature;
+	motorcontrol	 motor;
+	displaycontent	 display;
+	uartdata		 uart;
+	buzzercontrol	 buzzer;
+	tempdata		 temperature;
 
-	switchstate  	keytype;
-	remotedata		remote;
-	touchdata		touch;
+	switchstate  	 keytype;
+	remotedata		 remote;
+	touchdata		 touch;
 
-	datacommon		error;
+	datacommon		 error;
 
 	switchstate		 testmode;
 }datall;

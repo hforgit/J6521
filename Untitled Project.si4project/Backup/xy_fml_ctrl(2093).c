@@ -953,8 +953,8 @@ void fml_ctrl_key_logic(datall* p_data)
 
 	fml_ctrl_deal_key(p_data);								///< analysis key value 
 	fml_ctrl_deal_mode(p_data);								///< control relay by diff mode
-	fml_ctrl_deal_motor(p_data);							///< update motor step
-	fml_ctrl_deal_swing(p_data);							///< control swing func
+	fml_ctrl_deal_motor(p_data);								///< update motor step
+	fml_ctrl_deal_swing(p_data);								///< control swing func
 	fml_ctrl_deal_fan(p_data);								///< control fan machine
 	fml_ctrl_chk_error(p_data);								///< check data result legal
 }

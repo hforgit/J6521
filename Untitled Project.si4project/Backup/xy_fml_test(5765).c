@@ -118,24 +118,34 @@ void fml_test_new_dis(unsigned char* table)
 void fml_test_uart(unsigned char mode)
 {
 	static unsigned char s_table[16] = {0};
+	static uartdata* p_test = &g_datall.uart;
 
 	switch(mode)
 	{
 		case 0:				///< old protocol
 			fml_test_old_dis(s_table);
 		
-			hal_serial_uart_tx_display(s_table, 6);
+			p_test->send_uart1_len = 6;
+			memcpy(p_test->send_uart1_dat,s_table,6);
+			p_test->send_data = 1;
+//			hal_serial_uart_tx_display(s_table, 6);
 			break;
 		case 1:				///< new protocol
 			fml_test_new_dis(s_table);
 		
-			hal_serial_uart_tx_display(s_table, 10);
+			p_test->send_uart1_len = 10;
+			memcpy(p_test->send_uart1_dat,s_table,10);
+			p_test->send_data = 1;
+//			hal_serial_uart_tx_display(s_table, 10);
 			break;
 		case 2:
 			fml_test_old_dis(s_table);
 			fml_test_new_dis(s_table+6);
-				
-			hal_serial_uart_tx_display(s_table, 16);
+		
+			p_test->send_uart1_len = 16;
+			memcpy(p_test->send_uart1_dat,s_table,16);
+			p_test->send_data = 1;		
+//			hal_serial_uart_tx_display(s_table, 16);
 			break;
 		default:
 			break;
@@ -152,28 +162,24 @@ void fml_test_delay(void)
 {
 	unsigned int i, j;
 
-	watchdog();
-	for(i=0; i<200; i++)
+	for(i=0; i<100; i++)
 	{	
 		for(j=0; j<1000; j++)
 		{
 			;
 		}
+		watchdog();
 	}
-	
-	watchdog();
-	fml_test_uart(errcod);
-	
-	for(i=0; i<200; i++)
+	fml_test_uart(0);
+	for(i=0; i<100; i++)
 	{
 		for(j=0; j<1000; j++)
 		{
 			;
 		}
+		watchdog();
 	}
-	
-	watchdog();
-
+	fml_test_uart(1);
 }
 
 /***********************************************************************************************************************
@@ -270,7 +276,7 @@ void fml_test_motor(void)
 	fml_test_delay();
 	absorb_motor_step1_off();
 	#endif
-
+	
 }
 
 /***********************************************************************************************************************
@@ -281,7 +287,7 @@ void fml_test_motor(void)
 ***********************************************************************************************************************/
 void fml_test_temp(datall* p_data)
 {
-	unsigned int timeout = 0;
+	unsigned char timeout = 0;
 	
 	while(1)
 	{
@@ -378,22 +384,25 @@ void fml_test_logic(datall* p_data)
 	if(YES == p_data->testmode)
 	{
 		watchdog();
-
+		
 		switch(s_step)
 		{
 			case 0:
 				s_step++;
 				p_data->buzzer.burn_bee_on = ON;	
 				fml_test_uart(2);
-				fml_test_temp(p_data);
 				break;
 			case 1:
 				if(OFF == p_data->buzzer.burn_bee_on)	///< start test beep
 				{
-					fml_test_port();
-					fml_test_motor();
-					s_step = 0;
-				}
+					fml_test_port();		
+					fml_test_motor();	 
+					s_step++;
+				}				
+				break;
+			case 2:
+				fml_test_temp(p_data);
+				s_step = 0;
 				break;
 			default:
 				break;

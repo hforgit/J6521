@@ -64,7 +64,7 @@ void hal_irq_uart1_isr(void) interrupt 7
 	{
 		SSCON0 &= 0xFD;
 		s_p_data->uart.send_byte_ok = 1;
-		s_p_data->uart.send_uart1_ok = 1;
+//		s_p_data->uart.send_uart1_ok = 1;
 		
     }
 	if((SSCON0&0x01))  //接收标志位判断

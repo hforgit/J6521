@@ -1,6 +1,6 @@
 #include "xy_sys_headfile.h"
 
-static unsigned char  errcod;
+static unsigned char  errcod = 0;
 
 /***********************************************************************************************************************
 * Function Name: 
@@ -385,15 +385,18 @@ void fml_test_logic(datall* p_data)
 				s_step++;
 				p_data->buzzer.burn_bee_on = ON;	
 				fml_test_uart(2);
-				fml_test_temp(p_data);
 				break;
 			case 1:
 				if(OFF == p_data->buzzer.burn_bee_on)	///< start test beep
 				{
 					fml_test_port();
 					fml_test_motor();
-					s_step = 0;
+					s_step++;
 				}
+				break;
+			case 2:
+				fml_test_temp(p_data);
+				s_step = 0;
 				break;
 			default:
 				break;

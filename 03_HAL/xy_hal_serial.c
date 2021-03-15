@@ -168,7 +168,7 @@ void hal_serial_uart_rx_display(unsigned char dat)
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-//void hal_serial_uart_tx_display(unsigned char* buffer, unsigned int len)
-//{
-//	hal_irq_uart1_send(buffer, len);
-//}
+void hal_serial_uart_tx_display(unsigned char* buffer, unsigned int len)
+{
+	hal_irq_uart2_send(buffer, len);
+}
