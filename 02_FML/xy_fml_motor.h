@@ -31,7 +31,6 @@
 										? (g_datall.motor.absorb_target_step - g_datall.motor.absorb_motor_step > _X_ ? YES : NO)\
 										: (g_datall.motor.absorb_motor_step - g_datall.motor.absorb_target_step > _X_ ? YES : NO))
 
-
 #define  MOTOR_CHK_STEP_IS_LEGAL(_X_)	( _X_ < TARGET_LOW_SWING  ? NO\
 										: _X_ > TARGET_HIGH_SWING ? NO\
 										: YES)
@@ -39,6 +38,5 @@
 void fml_motor_init_data(datall* p_data);
 void fml_motor_timer_ctrl(datall* p_data);
 void fml_motor_ctrl_move(datall* p_data);
-
 
 #endif

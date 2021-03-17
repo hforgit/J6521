@@ -40,8 +40,7 @@ unsigned char hal_ad_cal_temperature(unsigned char* pbuffer)
 		{
 			if(temp < AdcTable[i])
 				break;
-		}
-		
+		}		
 		if(i < (sizeof(AdcTable) / sizeof(unsigned int)))
 		{
 			temp -= AdcTable[i-1];
@@ -52,18 +51,14 @@ unsigned char hal_ad_cal_temperature(unsigned char* pbuffer)
 			if(YES == ALG_CHK_BACK_DIFF(s_pri_tmp, temp, 5))		///< 0.5
 			{
 				s_pri_tmp = temp;
-			}
-			
-			temp = s_pri_tmp;
-					
+			}		
+			temp = s_pri_tmp;					
 			if(YES == ALG_CHK_ROUNDING(temp))
 			{
 				temp += 10;
-			}
-					
+			}					
 			if(temp > 999)
 				temp = 999;
-
 			return (temp/10);
 		}
 		else

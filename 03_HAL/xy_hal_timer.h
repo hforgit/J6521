@@ -9,5 +9,4 @@ void hal_timer_motor_blow(motorcontrol* p_motor);
 void hal_timer_motor_absorb(motorcontrol* p_motor);
 void hal_timer_mode_deal(workmoduleflag* p_mode);
 
-
 #endif

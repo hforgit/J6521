@@ -104,8 +104,7 @@ void fml_test_new_dis(unsigned char* table)
 		if(s_bit > 10)
 			s_bit = 0;
 	}
-	table[9] = hal_alg_chk_crc8(table, 9);
-	
+	table[9] = hal_alg_chk_crc8(table, 9);	
 	s_sequence++;
 }
 
@@ -160,20 +159,16 @@ void fml_test_delay(void)
 			;
 		}
 	}
-	
 	watchdog();
-	fml_test_uart(errcod);
-	
+	fml_test_uart(errcod);	
 	for(i=0; i<200; i++)
 	{
 		for(j=0; j<1000; j++)
 		{
 			;
 		}
-	}
-	
+	}	
 	watchdog();
-
 }
 
 /***********************************************************************************************************************
@@ -270,7 +265,6 @@ void fml_test_motor(void)
 	fml_test_delay();
 	absorb_motor_step1_off();
 	#endif
-
 }
 
 /***********************************************************************************************************************
@@ -336,7 +330,6 @@ void fml_test_init(void)
 	absorb_motor_step2_off();
 	absorb_motor_step3_off();
 	absorb_motor_step4_off();
-
 }
 
 /***********************************************************************************************************************
@@ -378,7 +371,6 @@ void fml_test_logic(datall* p_data)
 	if(YES == p_data->testmode)
 	{
 		watchdog();
-
 		switch(s_step)
 		{
 			case 0:

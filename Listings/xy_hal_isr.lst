@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/15/2021 13:22:03 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/17/2021 13:19:58 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_ISR
@@ -23,8 +23,8 @@ line level    source
   11          void hal_irq_tim0_isr(void) interrupt 1
   12          {
   13   1              TH0 = 0xF8;
-  14   1              TL0 = 0x86;
-  15   1              
+  14   1              TL0 = 0x90;             //f830: 63536    f860:63584
+  15   1      
   16   1              g_timebase.isTrigInterrupt = 1;
   17   1              fml_buzzer_timer_ctrl(s_p_data);
   18   1      }
@@ -54,127 +54,123 @@ line level    source
   40   2              }
   41   1              if(s_count >= 17)
   42   1              {       
-  43   2                      s_count = 0;            
-  44   2                      
-  45   2                      INT2F |= 0x02; 
-  46   2                      IE1 |= 0X08;      
-  47   2                      TR2 = 0;          
-  48   2                      RCAP2H=0xfc;     //溢出时间：时钟为Fsys，则12000*（1/Fsys）=0.5ms;
-  49   2                      RCAP2L=0xbe;
-  50   2                      
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/15/2021 13:22:03 PAGE 2   
+  43   2                      s_count = 0;                            
+  44   2                      INT2F |= 0x02; 
+  45   2                      IE1 |= 0X08;      
+  46   2                      TR2 = 0;          
+  47   2                      RCAP2H=0xfc;     //溢出时间：时钟为Fsys，则12000*（1/Fsys）=0.5ms;
+  48   2                      RCAP2L=0xbe;            
+  49   2                      hal_serial_uart_rx_touch(s_buff);
+  50   2              }
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/17/2021 13:19:58 PAGE 2   
 
-  51   2                      hal_serial_uart_rx_touch(s_buff);
-  52   2              }
-  53   1      }
-  54          
-  55          /*********************************************************************************************************
+  51   1      }
+  52          
+  53          /*********************************************************************************************************
              -**************
-  56          * Function Name: 
-  57          * Description  : 
-  58          * Arguments    : None
-  59          * Return Value : None
-  60          **********************************************************************************************************
+  54          * Function Name: 
+  55          * Description  : 
+  56          * Arguments    : None
+  57          * Return Value : None
+  58          **********************************************************************************************************
              -*************/
-  61          void hal_irq_uart1_isr(void) interrupt 7
-  62          {
-  63   1              if(SSCON0&0x02)    //发送标志位判断
-  64   1              {
-  65   2                      SSCON0 &= 0xFD;
-  66   2                      s_p_data->uart.send_byte_ok = 1;
-  67   2                      s_p_data->uart.send_uart1_ok = 1;
-  68   2                      
-  69   2          }
-  70   1              if((SSCON0&0x01))  //接收标志位判断
-  71   1              {
-  72   2                      SSCON0 &= 0xFE;
-  73   2      
-  74   2                      hal_serial_uart_rx_display(SSDAT);
-  75   2          }
-  76   1      }
-  77          
-  78          /*********************************************************************************************************
+  59          void hal_irq_uart1_isr(void) interrupt 7
+  60          {
+  61   1              if(SSCON0&0x02)    //发送标志位判断
+  62   1              {
+  63   2                      SSCON0 &= 0xFD;
+  64   2                      s_p_data->uart.send_byte_ok = 1;
+  65   2                      s_p_data->uart.send_uart1_ok = 1;               
+  66   2          }
+  67   1              if((SSCON0&0x01))  //接收标志位判断
+  68   1              {
+  69   2                      SSCON0 &= 0xFE;
+  70   2                      hal_serial_uart_rx_display(SSDAT);
+  71   2          }
+  72   1      }
+  73          
+  74          /*********************************************************************************************************
              -**************
-  79          * Function Name: 
-  80          * Description  : 
-  81          * Arguments    : None
-  82          * Return Value : None
-  83          **********************************************************************************************************
+  75          * Function Name: 
+  76          * Description  : 
+  77          * Arguments    : None
+  78          * Return Value : None
+  79          **********************************************************************************************************
              -*************/
-  84          void hal_irq_ex2_isr(void) interrupt 10
-  85          {       
-  86   1              IE1 &= 0XF7;
-  87   1              INT2F = 0x00;
-  88   1              TR2 = 1;
-  89   1              RCAP2H=0xfc;             
-  90   1              RCAP2L=0xbe;
-  91   1      }
-  92          
-  93          /*********************************************************************************************************
+  80          void hal_irq_ex2_isr(void) interrupt 10
+  81          {       
+  82   1              IE1 &= 0XF7;
+  83   1              INT2F = 0x00;
+  84   1              TR2 = 1;
+  85   1              RCAP2H=0xfc;             
+  86   1              RCAP2L=0xbe;
+  87   1      }
+  88          
+  89          /*********************************************************************************************************
              -**************
-  94          * Function Name: 
-  95          * Description  : 
-  96          * Arguments    : None
-  97          * Return Value : None
-  98          **********************************************************************************************************
+  90          * Function Name: 
+  91          * Description  : 
+  92          * Arguments    : None
+  93          * Return Value : None
+  94          **********************************************************************************************************
              -*************/
-  99          void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
- 100          {
- 101   1              static unsigned char i = 0;
- 102   1              static unsigned char s_count = 0;
- 103   1              
- 104   1              if(s_p_data->uart.send_data)
- 105   1              {       
- 106   2                      if(s_p_data->uart.send_byte_ok)
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/15/2021 13:22:03 PAGE 3   
+  95          void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
+  96          {
+  97   1              static unsigned char i = 0;
+  98   1              static unsigned char s_count = 0;
+  99   1              
+ 100   1              if(s_p_data->uart.send_data)
+ 101   1              {       
+ 102   2                      if(s_p_data->uart.send_byte_ok)
+ 103   2                      {
+ 104   3                              s_p_data->uart.send_byte_ok = 0;
+ 105   3                              SSDAT = p_buffer[i];
+ 106   3                              s_count = 0;
+C51 COMPILER V9.01   XY_HAL_ISR                                                            03/17/2021 13:19:58 PAGE 3   
 
- 107   2                      {
- 108   3                              s_p_data->uart.send_byte_ok = 0;
- 109   3                              SSDAT = p_buffer[i];
- 110   3                              s_count = 0;
- 111   3                              i++;
- 112   3                              if(i >= length)
- 113   3                              {
- 114   4                                      i = 0;
- 115   4                                      s_p_data->uart.send_data = 0;
- 116   4                              }
- 117   3                      }
- 118   2                      else
- 119   2                      {
- 120   3                              s_count++;
- 121   3                              if(s_count >= 200)
- 122   3                              {
- 123   4                                      s_p_data->uart.send_data = 0;
- 124   4                              }
- 125   3                      }
- 126   2              }
- 127   1              else
- 128   1              {
- 129   2                      i = 0;
- 130   2                      s_count = 0;
- 131   2                      s_p_data->uart.send_byte_ok = 1;
- 132   2              }
- 133   1      }
- 134          
- 135          /*********************************************************************************************************
+ 107   3                              i++;
+ 108   3                              if(i >= length)
+ 109   3                              {
+ 110   4                                      i = 0;
+ 111   4                                      s_p_data->uart.send_data = 0;
+ 112   4                              }
+ 113   3                      }
+ 114   2                      else
+ 115   2                      {
+ 116   3                              s_count++;
+ 117   3                              if(s_count >= 200)
+ 118   3                              {
+ 119   4                                      s_p_data->uart.send_data = 0;
+ 120   4                              }
+ 121   3                      }
+ 122   2              }
+ 123   1              else
+ 124   1              {
+ 125   2                      i = 0;
+ 126   2                      s_count = 0;
+ 127   2                      s_p_data->uart.send_byte_ok = 1;
+ 128   2              }
+ 129   1      }
+ 130          
+ 131          /*********************************************************************************************************
              -**************
- 136          * Function Name: 
- 137          * Description  : 
- 138          * Arguments    : None
- 139          * Return Value : None
- 140          **********************************************************************************************************
+ 132          * Function Name: 
+ 133          * Description  : 
+ 134          * Arguments    : None
+ 135          * Return Value : None
+ 136          **********************************************************************************************************
              -*************/
- 141          void hal_irq_uart2_send(unsigned char* p_buffer, unsigned char length)
- 142          {
- 143   1              unsigned char i = 0;
- 144   1      
- 145   1              for(i=0; i<length; i++)
- 146   1              {
- 147   2                      SSDAT = p_buffer[i];
- 148   2                      while(!s_p_data->uart.send_uart1_ok);
- 149   2                      s_p_data->uart.send_uart1_ok = 0;
- 150   2              }
- 151   1      }
+ 137          void hal_irq_uart2_send(unsigned char* p_buffer, unsigned char length)
+ 138          {
+ 139   1              unsigned char i = 0;
+ 140   1      
+ 141   1              for(i=0; i<length; i++)
+ 142   1              {
+ 143   2                      SSDAT = p_buffer[i];
+ 144   2                      while(!s_p_data->uart.send_uart1_ok);
+ 145   2                      s_p_data->uart.send_uart1_ok = 0;
+ 146   2              }
+ 147   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -190,8 +186,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
-
-C51 COMPILER V9.01   XY_HAL_ISR                                                            03/15/2021 13:22:03 PAGE 4   
 
 
 C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

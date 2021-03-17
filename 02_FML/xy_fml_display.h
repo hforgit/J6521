@@ -34,7 +34,6 @@
 									 _V_ == DISPLAY_REMOTE_KEY_COLDDRY 	? KEY_COLD_DRY :\
 									 									  KEY_RELEASE)
 
-
 #define DISPLAY_DATA_CHK_LEN(_L_)	(_L_ < 4 ? NO : (_L_ > 120 ? NO : YES))
 #define DISPLAY_DATA_CHK_VER(_V_)	(_V_ < 10 ? NO : (_V_ > 99 ? NO : YES))
 

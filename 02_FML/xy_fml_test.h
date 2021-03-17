@@ -1,7 +1,6 @@
 #ifndef _XY_FML_TEST_H
 #define _XY_FML_TEST_H
 
-
 #define TEST_FUNC_NUMB_01				///< PTC			
 #define TEST_FUNC_NUMB_04				///< LOW BLOW
 #define TEST_FUNC_NUMB_05				///< LIGHT

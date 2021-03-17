@@ -12,7 +12,7 @@ void hal_timer_Init(void)
 	/*	TIMER0	*/
 	TMOD |= 0x01;	  
 	TH0 = 0xF8; 	//F8
-	TL0 = 0x86; 	//30
+	TL0 = 0x90; 	//30
 	TR0 = 0;
 	ET0 = 1;
 	TR0 = 1;
@@ -130,5 +130,3 @@ void hal_timer_mode_deal(workmoduleflag* p_mode)
 		p_mode->workdelay_cyc = CLOCK_DELAYTIMER_0S;
 	}
 }
-
-

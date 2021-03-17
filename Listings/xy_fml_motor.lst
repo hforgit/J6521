@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 1   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_MOTOR
@@ -26,7 +26,7 @@ line level    source
   14   1              p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;
   15   1              
   16   1              p_data->motor.blow_motor_step           = MAX_RESET_STEP;                       ///< checkself max step
-  17   1                      p_data->motor.absorb_motor_step = MAX_RESET_STEP;                       ///< checkself max step
+  17   1              p_data->motor.absorb_motor_step = MAX_RESET_STEP;                       ///< checkself max step
   18   1      }
   19          
   20          /*********************************************************************************************************
@@ -62,7 +62,7 @@ line level    source
   48   2                      p_motor->blow_target_step_real = p_motor->blow_target_step;
   49   2                              if(RESET_STEP_ZERO == p_motor->absorb_target_step)
   50   2                              {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 2   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 2   
 
   51   3                                      if(RESET_STEP_ZERO == p_motor->absorb_motor_step)
   52   3                                      {
@@ -117,7 +117,7 @@ line level    source
   99   1              {
  100   2                      hal_timer_motor_blow(&p_data->motor);
  101   2              }
- 102   1                      hal_timer_motor_absorb(&p_data->motor);
+ 102   1              hal_timer_motor_absorb(&p_data->motor);
  103   1      }
  104          
  105          /*********************************************************************************************************
@@ -126,7 +126,7 @@ line level    source
  107          * Description  : 
  108          * Arguments    : None
  109          * Return Value : None
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 3   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 3   
 
  110          **********************************************************************************************************
              -*************/
@@ -173,37 +173,37 @@ line level    source
              -*************/
  150          void fml_motor_absorb_step(unsigned char n)
  151          {
- 152   1                      switch(n)
- 153   1                      {
- 154   2                              case 0:
- 155   2                                      absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
- 156   2                                      break;
- 157   2                              case 1:
- 158   2                                      absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
- 159   2                                      break;
- 160   2                              case 2:
- 161   2                                      absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
- 162   2                                      break;
- 163   2                              case 3:
- 164   2                                      absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
- 165   2                                      break;
- 166   2                              case 4:
- 167   2                                      absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
- 168   2                                      break;
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 4   
+ 152   1              switch(n)
+ 153   1              {
+ 154   2                      case 0:
+ 155   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
+ 156   2                              break;
+ 157   2                      case 1:
+ 158   2                              absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+ 159   2                              break;
+ 160   2                      case 2:
+ 161   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+ 162   2                              break;
+ 163   2                      case 3:
+ 164   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
+ 165   2                              break;
+ 166   2                      case 4:
+ 167   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
+ 168   2                              break;
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 4   
 
- 169   2                              case 5:
- 170   2                                      absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
- 171   2                                      break;
- 172   2                              case 6:
- 173   2                                      absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
- 174   2                                      break;
- 175   2                              case 7:
- 176   2                                      absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
- 177   2                                      break;
- 178   2                              default:
- 179   2                                      break;
- 180   2                      }
+ 169   2                      case 5:
+ 170   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
+ 171   2                              break;
+ 172   2                      case 6:
+ 173   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
+ 174   2                              break;
+ 175   2                      case 7:
+ 176   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
+ 177   2                              break;
+ 178   2                      default:
+ 179   2                              break;
+ 180   2              }
  181   1      }
  182          
  183          /*********************************************************************************************************
@@ -254,7 +254,7 @@ line level    source
  222   2                      p_motor->blow_motor_step_delay_count=0;
  223   2                      if(p_motor->blow_motor_step < p_motor->blow_target_step_real)
  224   2                      {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 5   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 5   
 
  225   3                              fml_motor_blow_step(p_motor->blow_motor_step%8);
  226   3                              p_motor->blow_motor_step++;
@@ -318,7 +318,7 @@ line level    source
  280   2                      if((ON == p_data->remote.keyctrl.keystate_fan_blow) && (p_data->motor.blow_motor_step > TARGET_LOW_SWING
              -))
  281   2                      {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/15/2021 13:22:02 PAGE 6   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 6   
 
  282   3                              p_data->motor.blow_motor_step_pri = p_data->motor.blow_motor_step;
  283   3                      }
@@ -338,10 +338,10 @@ line level    source
  295   1                      if(YES == p_data->testmode)
  296   1                              return;
  297   1              #endif
- 298   1              
+ 298   1      
  299   1              fml_motor_reset_step(&p_data->motor);
  300   1              fml_motor_blow_move(&p_data->motor);
- 301   1                      fml_motor_absorb_move(&p_data->motor);
+ 301   1              fml_motor_absorb_move(&p_data->motor);
  302   1              fml_motor_save_step(p_data);
  303   1      }
 

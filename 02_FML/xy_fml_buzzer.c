@@ -129,5 +129,4 @@ void fml_buzzer_deal(datall* p_data)
 			p_data->buzzer.burn_bee_on=OFF;
 		}
 	}
-
 }

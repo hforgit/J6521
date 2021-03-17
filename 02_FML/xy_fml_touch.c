@@ -27,15 +27,12 @@ void fml_touch_recv_data(datall* p_data)
 	if(p_data->uart.rec_uart0_ok)
 	{
 		p_data->uart.rec_uart0_ok = 0;
-
 		memcpy(buffer, p_data->uart.rec_uart0_dat, sizeof(buffer));
 		memset(p_data->uart.rec_uart0_dat, 0, sizeof(buffer));
-
 		for(i=0; i<4; i++)
 		{
 			temp_sum += buffer[i];
-		}
-		
+		}		
 		if(temp_sum == buffer[i])			///< check data 
 		{
 			s_data.dat = buffer[1] + (buffer[2] << 8);
@@ -45,8 +42,7 @@ void fml_touch_recv_data(datall* p_data)
 				{
 					memset(&p_data->remote, 0, sizeof(p_data->remote));
 					p_data->keytype = TOUCH;
-				}
-				
+				}			
 				p_data->touch.current.dat = s_data.dat;
 			}
 		}
@@ -69,7 +65,6 @@ void fml_touch_deal_disp(displaycontent* p_disp)
 	{
 		p_disp->disp_icon_blow = SYM_BLOW_OFF;
 	}
-
 	if(TOUCH_SYMBOL_ABSORB)
 	{
 		p_disp->disp_icon_absorb = SYM_ABSORB_ON;
@@ -78,7 +73,6 @@ void fml_touch_deal_disp(displaycontent* p_disp)
 	{
 		p_disp->disp_icon_absorb = SYM_ABSORB_OFF;
 	}
-
 	if(TOUCH_SYMBOL_WARM)
 	{
 		p_disp->disp_icon_warm = SYM_WARM_ON;
@@ -114,7 +108,6 @@ void fml_touch_deal_relay(normalctrol* p_ctrl)
 	{
 		p_ctrl->keystate_ptc = OFF;
 	}
-
 	if(TOUCH_RELAY_FAN_BLOW)
 	{
 		p_ctrl->keystate_fan_blow = ON;
@@ -123,7 +116,6 @@ void fml_touch_deal_relay(normalctrol* p_ctrl)
 	{
 		p_ctrl->keystate_fan_blow = OFF;
 	}
-
 	if(TOUCH_RELAY_FAN_ABSORB)
 	{
 		p_ctrl->keystate_fan_absorb = ON;
@@ -178,8 +170,7 @@ void fml_touch_deal_swing(datall* p_data)
 {
 	if(TOUCH_RELAY_SWING_BLOW)
 	{
-		p_data->remote.keyctrl.keystate_open_swing = ON;
-		
+		p_data->remote.keyctrl.keystate_open_swing = ON;	
 		if(TARGET_LOW_SWING == p_data->motor.blow_motor_step)
 		{
 			p_data->motor.blow_target_step = TARGET_HIGH_SWING;
@@ -221,8 +212,7 @@ void fml_touch_ctrl_logic(datall* p_data)
 			return;
 	#endif
 
-	fml_touch_recv_data(p_data);
-	
+	fml_touch_recv_data(p_data);	
 	if(TOUCH != p_data->keytype)
 		return;
 	

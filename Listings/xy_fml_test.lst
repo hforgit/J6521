@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 1   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_TEST
@@ -62,7 +62,7 @@ line level    source
   50   2                              break;
   51   2                      default:
   52   2                              table[2] = 0x00;
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 2   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 2   
 
   53   2                              table[3] = 0x00;
   54   2                              break;
@@ -120,334 +120,324 @@ line level    source
  104   2                      if(s_bit > 10)
  105   2                              s_bit = 0;
  106   2              }
- 107   1              table[9] = hal_alg_chk_crc8(table, 9);
- 108   1              
- 109   1              s_sequence++;
- 110   1      }
- 111          
- 112          /*********************************************************************************************************
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 3   
+ 107   1              table[9] = hal_alg_chk_crc8(table, 9);  
+ 108   1              s_sequence++;
+ 109   1      }
+ 110          
+ 111          /*********************************************************************************************************
+             -**************
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 3   
 
-             -**************
- 113          * Function Name: 
- 114          * Description  : 
- 115          * Arguments    : None
- 116          * Return Value : None
- 117          **********************************************************************************************************
+ 112          * Function Name: 
+ 113          * Description  : 
+ 114          * Arguments    : None
+ 115          * Return Value : None
+ 116          **********************************************************************************************************
              -*************/
- 118          void fml_test_uart(unsigned char mode)
- 119          {
- 120   1              static unsigned char s_table[16] = {0};
- 121   1      
- 122   1              switch(mode)
- 123   1              {
- 124   2                      case 0:                         ///< old protocol
- 125   2                              fml_test_old_dis(s_table);
- 126   2                      
- 127   2                              hal_serial_uart_tx_display(s_table, 6);
- 128   2                              break;
- 129   2                      case 1:                         ///< new protocol
- 130   2                              fml_test_new_dis(s_table);
- 131   2                      
- 132   2                              hal_serial_uart_tx_display(s_table, 10);
- 133   2                              break;
- 134   2                      case 2:
- 135   2                              fml_test_old_dis(s_table);
- 136   2                              fml_test_new_dis(s_table+6);
- 137   2                                      
- 138   2                              hal_serial_uart_tx_display(s_table, 16);
- 139   2                              break;
- 140   2                      default:
- 141   2                              break;
- 142   2              }
- 143   1      }
- 144          
- 145          /*********************************************************************************************************
+ 117          void fml_test_uart(unsigned char mode)
+ 118          {
+ 119   1              static unsigned char s_table[16] = {0};
+ 120   1      
+ 121   1              switch(mode)
+ 122   1              {
+ 123   2                      case 0:                         ///< old protocol
+ 124   2                              fml_test_old_dis(s_table);
+ 125   2                      
+ 126   2                              hal_serial_uart_tx_display(s_table, 6);
+ 127   2                              break;
+ 128   2                      case 1:                         ///< new protocol
+ 129   2                              fml_test_new_dis(s_table);
+ 130   2                      
+ 131   2                              hal_serial_uart_tx_display(s_table, 10);
+ 132   2                              break;
+ 133   2                      case 2:
+ 134   2                              fml_test_old_dis(s_table);
+ 135   2                              fml_test_new_dis(s_table+6);
+ 136   2                                      
+ 137   2                              hal_serial_uart_tx_display(s_table, 16);
+ 138   2                              break;
+ 139   2                      default:
+ 140   2                              break;
+ 141   2              }
+ 142   1      }
+ 143          
+ 144          /*********************************************************************************************************
              -**************
- 146          * Function Name: 
- 147          * Description  : 
- 148          * Arguments    : None
- 149          * Return Value : None
- 150          **********************************************************************************************************
+ 145          * Function Name: 
+ 146          * Description  : 
+ 147          * Arguments    : None
+ 148          * Return Value : None
+ 149          **********************************************************************************************************
              -*************/
- 151          void fml_test_delay(void)
- 152          {
- 153   1              unsigned int i, j;
- 154   1      
- 155   1              watchdog();
- 156   1              for(i=0; i<200; i++)
- 157   1              {       
- 158   2                      for(j=0; j<1000; j++)
- 159   2                      {
- 160   3                              ;
- 161   3                      }
- 162   2              }
- 163   1              
- 164   1              watchdog();
- 165   1              fml_test_uart(errcod);
- 166   1              
- 167   1              for(i=0; i<200; i++)
- 168   1              {
- 169   2                      for(j=0; j<1000; j++)
- 170   2                      {
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 4   
+ 150          void fml_test_delay(void)
+ 151          {
+ 152   1              unsigned int i, j;
+ 153   1      
+ 154   1              watchdog();
+ 155   1              for(i=0; i<200; i++)
+ 156   1              {       
+ 157   2                      for(j=0; j<1000; j++)
+ 158   2                      {
+ 159   3                              ;
+ 160   3                      }
+ 161   2              }
+ 162   1              watchdog();
+ 163   1              fml_test_uart(errcod);  
+ 164   1              for(i=0; i<200; i++)
+ 165   1              {
+ 166   2                      for(j=0; j<1000; j++)
+ 167   2                      {
+ 168   3                              ;
+ 169   3                      }
+ 170   2              }       
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 4   
 
- 171   3                              ;
- 172   3                      }
- 173   2              }
- 174   1              
- 175   1              watchdog();
- 176   1      
- 177   1      }
- 178          
- 179          /*********************************************************************************************************
+ 171   1              watchdog();
+ 172   1      }
+ 173          
+ 174          /*********************************************************************************************************
              -**************
- 180          * Function Name: 
- 181          * Description  : 
- 182          * Arguments    : None
- 183          * Return Value : None
- 184          **********************************************************************************************************
+ 175          * Function Name: 
+ 176          * Description  : 
+ 177          * Arguments    : None
+ 178          * Return Value : None
+ 179          **********************************************************************************************************
              -*************/
- 185          void fml_test_port(void)
- 186          {
- 187   1              /*1*/
- 188   1              #ifdef TEST_FUNC_NUMB_01
- 189   1              PTC_on();
- 190   1              fml_test_delay();
- 191   1              PTC_off();
- 192   1              #endif
- 193   1      
- 194   1              /*4*/
- 195   1              #ifdef TEST_FUNC_NUMB_04
- 196   1              blow_fan_on();
- 197   1              fml_test_delay();
- 198   1              blow_fan_off();
- 199   1              #endif
- 200   1      
- 201   1              /*5*/
- 202   1              #ifdef TEST_FUNC_NUMB_05
- 203   1              light_on();
- 204   1              fml_test_delay();
- 205   1              light_off();
- 206   1              #endif
- 207   1              
- 208   1      }
- 209          
- 210          /*********************************************************************************************************
+ 180          void fml_test_port(void)
+ 181          {
+ 182   1              /*1*/
+ 183   1              #ifdef TEST_FUNC_NUMB_01
+ 184   1              PTC_on();
+ 185   1              fml_test_delay();
+ 186   1              PTC_off();
+ 187   1              #endif
+ 188   1      
+ 189   1              /*4*/
+ 190   1              #ifdef TEST_FUNC_NUMB_04
+ 191   1              blow_fan_on();
+ 192   1              fml_test_delay();
+ 193   1              blow_fan_off();
+ 194   1              #endif
+ 195   1      
+ 196   1              /*5*/
+ 197   1              #ifdef TEST_FUNC_NUMB_05
+ 198   1              light_on();
+ 199   1              fml_test_delay();
+ 200   1              light_off();
+ 201   1              #endif
+ 202   1              
+ 203   1      }
+ 204          
+ 205          /*********************************************************************************************************
              -**************
- 211          * Function Name: 
- 212          * Description  : 
- 213          * Arguments    : None
- 214          * Return Value : None
- 215          **********************************************************************************************************
+ 206          * Function Name: 
+ 207          * Description  : 
+ 208          * Arguments    : None
+ 209          * Return Value : None
+ 210          **********************************************************************************************************
              -*************/
- 216          void fml_test_motor(void)
- 217          {
- 218   1              /*6*/
- 219   1              #ifdef TEST_FUNC_NUMB_06
- 220   1              blow_motor_step4_on();
- 221   1              fml_test_delay();
- 222   1              blow_motor_step4_off();
- 223   1              #endif
- 224   1              
- 225   1              /*7*/
- 226   1              #ifdef TEST_FUNC_NUMB_07
- 227   1              blow_motor_step3_on();
- 228   1              fml_test_delay();
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 5   
+ 211          void fml_test_motor(void)
+ 212          {
+ 213   1              /*6*/
+ 214   1              #ifdef TEST_FUNC_NUMB_06
+ 215   1              blow_motor_step4_on();
+ 216   1              fml_test_delay();
+ 217   1              blow_motor_step4_off();
+ 218   1              #endif
+ 219   1              
+ 220   1              /*7*/
+ 221   1              #ifdef TEST_FUNC_NUMB_07
+ 222   1              blow_motor_step3_on();
+ 223   1              fml_test_delay();
+ 224   1              blow_motor_step3_off();
+ 225   1              #endif
+ 226   1              
+ 227   1              /*8*/
+ 228   1              #ifdef TEST_FUNC_NUMB_08
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 5   
 
- 229   1              blow_motor_step3_off();
- 230   1              #endif
- 231   1              
- 232   1              /*8*/
- 233   1              #ifdef TEST_FUNC_NUMB_08
- 234   1              blow_motor_step2_on();
- 235   1              fml_test_delay();
- 236   1              blow_motor_step2_off();
- 237   1              #endif
- 238   1      
- 239   1              /*9*/
- 240   1              #ifdef TEST_FUNC_NUMB_09
- 241   1              blow_motor_step1_on();
- 242   1              fml_test_delay();
- 243   1              blow_motor_step1_off();
- 244   1              #endif
- 245   1              
- 246   1              /*10*/
- 247   1              #ifdef TEST_FUNC_NUMB_10
- 248   1              absorb_motor_step4_on();
- 249   1              fml_test_delay();
- 250   1              absorb_motor_step4_off();
- 251   1              #endif
- 252   1              
- 253   1              /*11*/
- 254   1              #ifdef TEST_FUNC_NUMB_11
- 255   1              absorb_motor_step3_on();
- 256   1              fml_test_delay();
- 257   1              absorb_motor_step3_off();
- 258   1              #endif
- 259   1      
- 260   1              /*12*/
- 261   1              #ifdef TEST_FUNC_NUMB_12
- 262   1              absorb_motor_step2_on();
- 263   1              fml_test_delay();
- 264   1              absorb_motor_step2_off();
- 265   1              #endif
- 266   1      
- 267   1              /*13*/
- 268   1              #ifdef TEST_FUNC_NUMB_13
- 269   1              absorb_motor_step1_on();
- 270   1              fml_test_delay();
- 271   1              absorb_motor_step1_off();
- 272   1              #endif
- 273   1      
- 274   1      }
- 275          
- 276          /*********************************************************************************************************
+ 229   1              blow_motor_step2_on();
+ 230   1              fml_test_delay();
+ 231   1              blow_motor_step2_off();
+ 232   1              #endif
+ 233   1      
+ 234   1              /*9*/
+ 235   1              #ifdef TEST_FUNC_NUMB_09
+ 236   1              blow_motor_step1_on();
+ 237   1              fml_test_delay();
+ 238   1              blow_motor_step1_off();
+ 239   1              #endif
+ 240   1              
+ 241   1              /*10*/
+ 242   1              #ifdef TEST_FUNC_NUMB_10
+ 243   1              absorb_motor_step4_on();
+ 244   1              fml_test_delay();
+ 245   1              absorb_motor_step4_off();
+ 246   1              #endif
+ 247   1              
+ 248   1              /*11*/
+ 249   1              #ifdef TEST_FUNC_NUMB_11
+ 250   1              absorb_motor_step3_on();
+ 251   1              fml_test_delay();
+ 252   1              absorb_motor_step3_off();
+ 253   1              #endif
+ 254   1      
+ 255   1              /*12*/
+ 256   1              #ifdef TEST_FUNC_NUMB_12
+ 257   1              absorb_motor_step2_on();
+ 258   1              fml_test_delay();
+ 259   1              absorb_motor_step2_off();
+ 260   1              #endif
+ 261   1      
+ 262   1              /*13*/
+ 263   1              #ifdef TEST_FUNC_NUMB_13
+ 264   1              absorb_motor_step1_on();
+ 265   1              fml_test_delay();
+ 266   1              absorb_motor_step1_off();
+ 267   1              #endif
+ 268   1      }
+ 269          
+ 270          /*********************************************************************************************************
              -**************
- 277          * Function Name: 
- 278          * Description  : 
- 279          * Arguments    : None
- 280          * Return Value : None
- 281          **********************************************************************************************************
+ 271          * Function Name: 
+ 272          * Description  : 
+ 273          * Arguments    : None
+ 274          * Return Value : None
+ 275          **********************************************************************************************************
              -*************/
- 282          void fml_test_temp(datall* p_data)
- 283          {
- 284   1              unsigned int timeout = 0;
- 285   1              
- 286   1              while(1)
- 287   1              {
- 288   2                      if(p_data->uart.rec_uart1_ok)
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 6   
+ 276          void fml_test_temp(datall* p_data)
+ 277          {
+ 278   1              unsigned int timeout = 0;
+ 279   1              
+ 280   1              while(1)
+ 281   1              {
+ 282   2                      if(p_data->uart.rec_uart1_ok)
+ 283   2                      {
+ 284   3                              break;
+ 285   3                      }
+ 286   2                      timeout++;
+ 287   2                      if(timeout > 60000)
+ 288   2                      {
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 6   
 
- 289   2                      {
- 290   3                              break;
- 291   3                      }
- 292   2                      timeout++;
- 293   2                      if(timeout > 60000)
- 294   2                      {
- 295   3                              timeout = 60000;
- 296   3                      }
- 297   2                      watchdog();
- 298   2              }
- 299   1              if(p_data->temperature.value == 0)                      ///< short circuit
- 300   1              {
- 301   2                      errcod = 1;
- 302   2              }
- 303   1              else if(p_data->temperature.value > 80)         ///< cut circuit
- 304   1              {
- 305   2                      errcod = 2;
- 306   2              }
- 307   1              else if(timeout == 60000)                                       ///< lost uart from display
- 308   1              {
- 309   2                      errcod = 3;
- 310   2              }
- 311   1              else
- 312   1              {
- 313   2                      errcod = 0;
- 314   2              }
- 315   1      }
- 316          
- 317          /*********************************************************************************************************
+ 289   3                              timeout = 60000;
+ 290   3                      }
+ 291   2                      watchdog();
+ 292   2              }
+ 293   1              if(p_data->temperature.value == 0)                      ///< short circuit
+ 294   1              {
+ 295   2                      errcod = 1;
+ 296   2              }
+ 297   1              else if(p_data->temperature.value > 80)         ///< cut circuit
+ 298   1              {
+ 299   2                      errcod = 2;
+ 300   2              }
+ 301   1              else if(timeout == 60000)                                       ///< lost uart from display
+ 302   1              {
+ 303   2                      errcod = 3;
+ 304   2              }
+ 305   1              else
+ 306   1              {
+ 307   2                      errcod = 0;
+ 308   2              }
+ 309   1      }
+ 310          
+ 311          /*********************************************************************************************************
              -**************
- 318          * Function Name: 
- 319          * Description  : 
- 320          * Arguments    : None
- 321          * Return Value : None
- 322          **********************************************************************************************************
+ 312          * Function Name: 
+ 313          * Description  : 
+ 314          * Arguments    : None
+ 315          * Return Value : None
+ 316          **********************************************************************************************************
              -*************/
- 323          void fml_test_init(void)
- 324          {       
- 325   1              blow_fan_off();
- 326   1              light_off();
- 327   1              absorb_fan_off();
- 328   1              PTC_off();
- 329   1      
- 330   1              blow_motor_step1_off();
- 331   1              blow_motor_step2_off();
- 332   1              blow_motor_step3_off();
- 333   1              blow_motor_step4_off();
- 334   1              
- 335   1              absorb_motor_step1_off();
- 336   1              absorb_motor_step2_off();
- 337   1              absorb_motor_step3_off();
- 338   1              absorb_motor_step4_off();
- 339   1      
- 340   1      }
- 341          
- 342          /*********************************************************************************************************
+ 317          void fml_test_init(void)
+ 318          {       
+ 319   1              blow_fan_off();
+ 320   1              light_off();
+ 321   1              absorb_fan_off();
+ 322   1              PTC_off();
+ 323   1      
+ 324   1              blow_motor_step1_off();
+ 325   1              blow_motor_step2_off();
+ 326   1              blow_motor_step3_off();
+ 327   1              blow_motor_step4_off();
+ 328   1              
+ 329   1              absorb_motor_step1_off();
+ 330   1              absorb_motor_step2_off();
+ 331   1              absorb_motor_step3_off();
+ 332   1              absorb_motor_step4_off();
+ 333   1      }
+ 334          
+ 335          /*********************************************************************************************************
              -**************
- 343          * Function Name: 
- 344          * Description  : 
- 345          * Arguments    : None
- 346          * Return Value : None
- 347          **********************************************************************************************************
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 7   
+ 336          * Function Name: 
+ 337          * Description  : 
+ 338          * Arguments    : None
+ 339          * Return Value : None
+ 340          **********************************************************************************************************
+             -*************/
+ 341          switchstate fml_test_check(void) 
+ 342          {
+ 343   1              static unsigned char s_count = 0;
+ 344   1              
+ 345   1              if(self_test() == 0)
+ 346   1              {
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 7   
 
-             -*************/
- 348          switchstate fml_test_check(void) 
- 349          {
- 350   1              static unsigned char s_count = 0;
- 351   1              
- 352   1              if(self_test() == 0)
- 353   1              {
- 354   2                      s_count++;
- 355   2                      if(s_count > 2)
- 356   2                      {
- 357   3                              fml_test_init();
- 358   3                              return YES;
- 359   3                      }
- 360   2              }
- 361   1              else
- 362   1              {
- 363   2                      s_count = 0;
- 364   2              }
- 365   1              return NO;
- 366   1      }
- 367          
- 368          /*********************************************************************************************************
+ 347   2                      s_count++;
+ 348   2                      if(s_count > 2)
+ 349   2                      {
+ 350   3                              fml_test_init();
+ 351   3                              return YES;
+ 352   3                      }
+ 353   2              }
+ 354   1              else
+ 355   1              {
+ 356   2                      s_count = 0;
+ 357   2              }
+ 358   1              return NO;
+ 359   1      }
+ 360          
+ 361          /*********************************************************************************************************
              -**************
- 369          * Function Name: 
- 370          * Description  : 
- 371          * Arguments    : None
- 372          * Return Value : None
- 373          **********************************************************************************************************
+ 362          * Function Name: 
+ 363          * Description  : 
+ 364          * Arguments    : None
+ 365          * Return Value : None
+ 366          **********************************************************************************************************
              -*************/
- 374          void fml_test_logic(datall* p_data)
- 375          {
- 376   1              static unsigned char s_step = 0;
- 377   1      
- 378   1              if(YES == p_data->testmode)
- 379   1              {
- 380   2                      watchdog();
- 381   2      
- 382   2                      switch(s_step)
- 383   2                      {
- 384   3                              case 0:
- 385   3                                      s_step++;
- 386   3                                      p_data->buzzer.burn_bee_on = ON;        
- 387   3                                      fml_test_uart(2);
- 388   3                                      fml_test_temp(p_data);
+ 367          void fml_test_logic(datall* p_data)
+ 368          {
+ 369   1              static unsigned char s_step = 0;
+ 370   1      
+ 371   1              if(YES == p_data->testmode)
+ 372   1              {
+ 373   2                      watchdog();
+ 374   2                      switch(s_step)
+ 375   2                      {
+ 376   3                              case 0:
+ 377   3                                      s_step++;
+ 378   3                                      p_data->buzzer.burn_bee_on = ON;        
+ 379   3                                      fml_test_uart(2);
+ 380   3                                      fml_test_temp(p_data);
+ 381   3                                      break;
+ 382   3                              case 1:
+ 383   3                                      if(OFF == p_data->buzzer.burn_bee_on)   ///< start test beep
+ 384   3                                      {
+ 385   4                                              fml_test_port();
+ 386   4                                              fml_test_motor();
+ 387   4                                              s_step = 0;
+ 388   4                                      }
  389   3                                      break;
- 390   3                              case 1:
- 391   3                                      if(OFF == p_data->buzzer.burn_bee_on)   ///< start test beep
- 392   3                                      {
- 393   4                                              fml_test_port();
- 394   4                                              fml_test_motor();
- 395   4                                              s_step = 0;
- 396   4                                      }
- 397   3                                      break;
- 398   3                              default:
- 399   3                                      break;
- 400   3                      }
- 401   2              }       
- 402   1      }
- 403          
+ 390   3                              default:
+ 391   3                                      break;
+ 392   3                      }
+ 393   2              }       
+ 394   1      }
+ 395          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/15/2021 13:22:03 PAGE 8   
-
    CODE SIZE        =   1383    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     22      13
@@ -456,6 +446,8 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 8   
+
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----

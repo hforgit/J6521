@@ -66,6 +66,7 @@ void apl_logic_ctrl(void)
     {
 		g_timebase.isTrigInterrupt = 0;
 		g_timebase.timebase_125us++;
+
     }
 
 	/* period: 1ms */
@@ -77,7 +78,7 @@ void apl_logic_ctrl(void)
 		fml_buzzer_timer_cnt(s_p_data);
 		fml_motor_timer_ctrl(s_p_data);
 		fml_motor_ctrl_move(s_p_data);
-		
+
 		hal_irq_uart1_send(s_p_data->uart.send_uart1_dat,s_p_data->uart.send_uart1_len);
 	}
 

@@ -76,7 +76,6 @@ void hal_serial_uart_rx_display(unsigned char dat)
 
 	s_uart_buffer[s_uart_numb] = dat;	
 	s_uart_numb++;
-
 	switch(s_state)
 	{
 		case STEP1:

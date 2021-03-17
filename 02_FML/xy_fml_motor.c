@@ -14,7 +14,7 @@ void fml_motor_init_data(datall* p_data)
 	p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;
 	
 	p_data->motor.blow_motor_step		= MAX_RESET_STEP;			///< checkself max step
-		p_data->motor.absorb_motor_step = MAX_RESET_STEP;			///< checkself max step
+	p_data->motor.absorb_motor_step = MAX_RESET_STEP;			///< checkself max step
 }
 
 /***********************************************************************************************************************
@@ -99,7 +99,7 @@ void fml_motor_timer_ctrl(datall* p_data)
 	{
 		hal_timer_motor_blow(&p_data->motor);
 	}
-		hal_timer_motor_absorb(&p_data->motor);
+	hal_timer_motor_absorb(&p_data->motor);
 }
 
 /***********************************************************************************************************************
@@ -149,35 +149,35 @@ void fml_motor_blow_step(unsigned char n)
 ***********************************************************************************************************************/
 void fml_motor_absorb_step(unsigned char n)
 {
-		switch(n)
-		{
-			case 0:
-				absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
-				break;
-			case 1:
-				absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
-				break;
-			case 2:
-				absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
-				break;
-			case 3:
-				absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
-				break;
-			case 4:
-				absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
-				break;
-			case 5:
-				absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
-				break;
-			case 6:
-				absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
-				break;
-			case 7:
-				absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
-				break;
-			default:
-				break;
-		}
+	switch(n)
+	{
+		case 0:
+			absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
+			break;
+		case 1:
+			absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+			break;
+		case 2:
+			absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+			break;
+		case 3:
+			absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
+			break;
+		case 4:
+			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
+			break;
+		case 5:
+			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
+			break;
+		case 6:
+			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
+			break;
+		case 7:
+			absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
+			break;
+		default:
+			break;
+	}
 }
 
 /***********************************************************************************************************************
@@ -295,9 +295,9 @@ void fml_motor_ctrl_move(datall* p_data)
 		if(YES == p_data->testmode)
 			return;
 	#endif
-	
+
 	fml_motor_reset_step(&p_data->motor);
 	fml_motor_blow_move(&p_data->motor);
-		fml_motor_absorb_move(&p_data->motor);
+	fml_motor_absorb_move(&p_data->motor);
 	fml_motor_save_step(p_data);
 }

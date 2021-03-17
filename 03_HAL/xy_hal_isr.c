@@ -11,8 +11,8 @@ static datall* s_p_data = &g_datall;
 void hal_irq_tim0_isr(void) interrupt 1
 {
 	TH0 = 0xF8;
-	TL0 = 0x86;
-	
+	TL0 = 0x90;		//f830: 63536	 f860:63584
+
 	g_timebase.isTrigInterrupt = 1;
 	fml_buzzer_timer_ctrl(s_p_data);
 }
@@ -40,14 +40,12 @@ void hal_irq_tim2_isr() interrupt 5
 	}
 	if(s_count >= 17)
 	{	
-		s_count = 0;		
-		
+		s_count = 0;				
 		INT2F |= 0x02; 
 		IE1 |= 0X08; 	  
 		TR2 = 0;	  
 		RCAP2H=0xfc;     //溢出时间：时钟为Fsys，则12000*（1/Fsys）=0.5ms;
-		RCAP2L=0xbe;
-		
+		RCAP2L=0xbe;		
 		hal_serial_uart_rx_touch(s_buff);
 	}
 }
@@ -64,13 +62,11 @@ void hal_irq_uart1_isr(void) interrupt 7
 	{
 		SSCON0 &= 0xFD;
 		s_p_data->uart.send_byte_ok = 1;
-		s_p_data->uart.send_uart1_ok = 1;
-		
+		s_p_data->uart.send_uart1_ok = 1;		
     }
 	if((SSCON0&0x01))  //接收标志位判断
 	{
 		SSCON0 &= 0xFE;
-
 		hal_serial_uart_rx_display(SSDAT);
     }
 }

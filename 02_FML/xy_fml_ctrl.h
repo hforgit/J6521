@@ -25,7 +25,6 @@
 #define CTRL_CHECK_ERROR_NUMB_7(_A_, _B_, _C_, _D_, _E_)		(\
 	_C_ == OFF ? (_E_ == ON ? YES : NO) : NO)
 
-
 void fml_ctrl_init_reg(void);
 void fml_ctrl_init_data(datall* p_data);
 void fml_ctrl_icon_display(datall* p_data);

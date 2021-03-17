@@ -2,9 +2,9 @@
 
 void hal_port_init(void)
 {
-	P0CON = 0x1F;  	 // test P07
+	P0CON = 0x9F;  	 // test P07
 	P0PH  = 0x60;		
-	P1CON = 0xE0;    // test P10
+	P1CON = 0xE1;    // test P10
 	P1PH  = 0x10;
 	P2CON = 0xFC;  
 	P2PH  = 0x03;

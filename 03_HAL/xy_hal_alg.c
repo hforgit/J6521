@@ -1,6 +1,5 @@
 #include "xy_sys_headfile.h"
 
-
 unsigned char hal_alg_chk_crc8(unsigned char* p_buffer, unsigned char buf_size)
 {
 	unsigned char i;
@@ -27,6 +26,5 @@ unsigned char hal_alg_chk_crc8(unsigned char* p_buffer, unsigned char buf_size)
         }
         p_buffer++;
     }
-
     return crc;
 }

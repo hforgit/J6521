@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_AD                                                             03/15/2021 13:22:03 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/17/2021 13:19:58 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_AD
@@ -52,40 +52,35 @@ line level    source
   40   2                      {
   41   3                              if(temp < AdcTable[i])
   42   3                                      break;
-  43   3                      }
-  44   2                      
-  45   2                      if(i < (sizeof(AdcTable) / sizeof(unsigned int)))
-  46   2                      {
-  47   3                              temp -= AdcTable[i-1];
-  48   3                              temp *= 10;
-  49   3                              temp /= AdcTable[i] - AdcTable[i-1];
-  50   3                              temp += (i-1)*10;
-  51   3                              
-  52   3                              if(YES == ALG_CHK_BACK_DIFF(s_pri_tmp, temp, 5))                ///< 0.5
-C51 COMPILER V9.01   XY_HAL_AD                                                             03/15/2021 13:22:03 PAGE 2   
+  43   3                      }               
+  44   2                      if(i < (sizeof(AdcTable) / sizeof(unsigned int)))
+  45   2                      {
+  46   3                              temp -= AdcTable[i-1];
+  47   3                              temp *= 10;
+  48   3                              temp /= AdcTable[i] - AdcTable[i-1];
+  49   3                              temp += (i-1)*10;
+  50   3                              
+  51   3                              if(YES == ALG_CHK_BACK_DIFF(s_pri_tmp, temp, 5))                ///< 0.5
+  52   3                              {
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/17/2021 13:19:58 PAGE 2   
 
-  53   3                              {
-  54   4                                      s_pri_tmp = temp;
-  55   4                              }
-  56   3                              
-  57   3                              temp = s_pri_tmp;
-  58   3                                              
-  59   3                              if(YES == ALG_CHK_ROUNDING(temp))
-  60   3                              {
-  61   4                                      temp += 10;
-  62   4                              }
-  63   3                                              
-  64   3                              if(temp > 999)
-  65   3                                      temp = 999;
-  66   3      
-  67   3                              return (temp/10);
-  68   3                      }
-  69   2                      else
-  70   2                      {
-  71   3                              return (99);
-  72   3                      }
-  73   2              }
-  74   1      }
+  53   4                                      s_pri_tmp = temp;
+  54   4                              }               
+  55   3                              temp = s_pri_tmp;                                       
+  56   3                              if(YES == ALG_CHK_ROUNDING(temp))
+  57   3                              {
+  58   4                                      temp += 10;
+  59   4                              }                                       
+  60   3                              if(temp > 999)
+  61   3                                      temp = 999;
+  62   3                              return (temp/10);
+  63   3                      }
+  64   2                      else
+  65   2                      {
+  66   3                              return (99);
+  67   3                      }
+  68   2              }
+  69   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

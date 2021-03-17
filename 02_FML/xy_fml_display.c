@@ -161,10 +161,8 @@ void fml_display_tx_data(datall* p_data)
 				s_table[2]=p_data->display.disp_icon_data;
 				s_table[3]=0x00;
 			}
-
 		s_table[4]=s_table[0]+s_table[1]+s_table[2]+s_table[3];
 		s_table[5]=0x16;
-
 		send_size = 6;
 	}
 	else
@@ -187,9 +185,7 @@ void fml_display_tx_data(datall* p_data)
 			s_table[7] = DISPLAY_TABLE_SEG(temp_disp%10) | (DISPLAY_GET_SYMBOL_ABSORB ? 0x80 : 0);
 			s_table[8] = (DISPLAY_GET_SYMBOL_WARM ? 0x80 : 0);
 		}
-
 		s_table[9] = hal_alg_chk_crc8(s_table, 9);
-
 		s_sequence++;
 		send_size = 10;
 	}
@@ -241,7 +237,6 @@ keystate fml_display_deal_remote(unsigned char* p_buffer)
 	{
 		chk_sum += p_buffer[i];
 	}
-
 	if(chk_sum == p_buffer[i])		///< check sum
 	{
 		temp = p_buffer[0];
@@ -252,7 +247,6 @@ keystate fml_display_deal_remote(unsigned char* p_buffer)
 			sta = DISPLAY_GET_KEY_VALUE(p_buffer[2]);
 		}
 	}
-
 	return sta;
 }
 
