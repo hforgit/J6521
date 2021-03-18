@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_AD                                                             03/18/2021 08:37:09 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/17/2021 13:19:58 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_AD
@@ -62,7 +62,7 @@ line level    source
   50   3                              
   51   3                              if(YES == ALG_CHK_BACK_DIFF(s_pri_tmp, temp, 5))                ///< 0.5
   52   3                              {
-C51 COMPILER V9.01   XY_HAL_AD                                                             03/18/2021 08:37:09 PAGE 2   
+C51 COMPILER V9.01   XY_HAL_AD                                                             03/17/2021 13:19:58 PAGE 2   
 
   53   4                                      s_pri_tmp = temp;
   54   4                              }               

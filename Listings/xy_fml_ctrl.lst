@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 1   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_CTRL
@@ -62,7 +62,7 @@ line level    source
   48          
   49          /*********************************************************************************************************
              -**************
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 2   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 2   
 
   50          * Function Name: 
   51          * Description  : 
@@ -126,7 +126,7 @@ line level    source
  108   1              if(YES == CTRL_CHECK_ERROR_NUMB_6(motor[1], motor[3], state[0], state[1], state[2]))
  109   1              {
  110   2                      p_data->remote.keyctrl.keystate_fan_blow = OFF;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 3   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 3   
 
  111   2                      err.bits.b5 = 1;
  112   2              }
@@ -190,7 +190,7 @@ line level    source
  168   2                              else
  169   2                              {
  170   3                                      p_data->display.disp_icon_warm = SYM_WARM_OFF;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 4   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 4   
 
  171   3                              }       
  172   2                              p_data->display.disp_icon_absorb  = SYM_ABSORB_ON;
@@ -254,7 +254,7 @@ line level    source
  228   2                      {
  229   3                              p_data->remote.key.keysta = KEY_RAV;
  230   3                      }
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 5   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 5   
 
  231   2                      else if(p_data->remote.key.keyremote.bits.b6)
  232   2                      {
@@ -318,7 +318,7 @@ line level    source
  287   5                                                      memset(&p_data->touch, 0, sizeof(p_data->touch));
  288   5                                                      fml_ctrl_init_data(p_data);
  289   5                                                      p_data->keytype = REMOTE;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 6   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 6   
 
  290   5                                              }
  291   4                                      }
@@ -382,7 +382,7 @@ line level    source
  345   3                                      p_data->buzzer.normal_bee_on = ON;
  346   3                                      p_data->remote.workmode.workmode_current = WORKMODULE_STANDBY;
  347   3      
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 7   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 7   
 
  348   3                                      p_data->remote.workmode.flag_work_warmdry = NO;
  349   3                                      p_data->remote.workmode.flag_work_colddry = NO;
@@ -446,7 +446,7 @@ line level    source
  407   3                                      p_data->remote.key.keysta_pri = KEY_COLD_DRY;
  408   3                                      
  409   3                                      p_data->buzzer.normal_bee_on = ON;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 8   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 8   
 
  410   3                                      //p_data->remote.workmode.workmode_cur = WORKMODULE_BLOW;
  411   3      
@@ -510,7 +510,7 @@ line level    source
  469   2                      default:
  470   2                              break;
  471   2              }
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 9   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 9   
 
  472   1              p_data->remote.key.keysta = KEY_RELEASE;
  473   1      }
@@ -574,7 +574,7 @@ line level    source
  529   4                                      p_mode->workmode_current = WORKMODULE_ABSORB;
  530   4                              }
  531   3                      }               
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 10  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 10  
 
  532   2                      if(RESET == s_onetime)
  533   2                      {
@@ -638,7 +638,7 @@ line level    source
  589   3                                      p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_0S;
  590   3                              }
  591   2                              p_data->remote.keyctrl.keystate_ptc = OFF;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 11  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 11  
 
  592   2                              p_data->remote.workmode.flag_workdelay_1s = RESET;
  593   2                              p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_1S;
@@ -702,7 +702,7 @@ line level    source
  651   2              }
  652   1              if(p_data->remote.keyctrl.keystate_ptc_pri != p_data->remote.keyctrl.keystate_ptc)
  653   1              {
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 12  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 12  
 
  654   2                      if(ON == p_data->remote.keyctrl.keystate_ptc)
  655   2                      {
@@ -766,7 +766,7 @@ line level    source
  711   2                              break;  
  712   2                      case WORKMODULE_BLOW:
  713   2                      case WORKMODULE_WARM:
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 13  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 13  
 
  714   2                              if((p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S)
  715   2                                      || (ON == p_data->remote.keyctrl.keystate_open_swing))
@@ -830,7 +830,7 @@ line level    source
  773   5                                                      p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
  774   5                                              }
  775   4                                              p_data->motor.absorb_target_step = RESET_STEP_ZERO;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 14  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 14  
 
  776   4      
  777   4                                              if(YES == MOTOR_CHK_MOVE_TO_TARGET)
@@ -894,7 +894,7 @@ line level    source
  833   3                                      if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
  834   3                                      {
  835   4                                              p_data->remote.workmode.flag_workdelay_1s       = RESET;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 15  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 15  
 
  836   4                                              p_data->remote.keyctrl.keystate_move_target = OFF;
  837   4                                              p_data->remote.keyctrl.keystate_fan_blow        = OFF;
@@ -958,7 +958,7 @@ line level    source
  893   4                                              p_data->remote.keyctrl.keystate_open_swing = OFF;
  894   4                                      }
  895   3                              }
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 16  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 16  
 
  896   2                              break;
  897   2                      case WORKMODULE_ABSORB:
@@ -1022,7 +1022,7 @@ line level    source
  950          * Description  : 
  951          * Arguments    : None
  952          * Return Value : None
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 17  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 17  
 
  953          **********************************************************************************************************
              -*************/
@@ -1086,7 +1086,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA SIZE       =     22      46
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/18/2021 08:37:08 PAGE 18  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/17/2021 13:19:57 PAGE 18  
 
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----

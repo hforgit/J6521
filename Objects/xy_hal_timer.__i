@@ -1,1 +1,0 @@
-"03_HAL\xy_hal_timer.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\01_APL;.\02_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_hal_timer.lst) OBJECT(.\Objects\xy_hal_timer.obj)

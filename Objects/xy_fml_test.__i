@@ -1,1 +1,0 @@
-"02_FML\xy_fml_test.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\01_APL;.\02_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_fml_test.lst) OBJECT(.\Objects\xy_fml_test.obj)
