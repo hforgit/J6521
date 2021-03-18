@@ -8,22 +8,22 @@
 	_A_ ? (_A_ < TARGET_LOW_SWING ? YES : (_A_ > TARGET_HIGH_SWING ? YES : NO)) : NO)
 
 #define CTRL_CHECK_ERROR_NUMB_2(_A_, _B_, _C_, _D_, _E_)		(\
-	_B_ ? (_B_ != TARGET_STEP_ABSORB ? YES : NO) : NO)
-
-#define CTRL_CHECK_ERROR_NUMB_3(_A_, _B_, _C_, _D_, _E_)		(\
-	_A_ ? (_B_ ? YES : NO) : NO)
-
-#define CTRL_CHECK_ERROR_NUMB_4(_A_, _B_, _C_, _D_, _E_)		(\
 	_A_ ? NO : (_B_ ? NO : (_C_ == ON ? YES : NO)))
 
-#define CTRL_CHECK_ERROR_NUMB_5(_A_, _B_, _C_, _D_, _E_)		(\
+#define CTRL_CHECK_ERROR_NUMB_3(_A_, _B_, _C_, _D_, _E_)		(\
 	_C_ == ON ? (YES == MOTOR_CHK_BLOW_STEP(10) ? YES : NO) : NO)
 
-#define CTRL_CHECK_ERROR_NUMB_6(_A_, _B_, _C_, _D_, _E_)		(\
+/*
+#define CTRL_CHECK_ERROR_NUMB_4(_A_, _B_, _C_, _D_, _E_)		(\
 	_C_ == ON ? (YES == MOTOR_CHK_ABSORB_STEP(10) ? YES : NO) : NO)
+*/
 
-#define CTRL_CHECK_ERROR_NUMB_7(_A_, _B_, _C_, _D_, _E_)		(\
+#define CTRL_CHECK_ERROR_NUMB_5(_A_, _B_, _C_, _D_, _E_)		(\
+	_C_ == ON ? (_D_ == ON ? YES : NO) : NO)
+
+#define CTRL_CHECK_ERROR_NUMB_6(_A_, _B_, _C_, _D_, _E_)		(\
 	_C_ == OFF ? (_E_ == ON ? YES : NO) : NO)
+
 
 void fml_ctrl_init_reg(void);
 void fml_ctrl_init_data(datall* p_data);

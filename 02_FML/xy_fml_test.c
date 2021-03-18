@@ -186,6 +186,13 @@ void fml_test_port(void)
 	PTC_off();
 	#endif
 
+	/*2*/
+	#ifdef TEST_FUNC_NUMB_02
+	rav_on();
+	fml_test_delay();
+	rav_off();
+	#endif
+
 	/*4*/
 	#ifdef TEST_FUNC_NUMB_04
 	blow_fan_on();
@@ -237,34 +244,16 @@ void fml_test_motor(void)
 	fml_test_delay();
 	blow_motor_step1_off();
 	#endif
-	
-	/*10*/
-	#ifdef TEST_FUNC_NUMB_10
-	absorb_motor_step4_on();
-	fml_test_delay();
-	absorb_motor_step4_off();
-	#endif
-	
-	/*11*/
-	#ifdef TEST_FUNC_NUMB_11
-	absorb_motor_step3_on();
-	fml_test_delay();
-	absorb_motor_step3_off();
-	#endif
 
-	/*12*/
-	#ifdef TEST_FUNC_NUMB_12
-	absorb_motor_step2_on();
-	fml_test_delay();
-	absorb_motor_step2_off();
-	#endif
-
-	/*13*/
-	#ifdef TEST_FUNC_NUMB_13
-	absorb_motor_step1_on();
-	fml_test_delay();
-	absorb_motor_step1_off();
-	#endif
+//	/*14*/
+//	#ifdef TEST_FUNC_NUMB_14
+//	fml_test_delay();
+//	#endif
+//	
+//	/*15*/
+//	#ifdef TEST_FUNC_NUMB_15
+//	fml_test_delay();
+//	#endif
 }
 
 /***********************************************************************************************************************
@@ -318,18 +307,14 @@ void fml_test_init(void)
 {	
 	blow_fan_off();
 	light_off();
-	absorb_fan_off();
+	absorb_fan_off();	
+	rav_off();
 	PTC_off();
 
 	blow_motor_step1_off();
 	blow_motor_step2_off();
 	blow_motor_step3_off();
 	blow_motor_step4_off();
-	
-	absorb_motor_step1_off();
-	absorb_motor_step2_off();
-	absorb_motor_step3_off();
-	absorb_motor_step4_off();
 }
 
 /***********************************************************************************************************************

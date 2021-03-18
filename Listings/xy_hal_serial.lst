@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/17/2021 13:19:59 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/18/2021 14:17:25 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_SERIAL
@@ -62,7 +62,7 @@ line level    source
   48   3                                      s_p_uart->rec_uart0_ok = 1;
   49   3                                      memcpy(s_p_uart->rec_uart0_dat, s_uart_buffer, sizeof(s_p_uart->rec_uart0_dat));
   50   3                                      memset(s_uart_buffer, 0, sizeof(s_uart_buffer));
-C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/17/2021 13:19:59 PAGE 2   
+C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/18/2021 14:17:25 PAGE 2   
 
   51   3                              }
   52   2                              break;
@@ -103,102 +103,66 @@ line level    source
   85   3                                      if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_PRI & 0xFF))
   86   3                                      {
   87   4                                              /* finish match about head data */
-  88   4                                              s_p_uart->rec_protocol = OLD;
-  89   4                                              s_uart_numb = 2;
-  90   4                                              s_state = STEP2;
-  91   4                                      }
-  92   3                                      else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_PRI >> 8 & 0xFF))
-  93   3                                      {
-  94   4                                              /* wait for next legal command */
-  95   4                                              s_uart_numb = 1;
-  96   4                                      }
-  97   3                                      else if(s_uart_numb == 2)
-  98   3                                      {
-  99   4                                              s_uart_numb = 0;
- 100   4                                      }
- 101   3      //                              else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
- 102   3      //                              {
- 103   3      //                                      s_uart_buffer[0] = (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF)
- 104   3      //                                      s_uart_numb = 1;
- 105   3      //                              }
- 106   3                              }
- 107   2                              /* new version protocol about display */
- 108   2                              else if(s_uart_buffer[0] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
- 109   2                              {
- 110   3                                      if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_XY & 0xFF))
-C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/17/2021 13:19:59 PAGE 3   
+  88   4                                              s_uart_numb = 2;
+  89   4                                              s_state = STEP2;
+  90   4                                      }
+  91   3                                      else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_PRI >> 8 & 0xFF))
+  92   3                                      {
+  93   4                                              /* wait for next legal command */
+  94   4                                              s_uart_numb = 1;
+  95   4                                      }
+  96   3                                      else if(s_uart_numb == 2)
+  97   3                                      {
+  98   4                                              s_uart_numb = 0;
+  99   4                                      }
+ 100   3      //                              else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
+ 101   3      //                              {
+ 102   3      //                                      s_uart_buffer[0] = (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF)
+ 103   3      //                                      s_uart_numb = 1;
+ 104   3      //                              }
+ 105   3                              }
+ 106   2                              else
+ 107   2                              {
+ 108   3                                      s_uart_numb = 0;
+ 109   3                              }
+ 110   2                              break;
+C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/18/2021 14:17:25 PAGE 3   
 
- 111   3                                      {
- 112   4                                              /* finish match about head data */
- 113   4                                              s_p_uart->rec_protocol = NEW;
- 114   4                                              s_uart_numb = 2;
- 115   4                                              s_state = STEP2;
- 116   4                                      }
- 117   3                                      else if(s_uart_buffer[1] == (DISPLAY_DATA_HEAD_XY >> 8 & 0xFF))
- 118   3                                      {
- 119   4                                              /* wait for next legal command */
- 120   4                                              s_uart_numb = 1;
- 121   4                                      }
- 122   3                                      else
- 123   3                                      {
- 124   4                                              s_uart_numb = 0;
- 125   4                                      }
- 126   3                              }
- 127   2                              else
- 128   2                              {
- 129   3                                      s_uart_numb = 0;
- 130   3                              }
- 131   2                              break;
- 132   2                      case STEP2:
- 133   2                              if(OLD == s_p_uart->rec_protocol)
- 134   2                              {
- 135   3                                      data_length = 7;
- 136   3                                      s_state = STEP3;
- 137   3                              }
- 138   2                              else if(NEW  == s_p_uart->rec_protocol)
- 139   2                              {
- 140   3                                      data_length = s_uart_buffer[2] + 3;             ///< data + head(2) + len(1)
- 141   3                                      s_state = STEP3;
- 142   3                              }
- 143   2                              else
- 144   2                              {
- 145   3                                      s_state = STEP1;
- 146   3                                      s_uart_numb = 0;
- 147   3                              }
- 148   2                              break;
- 149   2                      case STEP3:
- 150   2                              if(s_uart_numb >= data_length)
- 151   2                              {
- 152   3                                      s_p_uart->rec_uart1_ok = 1;
- 153   3                                      memcpy(s_p_uart->rec_uart1_dat, s_uart_buffer, data_length);
- 154   3                                      memset(s_uart_buffer, 0, data_length);
- 155   3                                      s_state = STEP1;
- 156   3                                      s_uart_numb = 0;
- 157   3                              }
- 158   2                              break;
- 159   2                      default:
- 160   2                              break;
- 161   2              }
- 162   1      }
- 163          
- 164          /*********************************************************************************************************
+ 111   2                      case STEP2:
+ 112   2                              data_length = 7;
+ 113   2                              s_state = STEP3;
+ 114   2                              break;
+ 115   2                      case STEP3:
+ 116   2                              if(s_uart_numb >= data_length)
+ 117   2                              {
+ 118   3                                      s_p_uart->rec_uart1_ok = 1;
+ 119   3                                      memcpy(s_p_uart->rec_uart1_dat, s_uart_buffer, data_length);
+ 120   3                                      memset(s_uart_buffer, 0, data_length);
+ 121   3                                      s_state = STEP1;
+ 122   3                                      s_uart_numb = 0;
+ 123   3                              }
+ 124   2                              break;
+ 125   2                      default:
+ 126   2                              break;
+ 127   2              }
+ 128   1      }
+ 129          
+ 130          /*********************************************************************************************************
              -**************
- 165          * Function Name:
- 166          * Description  :
- 167          * Arguments    : None
- 168          * Return Value : None
- 169          **********************************************************************************************************
+ 131          * Function Name:
+ 132          * Description  :
+ 133          * Arguments    : None
+ 134          * Return Value : None
+ 135          **********************************************************************************************************
              -*************/
- 170          void hal_serial_uart_tx_display(unsigned char* buffer, unsigned int len)
-C51 COMPILER V9.01   XY_HAL_SERIAL                                                         03/17/2021 13:19:59 PAGE 4   
-
- 171          {
- 172   1              hal_irq_uart2_send(buffer, len);
- 173   1      }
+ 136          void hal_serial_uart_tx_display(unsigned char* buffer, unsigned int len)
+ 137          {
+ 138   1              hal_irq_uart2_send(buffer, len);
+ 139   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    498    ----
+   CODE SIZE        =    397    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =     21       6
    PDATA SIZE       =   ----    ----

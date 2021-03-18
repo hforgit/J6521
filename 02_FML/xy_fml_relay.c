@@ -44,14 +44,30 @@ void fml_relay_ptc(datall* p_data)
 ***********************************************************************************************************************/
 void fml_relay_fan_blow(datall* p_data)
 {
-	if((ON == p_data->remote.keyctrl.keystate_fan_blow)
-		|| (ON == p_data->remote.keyctrl.keystate_fan_absorb))
+	if(ON == p_data->remote.keyctrl.keystate_fan_blow)
 	{
 		blow_fan_on();
 	}
 	else
 	{
 		blow_fan_off();
+	}
+}
+/***********************************************************************************************************************
+* Function Name: 
+* Description  : 
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void fml_relay_fan_absorb(datall* p_data)
+{
+	if(ON == p_data->remote.keyctrl.keystate_fan_absorb)
+	{
+		rav_on();
+	}
+	else
+	{
+		rav_off();
 	}
 }
 
@@ -71,4 +87,5 @@ void fml_relay_ctrl(datall* p_data)
 	fml_relay_light(p_data);
 	fml_relay_ptc(p_data);
 	fml_relay_fan_blow(p_data);
+	fml_relay_fan_absorb(p_data);
 }

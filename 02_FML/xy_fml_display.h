@@ -86,7 +86,5 @@
 									 			   
 void fml_display_conf_symbol(datall* p_data);
 void fml_display_tx_data(datall* p_data);
-void fml_display_ack_remote(displaycontrol* p_data);
-keystate fml_display_deal_remote(unsigned char* p_buffer);
 
 #endif

@@ -14,7 +14,6 @@ void fml_motor_init_data(datall* p_data)
 	p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;
 	
 	p_data->motor.blow_motor_step		= MAX_RESET_STEP;			///< checkself max step
-	p_data->motor.absorb_motor_step = MAX_RESET_STEP;			///< checkself max step
 }
 
 /***********************************************************************************************************************
@@ -46,30 +45,12 @@ void fml_motor_reset_step(motorcontrol* p_motor)
 			s_onetime[0] = RESET;
 		}
 		p_motor->blow_target_step_real = p_motor->blow_target_step;
-			if(RESET_STEP_ZERO == p_motor->absorb_target_step)
-			{
-				if(RESET_STEP_ZERO == p_motor->absorb_motor_step)
-				{
-					if(RESET == s_onetime[1])
-					{
-						s_onetime[1] = SET;
-						p_motor->absorb_motor_step = COMPENSATE_STEP;
-					}
-				}
-			}
-			else
-			{
-				s_onetime[1] = RESET;
-			}
-			p_motor->absorb_target_step_real = p_motor->absorb_target_step;
 	}
 	else
 	{
 		/* only enter work one time about checkself. */
 		p_motor->blow_target_step_real = RESET_STEP_ZERO;
-			p_motor->absorb_target_step_real = RESET_STEP_ZERO;
-			if((RESET_STEP_ZERO == p_motor->blow_motor_step)
-				&& (RESET_STEP_ZERO == p_motor->absorb_motor_step))
+			if(RESET_STEP_ZERO == p_motor->blow_motor_step)
 			{
 				s_resetstep = STEP2;
 			}
@@ -99,7 +80,6 @@ void fml_motor_timer_ctrl(datall* p_data)
 	{
 		hal_timer_motor_blow(&p_data->motor);
 	}
-	hal_timer_motor_absorb(&p_data->motor);
 }
 
 /***********************************************************************************************************************
@@ -147,65 +127,12 @@ void fml_motor_blow_step(unsigned char n)
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void fml_motor_absorb_step(unsigned char n)
-{
-	switch(n)
-	{
-		case 0:
-			absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
-			break;
-		case 1:
-			absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
-			break;
-		case 2:
-			absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
-			break;
-		case 3:
-			absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
-			break;
-		case 4:
-			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
-			break;
-		case 5:
-			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
-			break;
-		case 6:
-			absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
-			break;
-		case 7:
-			absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
-			break;
-		default:
-			break;
-	}
-}
-
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
 void fml_motor_close_blow(void)
 {
 	blow_motor_step1_off();
 	blow_motor_step2_off();
 	blow_motor_step3_off();
 	blow_motor_step4_off();
-}
-
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
-void fml_motor_close_absorb(void)
-{
-	absorb_motor_step1_off();
-	absorb_motor_step2_off();
-	absorb_motor_step3_off();
-	absorb_motor_step4_off();
 }
 
 /***********************************************************************************************************************
@@ -243,35 +170,6 @@ void fml_motor_blow_move(motorcontrol* p_motor)
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void fml_motor_absorb_move(motorcontrol* p_motor)
-{
-	if(p_motor->absorb_motor_step_delay_flag)
-	{
-		p_motor->absorb_motor_step_delay_flag=0;
-		p_motor->absorb_motor_step_delay_count=0;
-		if(p_motor->absorb_motor_step < p_motor->absorb_target_step_real)
-		{
-			fml_motor_absorb_step(p_motor->absorb_motor_step%8);
-			p_motor->absorb_motor_step++;
-		}
-		else if(p_motor->absorb_motor_step > p_motor->absorb_target_step_real)
-		{
-			fml_motor_absorb_step(p_motor->absorb_motor_step%8);
-			p_motor->absorb_motor_step--;		
-		}
-		else
-		{
-			fml_motor_close_absorb();
-		}
-	}
-}
-
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
 void fml_motor_save_step(datall* p_data)
 {
 	if(((WORKMODULE_BLOW == p_data->remote.workmode.workmode_current)
@@ -298,6 +196,5 @@ void fml_motor_ctrl_move(datall* p_data)
 
 	fml_motor_reset_step(&p_data->motor);
 	fml_motor_blow_move(&p_data->motor);
-	fml_motor_absorb_move(&p_data->motor);
 	fml_motor_save_step(p_data);
 }

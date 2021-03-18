@@ -10,26 +10,17 @@
 #define  blow_motor_step4_on()			(P22 = 1)
 #define  blow_motor_step4_off()			(P22 = 0)
 
-#define  absorb_motor_step1_on()		(P01 = 1)		//24
-#define  absorb_motor_step1_off()		(P01 = 0)
-#define  absorb_motor_step2_on()		(P02 = 1)
-#define  absorb_motor_step2_off()		(P02 = 0)
-#define  absorb_motor_step3_on()		(P03 = 1)
-#define  absorb_motor_step3_off()		(P03 = 0)
-#define  absorb_motor_step4_on()		(P04 = 1)
-#define  absorb_motor_step4_off()		(P04 = 0)
-
 #define  MOTOR_CHK_BLOW_STEP(_X_)		( g_datall.motor.blow_target_step > g_datall.motor.blow_motor_step\
 										? (g_datall.motor.blow_target_step - g_datall.motor.blow_motor_step > _X_ ? YES : NO)\
 										: (g_datall.motor.blow_motor_step - g_datall.motor.blow_target_step > _X_ ? YES : NO))
 
-#define  MOTOR_CHK_MOVE_TO_TARGET		( g_datall.motor.blow_target_step != g_datall.motor.blow_motor_step 	  ? NO\
-										: g_datall.motor.absorb_target_step != g_datall.motor.absorb_motor_step ? NO\
-										: YES)
+#define  MOTOR_CHK_MOVE_TO_TARGET		( g_datall.motor.blow_target_step != g_datall.motor.blow_motor_step ? NO : YES)
 
-#define  MOTOR_CHK_ABSORB_STEP(_X_)		( g_datall.motor.absorb_target_step > g_datall.motor.absorb_motor_step\
-										? (g_datall.motor.absorb_target_step - g_datall.motor.absorb_motor_step > _X_ ? YES : NO)\
-										: (g_datall.motor.absorb_motor_step - g_datall.motor.absorb_target_step > _X_ ? YES : NO))
+/*
+#define  MOTOR_CHK_ABSORB_STEP(_X_)		( g_dataAll.motor.absorb_target_step > g_dataAll.motor.absorb_motor_step\
+										? (g_dataAll.motor.absorb_target_step - g_dataAll.motor.absorb_motor_step > _X_ ? YES : NO)\
+										: (g_dataAll.motor.absorb_motor_step - g_dataAll.motor.absorb_target_step > _X_ ? YES : NO))
+*/
 
 #define  MOTOR_CHK_STEP_IS_LEGAL(_X_)	( _X_ < TARGET_LOW_SWING  ? NO\
 										: _X_ > TARGET_HIGH_SWING ? NO\

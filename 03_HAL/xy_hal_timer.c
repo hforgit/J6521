@@ -75,23 +75,6 @@ void hal_timer_motor_blow(motorcontrol* p_motor)
 }
 
 /***********************************************************************************************************************
-* Function Name:
-* Description  : 1ms
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
-void hal_timer_motor_absorb(motorcontrol* p_motor)
-{
-	p_motor->absorb_motor_step_delay_count++;
-
-	if(p_motor->absorb_motor_step_delay_count>=4)
-	{
-		p_motor->absorb_motor_step_delay_count=4;
-		p_motor->absorb_motor_step_delay_flag=1;
-	}
-}
-
-/***********************************************************************************************************************
 * Function Name: 
 * Description  : 
 * Arguments    : None

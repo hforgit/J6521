@@ -19,8 +19,6 @@ typedef enum SwitchState
 	TOUCH,
 	WARM,
 	COLD,
-	OLD,
-	NEW,
 }switchstate;
 	
 typedef enum MotorStep
@@ -34,9 +32,7 @@ typedef enum MotorStep
 
 	RESET_STEP_ZERO 	= ANGLE_0_STEP,
 
-	TARGET_STEP_ABSORB 	= ANGLE_90_STEP,
-
-	TARGET_STEP_BLOW	= ANGLE_90_STEP,
+	TARGET_STEP_BLOW	= ANGLE_120_STEP,
 	
 	TARGET_LOW_SWING 	= ANGLE_60_STEP,
 	TARGET_HIGH_SWING	= ANGLE_120_STEP,
@@ -46,7 +42,6 @@ typedef enum MotorStep
 
 typedef	enum TempAlarm
 {
-//	ALARM_LOW_TEMP  = 0,
 	ALARM_HIGH_TEMP = 80,
 } tempalarm;
 
@@ -59,9 +54,9 @@ typedef enum TimerClock
 
 	#ifdef XY_SYS_DEBUG_MODE
 		CLOCK_WORKTIME_120MIN 	  = 7200,		//72,			
-		CLOCK_WARMDRY_WARM_10MIN  = 600,	//30,
-		CLOCK_COLDDRY_COLD_10MIN  = 600,	//30,
-		CLOCK_WARMDRY_ABSORB_5MIN = 300,	//15,
+		CLOCK_WARMDRY_WARM_10MIN  = 600,		//30,
+		CLOCK_COLDDRY_COLD_10MIN  = 600,		//30,
+		CLOCK_WARMDRY_ABSORB_5MIN = 300,		//15,
 	#else
 		CLOCK_WORKTIME_120MIN 	  = 7200,		//7200,
 		CLOCK_WARMDRY_WARM_10MIN  = 600,		//600,
@@ -109,12 +104,6 @@ typedef enum KeyState
 	KEY_WARM_DRY,
 } keystate;
 	
-typedef enum DispCommand
-{
-	DISPLAY_CMD_REMOTE = 0x10,
-	DISPLAY_CMD_TEMP   = 0x11,
-	DISPLAY_CMD_DIGITAL= 0x20,
-} dispcommand;
 typedef union DataCommon
 {
 	unsigned int dat;
@@ -140,7 +129,7 @@ typedef union DataCommon
 
 typedef struct timeBase	
 {
-    volatile unsigned char    isTrigInterrupt;
+    unsigned char    isTrigInterrupt;
 	unsigned char    timebase_125us;
     unsigned char    timebase_1ms;
     unsigned char    timebase_10ms;
@@ -170,12 +159,6 @@ typedef struct BuzzerControl
 
 typedef struct MotorControl
 {
-	unsigned char 	 absorb_motor_step_delay_count;
-	unsigned char 	 absorb_motor_step_delay_flag;
-	unsigned int 	 absorb_motor_step;
-	unsigned int 	 absorb_target_step;
-	unsigned int 	 absorb_target_step_real;
-
 	unsigned char 	 blow_motor_step_delay_flag;
 	unsigned char 	 blow_motor_step_delay_count;
 	unsigned int  	 blow_motor_step;
@@ -195,7 +178,6 @@ typedef struct DisplayContent
 
 typedef struct UartData
 {
-	switchstate		 rec_protocol;
 	unsigned char 	 rec_uart0_ok;
 	unsigned char 	 rec_uart0_dat[5];
 	unsigned char 	 rec_uart1_ok;	
@@ -260,16 +242,6 @@ typedef struct remoteData
 	normalctrol		 keyctrl;
 	workmoduleflag	 workmode;
 }remotedata;
-
-typedef struct displayControl
-{
-	unsigned char	length;
-	unsigned char 	version;
-	unsigned char 	sequence;
-	dispcommand 	command;
-	unsigned char* 	p_buffer;
-	unsigned char 	checkcode;
-} displaycontrol;
 
 typedef struct dataAll
 {

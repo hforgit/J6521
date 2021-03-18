@@ -40,8 +40,6 @@ void fml_ctrl_init_data(datall* p_data)
 	p_data->remote.workmode.flag_work_colddry	= NO;
 	p_data->remote.workmode.flag_work_warmdry	= NO;
 
-	p_data->uart.rec_protocol 					= RESET;
-
 	p_data->uart.send_data						= 0;
 	p_data->display.disp_icon_data 				= 0;
 }
@@ -59,9 +57,7 @@ void fml_ctrl_chk_error(datall* p_data)
 	switchstate  state[3] = {0};
 
 	motor[0] = p_data->motor.blow_target_step;
-	motor[1] = p_data->motor.absorb_target_step;
 	motor[2] = p_data->motor.blow_motor_step;
-	motor[3] = p_data->motor.absorb_motor_step;
 	state[0] = p_data->remote.keyctrl.keystate_fan_blow;
 	state[1] = p_data->remote.keyctrl.keystate_fan_absorb;
 	state[2] = p_data->remote.keyctrl.keystate_ptc;
@@ -75,25 +71,13 @@ void fml_ctrl_chk_error(datall* p_data)
 
 	if(YES == CTRL_CHECK_ERROR_NUMB_2(motor[0], motor[1], state[0], state[1], state[2]))
 	{
-		p_data->motor.absorb_target_step = RESET_STEP_ZERO;
+		p_data->remote.keyctrl.keystate_fan_blow = OFF;
 		err.bits.b1 = 1;
 	}
 
-	if(YES == CTRL_CHECK_ERROR_NUMB_3(motor[0], motor[1], state[0], state[1], state[2]))
+	if(YES == CTRL_CHECK_ERROR_NUMB_3(motor[0], motor[2], state[0], state[1], state[2]))
 	{
-		p_data->motor.absorb_target_step = RESET_STEP_ZERO;
-		err.bits.b2 = 1;
-	}
-
-	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[0], motor[1], state[0], state[1], state[2])) 
-	{
-		p_data->remote.keyctrl.keystate_fan_blow = OFF;
-		err.bits.b3 = 1;
-	}
-
-	if(YES == CTRL_CHECK_ERROR_NUMB_5(motor[0], motor[2], state[0], state[1], state[2]))
-	{
-		if(p_data->motor.blow_motor_step && (NO == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))		//?
+		if(p_data->motor.blow_motor_step && (ON == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))
 		{
 			p_data->remote.keyctrl.keystate_open_swing = OFF;
 		}
@@ -101,20 +85,26 @@ void fml_ctrl_chk_error(datall* p_data)
 		if(OFF == p_data->remote.keyctrl.keystate_open_swing)
 		{
 			p_data->remote.keyctrl.keystate_fan_blow = OFF;
-			err.bits.b4 = 1;
+			err.bits.b2 = 1;	
 		}
 	}
-
-	if(YES == CTRL_CHECK_ERROR_NUMB_6(motor[1], motor[3], state[0], state[1], state[2]))
+	
+//	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[1], motor[3], state[0], state[1], state[2]))
+//	{
+//		p_data->remote.keyCtrl.keyState_fan_blow = OFF;
+//		err.bits.b3 = 1;
+//	}
+	
+	if(YES == CTRL_CHECK_ERROR_NUMB_5(motor[0], motor[1], state[0], state[1], state[2]))
 	{
-		p_data->remote.keyctrl.keystate_fan_blow = OFF;
-		err.bits.b5 = 1;
+		p_data->remote.keyctrl.keystate_fan_absorb = OFF;
+		err.bits.b4 = 1;
 	}
 
-	if(YES == CTRL_CHECK_ERROR_NUMB_7(motor[0], motor[1], state[0], state[1], state[2]))
+	if(YES == CTRL_CHECK_ERROR_NUMB_6(motor[0], motor[1], state[0], state[1], state[2]))
 	{
 		p_data->remote.keyctrl.keystate_ptc = OFF;
-		err.bits.b6 = 1;
+		err.bits.b5 = 1;
 	}
 
 	p_data->error.dat = err.dat;	
@@ -261,69 +251,12 @@ void fml_ctrl_recv_old_version(datall* p_data)
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
-void fml_ctrl_recv_new_version(datall* p_data)
-{
-	static displaycontrol	s_dispbuffer;
-	
-	s_dispbuffer.length    = p_data->uart.rec_uart1_dat[2];
-	s_dispbuffer.version   = p_data->uart.rec_uart1_dat[3];
-	s_dispbuffer.sequence  = p_data->uart.rec_uart1_dat[4];
-	s_dispbuffer.command   = (dispcommand)p_data->uart.rec_uart1_dat[5];
-	s_dispbuffer.p_buffer  = &p_data->uart.rec_uart1_dat[6];
-	s_dispbuffer.checkcode = p_data->uart.rec_uart1_dat[s_dispbuffer.length + 2];
-
-	/* match check code about CRC-8 */
-	if(hal_alg_chk_crc8(p_data->uart.rec_uart1_dat,s_dispbuffer.length + 2) == s_dispbuffer.checkcode)			///< check data
-	{
-		switch(s_dispbuffer.command)
-		{
-			case DISPLAY_CMD_REMOTE:
-				fml_display_ack_remote(&s_dispbuffer);
-				p_data->remote.key.keysta = fml_display_deal_remote(s_dispbuffer.p_buffer);
-				if(KEY_RELEASE != p_data->remote.key.keysta)
-				{
-					if(TOUCH == p_data->keytype)
-					{
-						memset(&p_data->touch, 0, sizeof(p_data->touch));
-						fml_ctrl_init_data(p_data);
-						p_data->keytype = REMOTE;
-					}
-				}
-				break;
-			case DISPLAY_CMD_TEMP:
-				p_data->temperature.value = hal_ad_cal_temperature(s_dispbuffer.p_buffer);
-				break;
-			case DISPLAY_CMD_DIGITAL:
-				break;
-			default:
-				break;
-		}
-	}	
-	memset(p_data->uart.rec_uart1_dat, 0, s_dispbuffer.length + 3);
-}
-
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
 void fml_ctrl_recv_display(datall* p_data)
 {
 	if(p_data->uart.rec_uart1_ok)
 	{
 		p_data->uart.rec_uart1_ok = 0;
-		switch(p_data->uart.rec_protocol)
-		{
-			case OLD:
-				fml_ctrl_recv_old_version(p_data);			///< old version(only use remote key)
-				break;
-			case NEW:
-				fml_ctrl_recv_new_version(p_data);			///< new vesion protocol
-				break;
-			default:
-				break;
-		}
+		fml_ctrl_recv_old_version(p_data);			///< old version(only use remote key)
 	}
 }
 
@@ -697,7 +630,6 @@ void fml_ctrl_deal_motor(datall* p_data)
 			if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
 			{
 				p_data->motor.blow_target_step 	 = RESET_STEP_ZERO;
-				p_data->motor.absorb_target_step = RESET_STEP_ZERO;
 
 				p_data->remote.keyctrl.keystate_enter_swing = RESET;
 			}
@@ -772,7 +704,6 @@ void fml_ctrl_deal_motor(datall* p_data)
 					{
 						p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
 					}
-					p_data->motor.absorb_target_step = RESET_STEP_ZERO;
 
 					if(YES == MOTOR_CHK_MOVE_TO_TARGET)
 					{
@@ -785,7 +716,6 @@ void fml_ctrl_deal_motor(datall* p_data)
 			if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
 			{
 				p_data->motor.blow_target_step 	 = RESET_STEP_ZERO;
-				p_data->motor.absorb_target_step = TARGET_STEP_ABSORB;
 
 				p_data->remote.keyctrl.keystate_enter_swing = RESET;
 			}
