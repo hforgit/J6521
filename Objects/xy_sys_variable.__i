@@ -1,0 +1,1 @@
+"04_SYS\xy_sys_variable.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\01_APL;.\02_FML;.\03_HAL;.\04_SYS) DEBUG PRINT(.\Listings\xy_sys_variable.lst) OBJECT(.\Objects\xy_sys_variable.obj)

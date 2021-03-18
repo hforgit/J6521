@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 1   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_MOTOR
@@ -62,7 +62,7 @@ line level    source
   48   2                      p_motor->blow_target_step_real = p_motor->blow_target_step;
   49   2                              if(RESET_STEP_ZERO == p_motor->absorb_target_step)
   50   2                              {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 2   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 2   
 
   51   3                                      if(RESET_STEP_ZERO == p_motor->absorb_motor_step)
   52   3                                      {
@@ -126,228 +126,230 @@ line level    source
  107          * Description  : 
  108          * Arguments    : None
  109          * Return Value : None
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 3   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 3   
 
  110          **********************************************************************************************************
              -*************/
  111          void fml_motor_blow_step(unsigned char n)
  112          {
- 113   1              switch(n)
- 114   1              {
- 115   2                      case 0:
- 116   2                              blow_motor_step1_on();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_off();
- 117   2                              break;
- 118   2                      case 1:
- 119   2                              blow_motor_step1_on();blow_motor_step2_on();blow_motor_step3_off();blow_motor_step4_off();
- 120   2                              break;
- 121   2                      case 2:
- 122   2                              blow_motor_step1_off();blow_motor_step2_on();blow_motor_step3_off();blow_motor_step4_off();
- 123   2                              break;
- 124   2                      case 3:
- 125   2                              blow_motor_step1_off();blow_motor_step2_on();blow_motor_step3_on();blow_motor_step4_off();
- 126   2                              break;  
- 127   2                      case 4:
- 128   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_on();blow_motor_step4_off();
- 129   2                              break;
- 130   2                      case 5:
- 131   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_on();blow_motor_step4_on();
- 132   2                              break;
- 133   2                      case 6:
- 134   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_on();
- 135   2                              break;
- 136   2                      case 7:
- 137   2                              blow_motor_step1_on();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_on();
- 138   2                              break;          
- 139   2                      default:
- 140   2                              break;
- 141   2              }
- 142   1      }
- 143          
- 144          /*********************************************************************************************************
+ 113   1              n = 7 - n;
+ 114   1              
+ 115   1              switch(n)
+ 116   1              {
+ 117   2                      case 0:
+ 118   2                              blow_motor_step1_on();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_off();
+ 119   2                              break;
+ 120   2                      case 1:
+ 121   2                              blow_motor_step1_on();blow_motor_step2_on();blow_motor_step3_off();blow_motor_step4_off();
+ 122   2                              break;
+ 123   2                      case 2:
+ 124   2                              blow_motor_step1_off();blow_motor_step2_on();blow_motor_step3_off();blow_motor_step4_off();
+ 125   2                              break;
+ 126   2                      case 3:
+ 127   2                              blow_motor_step1_off();blow_motor_step2_on();blow_motor_step3_on();blow_motor_step4_off();
+ 128   2                              break;  
+ 129   2                      case 4:
+ 130   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_on();blow_motor_step4_off();
+ 131   2                              break;
+ 132   2                      case 5:
+ 133   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_on();blow_motor_step4_on();
+ 134   2                              break;
+ 135   2                      case 6:
+ 136   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_on();
+ 137   2                              break;
+ 138   2                      case 7:
+ 139   2                              blow_motor_step1_on();blow_motor_step2_off();blow_motor_step3_off();blow_motor_step4_on();
+ 140   2                              break;          
+ 141   2                      default:
+ 142   2                              break;
+ 143   2              }
+ 144   1      }
+ 145          
+ 146          /*********************************************************************************************************
              -**************
- 145          * Function Name: 
- 146          * Description  : 
- 147          * Arguments    : None
- 148          * Return Value : None
- 149          **********************************************************************************************************
+ 147          * Function Name: 
+ 148          * Description  : 
+ 149          * Arguments    : None
+ 150          * Return Value : None
+ 151          **********************************************************************************************************
              -*************/
- 150          void fml_motor_absorb_step(unsigned char n)
- 151          {
- 152   1              switch(n)
- 153   1              {
- 154   2                      case 0:
- 155   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
- 156   2                              break;
- 157   2                      case 1:
- 158   2                              absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
- 159   2                              break;
- 160   2                      case 2:
- 161   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
- 162   2                              break;
- 163   2                      case 3:
- 164   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
- 165   2                              break;
- 166   2                      case 4:
- 167   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
- 168   2                              break;
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 4   
+ 152          void fml_motor_absorb_step(unsigned char n)
+ 153          {
+ 154   1              switch(n)
+ 155   1              {
+ 156   2                      case 0:
+ 157   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_off();
+ 158   2                              break;
+ 159   2                      case 1:
+ 160   2                              absorb_motor_step1_on();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+ 161   2                              break;
+ 162   2                      case 2:
+ 163   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_off();absorb_motor_step4_off();
+ 164   2                              break;
+ 165   2                      case 3:
+ 166   2                              absorb_motor_step1_off();absorb_motor_step2_on();absorb_motor_step3_on();absorb_motor_step4_off();
+ 167   2                              break;
+ 168   2                      case 4:
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 4   
 
- 169   2                      case 5:
- 170   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
- 171   2                              break;
- 172   2                      case 6:
- 173   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
- 174   2                              break;
- 175   2                      case 7:
- 176   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
- 177   2                              break;
- 178   2                      default:
+ 169   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_off();
+ 170   2                              break;
+ 171   2                      case 5:
+ 172   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_on();absorb_motor_step4_on();
+ 173   2                              break;
+ 174   2                      case 6:
+ 175   2                              absorb_motor_step1_off();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
+ 176   2                              break;
+ 177   2                      case 7:
+ 178   2                              absorb_motor_step1_on();absorb_motor_step2_off();absorb_motor_step3_off();absorb_motor_step4_on();
  179   2                              break;
- 180   2              }
- 181   1      }
- 182          
- 183          /*********************************************************************************************************
+ 180   2                      default:
+ 181   2                              break;
+ 182   2              }
+ 183   1      }
+ 184          
+ 185          /*********************************************************************************************************
              -**************
- 184          * Function Name: 
- 185          * Description  : 
- 186          * Arguments    : None
- 187          * Return Value : None
- 188          **********************************************************************************************************
+ 186          * Function Name: 
+ 187          * Description  : 
+ 188          * Arguments    : None
+ 189          * Return Value : None
+ 190          **********************************************************************************************************
              -*************/
- 189          void fml_motor_close_blow(void)
- 190          {
- 191   1              blow_motor_step1_off();
- 192   1              blow_motor_step2_off();
- 193   1              blow_motor_step3_off();
- 194   1              blow_motor_step4_off();
- 195   1      }
- 196          
- 197          /*********************************************************************************************************
+ 191          void fml_motor_close_blow(void)
+ 192          {
+ 193   1              blow_motor_step1_off();
+ 194   1              blow_motor_step2_off();
+ 195   1              blow_motor_step3_off();
+ 196   1              blow_motor_step4_off();
+ 197   1      }
+ 198          
+ 199          /*********************************************************************************************************
              -**************
- 198          * Function Name: 
- 199          * Description  : 
- 200          * Arguments    : None
- 201          * Return Value : None
- 202          **********************************************************************************************************
+ 200          * Function Name: 
+ 201          * Description  : 
+ 202          * Arguments    : None
+ 203          * Return Value : None
+ 204          **********************************************************************************************************
              -*************/
- 203          void fml_motor_close_absorb(void)
- 204          {
- 205   1              absorb_motor_step1_off();
- 206   1              absorb_motor_step2_off();
- 207   1              absorb_motor_step3_off();
- 208   1              absorb_motor_step4_off();
- 209   1      }
- 210          
- 211          /*********************************************************************************************************
+ 205          void fml_motor_close_absorb(void)
+ 206          {
+ 207   1              absorb_motor_step1_off();
+ 208   1              absorb_motor_step2_off();
+ 209   1              absorb_motor_step3_off();
+ 210   1              absorb_motor_step4_off();
+ 211   1      }
+ 212          
+ 213          /*********************************************************************************************************
              -**************
- 212          * Function Name: 
- 213          * Description  : 
- 214          * Arguments    : None
- 215          * Return Value : None
- 216          **********************************************************************************************************
+ 214          * Function Name: 
+ 215          * Description  : 
+ 216          * Arguments    : None
+ 217          * Return Value : None
+ 218          **********************************************************************************************************
              -*************/
- 217          void fml_motor_blow_move(motorcontrol* p_motor)
- 218          {
- 219   1              if(p_motor->blow_motor_step_delay_flag)
- 220   1              {
- 221   2                      p_motor->blow_motor_step_delay_flag=0;
- 222   2                      p_motor->blow_motor_step_delay_count=0;
- 223   2                      if(p_motor->blow_motor_step < p_motor->blow_target_step_real)
- 224   2                      {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 5   
+ 219          void fml_motor_blow_move(motorcontrol* p_motor)
+ 220          {
+ 221   1              if(p_motor->blow_motor_step_delay_flag)
+ 222   1              {
+ 223   2                      p_motor->blow_motor_step_delay_flag=0;
+ 224   2                      p_motor->blow_motor_step_delay_count=0;
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 5   
 
- 225   3                              fml_motor_blow_step(p_motor->blow_motor_step%8);
- 226   3                              p_motor->blow_motor_step++;
- 227   3                      }
- 228   2                      else if(p_motor->blow_motor_step > p_motor->blow_target_step_real)
- 229   2                      {
- 230   3                              fml_motor_blow_step(p_motor->blow_motor_step%8);
- 231   3                              p_motor->blow_motor_step--;
- 232   3                      }
- 233   2                      else
- 234   2                      {
- 235   3                              fml_motor_close_blow();
- 236   3                      }
- 237   2              }
- 238   1      }
- 239          
- 240          /*********************************************************************************************************
+ 225   2                      if(p_motor->blow_motor_step < p_motor->blow_target_step_real)
+ 226   2                      {
+ 227   3                              fml_motor_blow_step(p_motor->blow_motor_step%8);
+ 228   3                              p_motor->blow_motor_step++;
+ 229   3                      }
+ 230   2                      else if(p_motor->blow_motor_step > p_motor->blow_target_step_real)
+ 231   2                      {
+ 232   3                              fml_motor_blow_step(p_motor->blow_motor_step%8);
+ 233   3                              p_motor->blow_motor_step--;
+ 234   3                      }
+ 235   2                      else
+ 236   2                      {
+ 237   3                              fml_motor_close_blow();
+ 238   3                      }
+ 239   2              }
+ 240   1      }
+ 241          
+ 242          /*********************************************************************************************************
              -**************
- 241          * Function Name: 
- 242          * Description  : 
- 243          * Arguments    : None
- 244          * Return Value : None
- 245          **********************************************************************************************************
+ 243          * Function Name: 
+ 244          * Description  : 
+ 245          * Arguments    : None
+ 246          * Return Value : None
+ 247          **********************************************************************************************************
              -*************/
- 246          void fml_motor_absorb_move(motorcontrol* p_motor)
- 247          {
- 248   1              if(p_motor->absorb_motor_step_delay_flag)
- 249   1              {
- 250   2                      p_motor->absorb_motor_step_delay_flag=0;
- 251   2                      p_motor->absorb_motor_step_delay_count=0;
- 252   2                      if(p_motor->absorb_motor_step < p_motor->absorb_target_step_real)
- 253   2                      {
- 254   3                              fml_motor_absorb_step(p_motor->absorb_motor_step%8);
- 255   3                              p_motor->absorb_motor_step++;
- 256   3                      }
- 257   2                      else if(p_motor->absorb_motor_step > p_motor->absorb_target_step_real)
- 258   2                      {
- 259   3                              fml_motor_absorb_step(p_motor->absorb_motor_step%8);
- 260   3                              p_motor->absorb_motor_step--;           
- 261   3                      }
- 262   2                      else
- 263   2                      {
- 264   3                              fml_motor_close_absorb();
- 265   3                      }
- 266   2              }
- 267   1      }
- 268          
- 269          /*********************************************************************************************************
+ 248          void fml_motor_absorb_move(motorcontrol* p_motor)
+ 249          {
+ 250   1              if(p_motor->absorb_motor_step_delay_flag)
+ 251   1              {
+ 252   2                      p_motor->absorb_motor_step_delay_flag=0;
+ 253   2                      p_motor->absorb_motor_step_delay_count=0;
+ 254   2                      if(p_motor->absorb_motor_step < p_motor->absorb_target_step_real)
+ 255   2                      {
+ 256   3                              fml_motor_absorb_step(p_motor->absorb_motor_step%8);
+ 257   3                              p_motor->absorb_motor_step++;
+ 258   3                      }
+ 259   2                      else if(p_motor->absorb_motor_step > p_motor->absorb_target_step_real)
+ 260   2                      {
+ 261   3                              fml_motor_absorb_step(p_motor->absorb_motor_step%8);
+ 262   3                              p_motor->absorb_motor_step--;           
+ 263   3                      }
+ 264   2                      else
+ 265   2                      {
+ 266   3                              fml_motor_close_absorb();
+ 267   3                      }
+ 268   2              }
+ 269   1      }
+ 270          
+ 271          /*********************************************************************************************************
              -**************
- 270          * Function Name: 
- 271          * Description  : 
- 272          * Arguments    : None
- 273          * Return Value : None
- 274          **********************************************************************************************************
+ 272          * Function Name: 
+ 273          * Description  : 
+ 274          * Arguments    : None
+ 275          * Return Value : None
+ 276          **********************************************************************************************************
              -*************/
- 275          void fml_motor_save_step(datall* p_data)
- 276          {
- 277   1              if(((WORKMODULE_BLOW == p_data->remote.workmode.workmode_current)
- 278   1                      || (WORKMODULE_WARM == p_data->remote.workmode.workmode_current)))
- 279   1              {
- 280   2                      if((ON == p_data->remote.keyctrl.keystate_fan_blow) && (p_data->motor.blow_motor_step > TARGET_LOW_SWING
+ 277          void fml_motor_save_step(datall* p_data)
+ 278          {
+ 279   1              if(((WORKMODULE_BLOW == p_data->remote.workmode.workmode_current)
+ 280   1                      || (WORKMODULE_WARM == p_data->remote.workmode.workmode_current)))
+ 281   1              {
+ 282   2                      if((ON == p_data->remote.keyctrl.keystate_fan_blow) && (p_data->motor.blow_motor_step > TARGET_LOW_SWING
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/18/2021 08:37:08 PAGE 6   
+
              -))
- 281   2                      {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/17/2021 13:19:57 PAGE 6   
-
- 282   3                              p_data->motor.blow_motor_step_pri = p_data->motor.blow_motor_step;
- 283   3                      }
- 284   2              }
- 285   1      }
- 286          /*********************************************************************************************************
+ 283   2                      {
+ 284   3                              p_data->motor.blow_motor_step_pri = p_data->motor.blow_motor_step;
+ 285   3                      }
+ 286   2              }
+ 287   1      }
+ 288          /*********************************************************************************************************
              -**************
- 287          * Function Name: 
- 288          * Description  : 
- 289          * Arguments    : None
- 290          * Return Value : None
- 291          **********************************************************************************************************
+ 289          * Function Name: 
+ 290          * Description  : 
+ 291          * Arguments    : None
+ 292          * Return Value : None
+ 293          **********************************************************************************************************
              -*************/
- 292          void fml_motor_ctrl_move(datall* p_data)
- 293          {
- 294   1              #ifdef XY_SYS_TEST_MODE
- 295   1                      if(YES == p_data->testmode)
- 296   1                              return;
- 297   1              #endif
- 298   1      
- 299   1              fml_motor_reset_step(&p_data->motor);
- 300   1              fml_motor_blow_move(&p_data->motor);
- 301   1              fml_motor_absorb_move(&p_data->motor);
- 302   1              fml_motor_save_step(p_data);
- 303   1      }
+ 294          void fml_motor_ctrl_move(datall* p_data)
+ 295          {
+ 296   1              #ifdef XY_SYS_TEST_MODE
+ 297   1                      if(YES == p_data->testmode)
+ 298   1                              return;
+ 299   1              #endif
+ 300   1      
+ 301   1              fml_motor_reset_step(&p_data->motor);
+ 302   1              fml_motor_blow_move(&p_data->motor);
+ 303   1              fml_motor_absorb_move(&p_data->motor);
+ 304   1              fml_motor_save_step(p_data);
+ 305   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    867    ----
+   CODE SIZE        =    871    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =      4       9
    PDATA SIZE       =   ----    ----

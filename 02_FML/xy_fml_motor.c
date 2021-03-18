@@ -110,6 +110,8 @@ void fml_motor_timer_ctrl(datall* p_data)
 ***********************************************************************************************************************/
 void fml_motor_blow_step(unsigned char n)
 {
+	n = 7 - n;
+	
 	switch(n)
 	{
 		case 0:
