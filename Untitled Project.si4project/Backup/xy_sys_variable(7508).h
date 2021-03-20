@@ -12,8 +12,6 @@ typedef enum SwitchState
 	OFF,
 	YES,
 	NO,
-	DRY,
-	WET,
 	STEP1,
 	STEP2,
 	STEP3,
@@ -28,15 +26,10 @@ typedef enum MotorStep
 	ANGLE_0_STEP 		= 0,
 	ANGLE_3_STEP 		= 36,
 	ANGLE_60_STEP 		= 683,
-	ANGLE_90_STEP		= 1024,
 	ANGLE_120_STEP 		= 1365,
 	ANGLE_133_STEP		= 1500,
 
 	RESET_STEP_ZERO 	= ANGLE_0_STEP,
-	
-	TARGET_STEP_SWITCH	= ANGLE_90_STEP,
-	
-	TARGET_STEP_ABSORB	= ANGLE_90_STEP,
 
 	TARGET_STEP_BLOW	= ANGLE_120_STEP,
 	
@@ -83,7 +76,6 @@ typedef enum DisplaySymbol
 	SYM_ABSORB_OFF,
 	SYM_WARM_ON,
 	SYM_WARM_OFF,
-	SYM_WARM_TWINKLE_DRY_WET,
 	SYM_WARM_TWINKLE_STANDBY,
 	SYM_WARM_TWINKLE_ABSORB,
 } displaysymbol;
@@ -109,7 +101,7 @@ typedef enum KeyState
 	KEY_COLD_DRY,
 	KEY_STANDBY,
 	KEY_WARM_DRY,
-	KEY_DRY_WET,
+//	KEY_DRY_WET,
 } keystate;
 	
 typedef union DataCommon
@@ -167,11 +159,6 @@ typedef struct BuzzerControl
 
 typedef struct MotorControl
 {
-	unsigned char	 switch_motor_step_delay_count;
-	unsigned char	 switch_motor_step_delay_flag;
-	unsigned int	 switch_motor_step;
-	unsigned int	 switch_target_step;
-	unsigned int	 switch_target_step_real;
 	
 	unsigned char 	 blow_motor_step_delay_flag;
 	unsigned char 	 blow_motor_step_delay_count;
@@ -226,8 +213,6 @@ typedef struct keyInput
 typedef struct normalCtrol
 {
 	switchstate		 keystate_light;
-	switchstate		 keystate_dry_wet;
-	switchstate		 keystate_dry_wet_pri;
 	switchstate		 keystate_ptc;	
 	switchstate		 keystate_ptc_pri;
 	switchstate		 keystate_ptc_wait;

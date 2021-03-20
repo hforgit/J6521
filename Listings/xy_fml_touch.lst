@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 09:06:26 PAGE 1   
+C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 13:50:48 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_TOUCH
@@ -62,7 +62,7 @@ line level    source
   48   3                      }
   49   2              }
   50   1      }
-C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 09:06:26 PAGE 2   
+C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 13:50:48 PAGE 2   
 
   51          
   52          /*********************************************************************************************************
@@ -126,7 +126,7 @@ line level    source
  106   2              }
  107   1              else
  108   1              {
-C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 09:06:26 PAGE 3   
+C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 13:50:48 PAGE 3   
 
  109   2                      p_ctrl->keystate_ptc = OFF;
  110   2              }
@@ -171,80 +171,93 @@ line level    source
  147   2                      p_motor->blow_target_step = RESET_STEP_ZERO;
  148   2                      //p_motor->blow_target_step_pri = RESET_STEP_ZERO;
  149   2              }
- 150   1      }
- 151          
- 152          /*********************************************************************************************************
+ 150   1              if(TOUCH_RELAY_MOTOR_ABSORB)
+ 151   1              {
+ 152   2                      if(RESET_STEP_ZERO == p_motor->switch_target_step)
+ 153   2                      {
+ 154   3                              p_motor->switch_target_step = TARGET_STEP_SWITCH;
+ 155   3                      }
+ 156   2              }
+ 157   1              else
+ 158   1              {
+ 159   2                      p_motor->switch_target_step = RESET_STEP_ZERO;
+ 160   2              }
+ 161   1      }
+ 162          
+ 163          /*********************************************************************************************************
              -**************
- 153          * Function Name: 
- 154          * Description  : 
- 155          * Arguments    : None
- 156          * Return Value : None
- 157          **********************************************************************************************************
-             -*************/
- 158          void fml_touch_deal_swing(datall* p_data)
- 159          {
- 160   1              if(TOUCH_RELAY_SWING_BLOW)
- 161   1              {
- 162   2                      p_data->remote.keyctrl.keystate_open_swing = ON;        
- 163   2                      if(TARGET_LOW_SWING == p_data->motor.blow_motor_step)
- 164   2                      {
- 165   3                              p_data->motor.blow_target_step = TARGET_HIGH_SWING;
- 166   3                              p_data->motor.blow_target_step_pri = p_data->motor.blow_target_step;
-C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 09:06:26 PAGE 4   
+ 164          * Function Name: 
+ 165          * Description  : 
+ 166          * Arguments    : None
+ 167          * Return Value : None
+C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 13:50:48 PAGE 4   
 
- 167   3                      }
- 168   2                      else if(TARGET_HIGH_SWING == p_data->motor.blow_motor_step)
- 169   2                      {
- 170   3                              p_data->motor.blow_target_step = TARGET_LOW_SWING;
- 171   3                              p_data->motor.blow_target_step_pri = p_data->motor.blow_target_step;
- 172   3                      }
- 173   2                      else
- 174   2                      {
- 175   3                              if(p_data->motor.blow_target_step == p_data->motor.blow_motor_step)
- 176   3                              {
- 177   4                                      p_data->motor.blow_target_step = p_data->motor.blow_target_step_pri;
- 178   4                              }
- 179   3                      }
- 180   2              }
- 181   1              else
- 182   1              {
- 183   2                      if(ON == p_data->remote.keyctrl.keystate_open_swing)
- 184   2                      {
- 185   3                              p_data->motor.blow_target_step = p_data->motor.blow_motor_step;
- 186   3                      }
- 187   2                      p_data->remote.keyctrl.keystate_open_swing = OFF;
- 188   2              }
- 189   1      }
- 190          
- 191          /*********************************************************************************************************
+ 168          **********************************************************************************************************
+             -*************/
+ 169          void fml_touch_deal_swing(datall* p_data)
+ 170          {
+ 171   1              if(TOUCH_RELAY_SWING_BLOW)
+ 172   1              {
+ 173   2                      p_data->remote.keyctrl.keystate_open_swing = ON;        
+ 174   2                      if(TARGET_LOW_SWING == p_data->motor.blow_motor_step)
+ 175   2                      {
+ 176   3                              p_data->motor.blow_target_step = TARGET_HIGH_SWING;
+ 177   3                              p_data->motor.blow_target_step_pri = p_data->motor.blow_target_step;
+ 178   3                      }
+ 179   2                      else if(TARGET_HIGH_SWING == p_data->motor.blow_motor_step)
+ 180   2                      {
+ 181   3                              p_data->motor.blow_target_step = TARGET_LOW_SWING;
+ 182   3                              p_data->motor.blow_target_step_pri = p_data->motor.blow_target_step;
+ 183   3                      }
+ 184   2                      else
+ 185   2                      {
+ 186   3                              if(p_data->motor.blow_target_step == p_data->motor.blow_motor_step)
+ 187   3                              {
+ 188   4                                      p_data->motor.blow_target_step = p_data->motor.blow_target_step_pri;
+ 189   4                              }
+ 190   3                      }
+ 191   2              }
+ 192   1              else
+ 193   1              {
+ 194   2                      if(ON == p_data->remote.keyctrl.keystate_open_swing)
+ 195   2                      {
+ 196   3                              p_data->motor.blow_target_step = p_data->motor.blow_motor_step;
+ 197   3                      }
+ 198   2                      p_data->remote.keyctrl.keystate_open_swing = OFF;
+ 199   2              }
+ 200   1      }
+ 201          
+ 202          /*********************************************************************************************************
              -**************
- 192          * Function Name: 
- 193          * Description  : 
- 194          * Arguments    : None
- 195          * Return Value : None
- 196          **********************************************************************************************************
+ 203          * Function Name: 
+ 204          * Description  : 
+ 205          * Arguments    : None
+ 206          * Return Value : None
+ 207          **********************************************************************************************************
              -*************/
- 197          void fml_touch_ctrl_logic(datall* p_data)
- 198          {
- 199   1              #ifdef XY_SYS_TEST_MODE
- 200   1                      if(YES == p_data->testmode)
- 201   1                              return;
- 202   1              #endif
- 203   1      
- 204   1              fml_touch_recv_data(p_data);    
- 205   1              if(TOUCH != p_data->keytype)
- 206   1                      return;
- 207   1              
- 208   1              fml_touch_deal_disp(&p_data->display);
- 209   1              fml_touch_deal_relay(&p_data->remote.keyctrl);
- 210   1              fml_touch_deal_motor(&p_data->motor);
- 211   1              fml_touch_deal_swing(p_data);
- 212   1      }
- 213          
+ 208          void fml_touch_ctrl_logic(datall* p_data)
+ 209          {
+ 210   1              #ifdef XY_SYS_TEST_MODE
+ 211   1                      if(YES == p_data->testmode)
+ 212   1                              return;
+ 213   1              #endif
+ 214   1      
+ 215   1              fml_touch_recv_data(p_data);    
+ 216   1              if(TOUCH != p_data->keytype)
+ 217   1                      return;
+ 218   1              
+ 219   1              fml_touch_deal_disp(&p_data->display);
+ 220   1              fml_touch_deal_relay(&p_data->remote.keyctrl);
+ 221   1              fml_touch_deal_motor(&p_data->motor);
+ 222   1              fml_touch_deal_swing(p_data);
+ 223   1      }
+ 224          
 
+
+C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 13:50:48 PAGE 5   
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    771    ----
+   CODE SIZE        =    810    ----
    CONSTANT SIZE    =      5    ----
    XDATA SIZE       =      2      12
    PDATA SIZE       =   ----    ----
@@ -254,8 +267,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    EDATA SIZE       =   ----    ----
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----
-C51 COMPILER V9.01   XY_FML_TOUCH                                                          03/20/2021 09:06:26 PAGE 5   
-
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
 

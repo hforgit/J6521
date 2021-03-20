@@ -6,6 +6,7 @@
 void hal_timer_Init(void);
 void hal_timer_buzzer(buzzercontrol* p_bee);
 void hal_timer_motor_blow(motorcontrol* p_motor);
+void hal_timer_motor_switch(motorcontrol* p_motor);
 void hal_timer_mode_deal(workmoduleflag* p_mode);
 
 #endif

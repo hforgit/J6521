@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 09:06:27 PAGE 1   
+C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 13:50:49 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_HAL_TIMER
@@ -62,7 +62,7 @@ line level    source
   48   2                      {
   49   3                              p_bee->bee_count=0;
   50   3                              bee_off();
-C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 09:06:27 PAGE 2   
+C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 13:50:49 PAGE 2   
 
   51   3                      }
   52   2              }
@@ -94,51 +94,70 @@ line level    source
   76          
   77          /*********************************************************************************************************
              -**************
-  78          * Function Name: 
-  79          * Description  : 
+  78          * Function Name:
+  79          * Description  : 1ms
   80          * Arguments    : None
   81          * Return Value : None
   82          **********************************************************************************************************
              -*************/
-  83          void hal_timer_mode_deal(workmoduleflag* p_mode)
+  83          void hal_timer_motor_switch(motorcontrol* p_motor)
   84          {
-  85   1              if(SET == p_mode->flag_workdelay_10s)                           
-  86   1              {
-  87   2                      p_mode->workdelay_10s++;
-  88   2                      if(p_mode->workdelay_10s >= CLOCK_DELAYTIMER_10S)
-  89   2                      {
-  90   3                              p_mode->workdelay_10s = CLOCK_DELAYTIMER_10S;
-  91   3                      }
-  92   2              }
-  93   1              else
-  94   1              {
-  95   2                      p_mode->workdelay_10s = CLOCK_DELAYTIMER_0S;
-  96   2              }
-  97   1              if(SET == p_mode->flag_workdelay_1s)
-  98   1              {
-  99   2                      p_mode->workdelay_1s++;
- 100   2                      if(p_mode->workdelay_1s >= CLOCK_DELAYTIMER_1S)
- 101   2                      {
- 102   3                              p_mode->workdelay_1s = CLOCK_DELAYTIMER_1S;
- 103   3                      }
- 104   2              }
- 105   1              else
- 106   1              {
- 107   2                      p_mode->workdelay_1s = CLOCK_DELAYTIMER_0S;
- 108   2              }
-C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 09:06:27 PAGE 3   
+  85   1              p_motor->switch_motor_step_delay_count++;
+  86   1      
+  87   1              if(p_motor->switch_motor_step_delay_count>=4)
+  88   1              {
+  89   2                      p_motor->switch_motor_step_delay_count=4;
+  90   2                      p_motor->switch_motor_step_delay_flag=1;
+  91   2              }
+  92   1      }
+  93          
+  94          /*********************************************************************************************************
+             -**************
+  95          * Function Name: 
+  96          * Description  : 
+  97          * Arguments    : None
+  98          * Return Value : None
+  99          **********************************************************************************************************
+             -*************/
+ 100          void hal_timer_mode_deal(workmoduleflag* p_mode)
+ 101          {
+ 102   1              if(SET == p_mode->flag_workdelay_10s)                           
+ 103   1              {
+ 104   2                      p_mode->workdelay_10s++;
+ 105   2                      if(p_mode->workdelay_10s >= CLOCK_DELAYTIMER_10S)
+ 106   2                      {
+C51 COMPILER V9.01   XY_HAL_TIMER                                                          03/20/2021 13:50:49 PAGE 3   
 
- 109   1      
- 110   1              p_mode->workdelay_cyc++;
- 111   1              if(p_mode->workdelay_cyc >= CLOCK_DELAYTIMER_CYC)
- 112   1              {
- 113   2                      p_mode->workdelay_cyc = CLOCK_DELAYTIMER_0S;
- 114   2              }
- 115   1      }
+ 107   3                              p_mode->workdelay_10s = CLOCK_DELAYTIMER_10S;
+ 108   3                      }
+ 109   2              }
+ 110   1              else
+ 111   1              {
+ 112   2                      p_mode->workdelay_10s = CLOCK_DELAYTIMER_0S;
+ 113   2              }
+ 114   1              if(SET == p_mode->flag_workdelay_1s)
+ 115   1              {
+ 116   2                      p_mode->workdelay_1s++;
+ 117   2                      if(p_mode->workdelay_1s >= CLOCK_DELAYTIMER_1S)
+ 118   2                      {
+ 119   3                              p_mode->workdelay_1s = CLOCK_DELAYTIMER_1S;
+ 120   3                      }
+ 121   2              }
+ 122   1              else
+ 123   1              {
+ 124   2                      p_mode->workdelay_1s = CLOCK_DELAYTIMER_0S;
+ 125   2              }
+ 126   1      
+ 127   1              p_mode->workdelay_cyc++;
+ 128   1              if(p_mode->workdelay_cyc >= CLOCK_DELAYTIMER_CYC)
+ 129   1              {
+ 130   2                      p_mode->workdelay_cyc = CLOCK_DELAYTIMER_0S;
+ 131   2              }
+ 132   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    224    ----
+   CODE SIZE        =    254    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

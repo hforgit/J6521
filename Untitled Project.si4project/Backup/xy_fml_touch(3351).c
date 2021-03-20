@@ -147,17 +147,6 @@ void fml_touch_deal_motor(motorcontrol* p_motor)
 		p_motor->blow_target_step = RESET_STEP_ZERO;
 		//p_motor->blow_target_step_pri = RESET_STEP_ZERO;
 	}
-	if(TOUCH_RELAY_MOTOR_ABSORB)
-	{
-		if(RESET_STEP_ZERO == p_motor->switch_target_step)
-		{
-			p_motor->switch_target_step = TARGET_STEP_SWITCH;
-		}
-	}
-	else
-	{
-		p_motor->switch_target_step = RESET_STEP_ZERO;
-	}
 }
 
 /***********************************************************************************************************************

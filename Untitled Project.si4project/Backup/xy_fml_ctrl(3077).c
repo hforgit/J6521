@@ -59,9 +59,9 @@ void fml_ctrl_chk_error(datall* p_data) 						//检测步进电机、互锁情况
 	switchstate  state[3] = {0};
 
 	motor[0] = p_data->motor.blow_target_step;
-//	motor[1] = p_data->motor.absorb_target_step;
+	motor[1] = p_data->motor.absorb_target_step;
 	motor[2] = p_data->motor.blow_motor_step;
-//	motor[3] = p_data->motor.absorb_motor_step;
+	motor[3] = p_data->motor.absorb_motor_step;
 	state[0] = p_data->remote.keyctrl.keystate_fan_blow;
 	state[1] = p_data->remote.keyctrl.keystate_fan_absorb;
 	state[2] = p_data->remote.keyctrl.keystate_ptc;
@@ -536,160 +536,6 @@ void fml_ctrl_deal_automode(workmoduleflag* p_mode)							//check
 		s_state = RESET;
 	}
 }
-
-/***********************************************************************************************************************
-* Function Name: 
-* Description  : 
-* Arguments    : None
-* Return Value : None
-***********************************************************************************************************************/
-void fml_ctrl_deal_mode(datall* p_data)
-{	
-	static switchstate   s_onetime[2] = {STEP1, RESET};
-	static unsigned char s_timecount_cur = 0, s_timecount_pri = 0;
-	static unsigned char s_time_ptc_worktime = 0;
-	
-	fml_ctrl_deal_automode(&p_data->remote.workmode);
-	switch(p_data->remote.workmode.workmode_current)
-	{
-		case WORKMODULE_STANDBY:
-			if(YES == p_data->remote.keyctrl.keystate_ptc_delay)
-			{
-				p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_0S;
-			}
-			p_data->remote.keyctrl.keystate_ptc = OFF;
-			p_data->remote.workmode.flag_workdelay_1s = RESET;
-			p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_0S;
-			p_data->remote.key.keysta_pri = KEY_STANDBY; 	
-			break;
-		case WORKMODULE_BLOW:
-			if(YES == p_data->remote.keyctrl.keystate_ptc_delay)
-			{
-				p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_0S;
-			}
-			p_data->remote.keyctrl.keystate_ptc = OFF;
-			p_data->remote.workmode.flag_workdelay_1s = RESET;
-			p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_1S;
-
-			if(p_data->remote.keyctrl.keystate_dry_wet_pri != p_data->remote.keyctrl.keystate_dry_wet)
-			{
-				p_data->remote.keyctrl.keystate_dry_wet_pri = p_data->remote.keyctrl.keystate_dry_wet;
-				p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
-			}
-			break;
-		case WORKMODULE_WARM:
-			if(p_data->remote.keyctrl.keystate_dry_wet_pri != p_data->remote.keyctrl.keystate_dry_wet)
-			{
-				p_data->remote.keyctrl.keystate_dry_wet_pri = p_data->remote.keyctrl.keystate_dry_wet;
-				
-				if(STEP2 == s_onetime[0])
-				{
-					s_onetime[0] = STEP3;
-					s_timecount_pri = s_timecount_cur;			///< ready to judge
-				}
-				
-				if(YES == p_data->remote.keyctrl.keystate_ptc_delay)			///< restart cal time diff
-				{
-					p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_0S;	
-					s_timecount_cur = p_data->remote.workmode.workdelay_cyc;
-					s_onetime[0] = STEP2;
-					p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
-				}
-				
-				p_data->remote.keyctrl.keystate_ptc  	 = OFF;
-				p_data->remote.keyctrl.keystate_ptc_wait = ON;			///< change dry and wet start delay 10s
-			}
-			else
-			{
-				if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S) 	///< delay 10s
-				{
-					if(ON == p_data->remote.keyctrl.keystate_move_target)			///< move target step
-					{
-						if(ON == p_data->remote.keyctrl.keystate_ptc_wait)
-						{
-							p_data->remote.workmode.flag_workdelay_1s = RESET;
-							p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_0S;
-						}
-						p_data->remote.keyctrl.keystate_ptc_wait = OFF;
-					}
-					else
-					{
-						p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;		///< start from last step
-					}
-				}
-				else
-				{
-					if(STEP3 == s_onetime[0])
-					{
-						if(ON == p_data->remote.keyctrl.keystate_ptc_wait)
-						{
-							if(NO == CTRL_EXCEED_DELAY_TIMER(10, s_timecount_cur, s_timecount_pri))
-							{
-								p_data->remote.workmode.flag_workdelay_1s = SET;
-								p_data->remote.keyctrl.keystate_ptc_wait = OFF;
-								p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S;
-								p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_1S;
-								p_data->remote.keyctrl.keystate_move_target = ON;
-							}
-						}
-					}
-				}
-			}
-			
-			if(p_data->remote.workmode.workdelay_1s >= CLOCK_DELAYTIMER_1S)
-			{
-				if((OFF == p_data->remote.keyctrl.keystate_ptc_wait) 
-			//		&& (YES == MOTOR_CHK_MOVE_TO_TARGET))
-					&& (ON == p_data->remote.keyctrl.keystate_move_target))
-				{
-					p_data->remote.keyctrl.keystate_ptc   = ON;			///< restart ptc
-					p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S;
-				}
-			}
-			break;
-		case WORKMODULE_ABSORB:
-			if(YES == p_data->remote.keyctrl.keystate_ptc_delay)
-			{
-				p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_0S;
-			}
-			p_data->remote.keyctrl.keystate_ptc = OFF;
-			p_data->remote.workmode.flag_workdelay_1s = RESET;
-			p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_0S;
-			break;
-		default:
-			break;
-	}
-	if(p_data->remote.keyctrl.keystate_ptc_pri != p_data->remote.keyctrl.keystate_ptc)
-	{
-		if(ON == p_data->remote.keyctrl.keystate_ptc)
-		{
-			if(RESET == s_onetime[1])
-			{
-				s_time_ptc_worktime = p_data->remote.workmode.workdelay_cyc;
-			}
-			s_onetime[1] = SET;
-		}
-		else
-		{
-			s_onetime[1] = RESET;
-		}
-		p_data->remote.keyctrl.keystate_ptc_pri = p_data->remote.keyctrl.keystate_ptc;	
-	}
-	else
-	{
-		if(ON == p_data->remote.keyctrl.keystate_ptc_pri)
-		{
-			if(YES == CTRL_EXCEED_DELAY_TIMER(0, p_data->remote.workmode.workdelay_cyc, s_time_ptc_worktime))
-			{
-				p_data->remote.keyctrl.keystate_ptc_delay = YES;
-			}
-		}
-		else
-		{
-			p_data->remote.keyctrl.keystate_ptc_delay = NO;
-		}
-	}
-}
 /***********************************************************************************************************************
 * Function Name: 
 * Description  : 
@@ -812,6 +658,123 @@ void fml_ctrl_deal_motor(datall* p_data)
 				if(ON == p_data->remote.keyctrl.keystate_swing)
 				{
 					p_data->motor.blow_target_step 	= p_data->motor.blow_motor_step_pri;
+				}
+			}
+			break;
+		default:
+			break;
+	}
+}
+/***********************************************************************************************************************
+* Function Name: 
+* Description  : 
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void fml_ctrl_deal_motor(datall* p_data)
+{
+	static switchstate s_step = STEP1;
+
+	switch(p_data->remote.workmode.workmode_current)
+	{
+		case WORKMODULE_STANDBY:
+			if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
+			{
+				p_data->motor.blow_target_step 	 = RESET_STEP_ZERO;
+
+				p_data->remote.keyctrl.keystate_enter_swing = RESET;
+			}
+			else
+			{
+				if(ON == p_data->remote.keyctrl.keystate_swing)
+				{
+					p_data->motor.blow_target_step 	= p_data->motor.blow_motor_step_pri;
+				}
+			}
+			break;	
+		case WORKMODULE_BLOW:
+		case WORKMODULE_WARM:
+			if((p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S)
+				|| (ON == p_data->remote.keyctrl.keystate_open_swing))
+			{
+				if(RESET == p_data->remote.keyctrl.keystate_enter_swing)
+				{
+					s_step = STEP1;
+					p_data->remote.keyctrl.keystate_enter_swing = SET;
+					p_data->motor.blow_target_step	   = TARGET_STEP_BLOW;
+					p_data->motor.blow_motor_step_pri  = TARGET_STEP_BLOW;
+					p_data->motor.blow_target_step_pri = TARGET_LOW_SWING;
+				}
+				else
+				{
+					if(ON == p_data->remote.keyctrl.keystate_swing)
+					{
+						switch(s_step)
+						{
+							case STEP1:
+								p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
+								if(p_data->motor.blow_target_step == p_data->motor.blow_motor_step)
+								{
+									p_data->remote.keyctrl.keystate_move_target = ON;
+									s_step = STEP2;
+								}
+								break;
+							case STEP2:
+								p_data->remote.keyctrl.keystate_move_target = ON;
+								p_data->motor.blow_target_step = p_data->motor.blow_target_step_pri;
+								if(p_data->motor.blow_target_step == p_data->motor.blow_motor_step)
+								{
+									s_step = STEP3;
+								}
+								break;
+							case STEP3:
+								p_data->remote.keyctrl.keystate_move_target = ON;
+								if(p_data->motor.blow_motor_step == TARGET_HIGH_SWING)
+								{
+									p_data->motor.blow_target_step 		= TARGET_LOW_SWING;
+									p_data->motor.blow_target_step_pri	= TARGET_LOW_SWING;		///< save target step
+								}
+								else if(p_data->motor.blow_motor_step == TARGET_LOW_SWING)
+								{
+									p_data->motor.blow_target_step 		= TARGET_HIGH_SWING;
+									p_data->motor.blow_target_step_pri	= TARGET_HIGH_SWING;	///< save target step
+								}
+								else
+								{
+									if(p_data->motor.blow_target_step == p_data->motor.blow_motor_step)
+									{
+										p_data->motor.blow_target_step = p_data->motor.blow_target_step_pri;
+									}
+								}
+								break;
+							default:
+								break;
+						}
+					}
+					else
+					{
+						p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
+					}
+
+					if(YES == MOTOR_CHK_MOVE_TO_TARGET)
+					{
+						p_data->remote.keyctrl.keystate_move_target = ON;
+					}
+				}
+			}
+			break;
+		case WORKMODULE_ABSORB:
+			if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
+			{
+				p_data->motor.blow_target_step 	 = RESET_STEP_ZERO;
+
+				p_data->remote.keyctrl.keystate_enter_swing = RESET;
+			}
+			else
+			{
+				if(ON == p_data->remote.keyctrl.keystate_swing)
+				{
+					p_data->motor.blow_target_step 	= p_data->motor.blow_motor_step_pri;	
 				}
 			}
 			break;

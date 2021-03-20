@@ -3,16 +3,6 @@
 
 #define DISPLAY_DATA_HEAD_PRI		(0x6801)
 
-#define DISPLAY_GET_KEY_VALUE(_V_)	(_V_ == DISPLAY_REMOTE_KEY_STANDBY 	? KEY_STANDBY :\
-									 _V_ == DISPLAY_REMOTE_KEY_RAV 		? KEY_RAV :\
-									 _V_ == DISPLAY_REMOTE_KEY_LIGHT 	? KEY_LIGHT :\
-									 _V_ == DISPLAY_REMOTE_KEY_WARM 	? KEY_WARM :\
-									 _V_ == DISPLAY_REMOTE_KEY_SWING 	? KEY_SWING :\
-									 _V_ == DISPLAY_REMOTE_KEY_ABSORB 	? KEY_ABSORB :\
-									 _V_ == DISPLAY_REMOTE_KEY_BLOW 	? KEY_BLOW :\
-									 _V_ == DISPLAY_REMOTE_KEY_WARMDRY 	? KEY_WARM_DRY :\
-									 _V_ == DISPLAY_REMOTE_KEY_DRY_WET 	? KEY_DRY_WET :\
-									 									  KEY_RELEASE)
 
 #define	DISPLAY_GET_ERR_NUMB(_V_)	 (_V_ & ((unsigned int)0x01<<0x0) ? 0x0:\
 									  _V_ & ((unsigned int)0x01<<0x1) ? 0x1:\

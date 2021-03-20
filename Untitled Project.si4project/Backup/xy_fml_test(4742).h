@@ -9,14 +9,8 @@
 #define TEST_FUNC_NUMB_07
 #define TEST_FUNC_NUMB_08
 #define TEST_FUNC_NUMB_09
-#define TEST_FUNC_NUMB_10
-#define TEST_FUNC_NUMB_11
-#define TEST_FUNC_NUMB_12
-#define TEST_FUNC_NUMB_13
 #define TEST_FUNC_NUMB_14
 #define TEST_FUNC_NUMB_15
-#define TEST_FUNC_NUMB_16
-
 
 switchstate fml_test_check(void);
 void fml_test_logic(datall* p_data);
