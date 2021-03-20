@@ -63,6 +63,57 @@ void fml_test_old_dis(unsigned char* table)
 * Arguments    : None
 * Return Value : None
 ***********************************************************************************************************************/
+void fml_test_new_dis(unsigned char* table)
+{
+	static unsigned char s_bit = 0; 
+	static unsigned char s_sequence = 0;
+
+	table[0] = DISPLAY_DATA_HEAD_XY >> 8 & 0xFF;
+	table[1] = DISPLAY_DATA_HEAD_XY & 0xFF;
+	table[2] = DISPLAY_DATA_LENGTH;
+	table[3] = DISPLAY_DATA_VERSION;
+	table[4] = s_sequence;
+	table[5] = DISPLAY_DATA_COMMAND;
+	if(errcod)
+	{
+		table[6] = 0x79;
+		table[7] = DISPLAY_TABLE_SEG(errcod);
+		table[8] = 0x00;
+	}
+	else
+	{
+		if(s_bit == 0)
+		{
+			table[6] = 0xFF;
+			table[7] = 0xFF;
+			table[8] = 0x80;
+		}
+		else if(s_bit < 4)
+		{
+			table[6] = (s_bit == 1 ? 0x80 : 0x00);
+			table[7] = (s_bit == 2 ? 0x80 : 0x00);
+			table[8] = (s_bit == 3 ? 0x80 : 0x00);
+		}
+		else
+		{
+			table[6] = (0x01 << (s_bit - 4));
+			table[7] = (0x01 << (s_bit - 4));
+			table[8] = 0x00;
+		}
+		s_bit++;
+		if(s_bit > 10)
+			s_bit = 0;
+	}
+	table[9] = hal_alg_chk_crc8(table, 9);	
+	s_sequence++;
+}
+
+/***********************************************************************************************************************
+* Function Name: 
+* Description  : 
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
 void fml_test_uart(unsigned char mode)
 {
 	static unsigned char s_table[16] = {0};
@@ -73,6 +124,17 @@ void fml_test_uart(unsigned char mode)
 			fml_test_old_dis(s_table);
 		
 			hal_serial_uart_tx_display(s_table, 6);
+			break;
+		case 1:				///< new protocol
+			fml_test_new_dis(s_table);
+		
+			hal_serial_uart_tx_display(s_table, 10);
+			break;
+		case 2:
+			fml_test_old_dis(s_table);
+			fml_test_new_dis(s_table+6);
+				
+			hal_serial_uart_tx_display(s_table, 16);
 			break;
 		default:
 			break;
@@ -183,6 +245,15 @@ void fml_test_motor(void)
 	blow_motor_step1_off();
 	#endif
 
+//	/*14*/
+//	#ifdef TEST_FUNC_NUMB_14
+//	fml_test_delay();
+//	#endif
+//	
+//	/*15*/
+//	#ifdef TEST_FUNC_NUMB_15
+//	fml_test_delay();
+//	#endif
 }
 
 /***********************************************************************************************************************
@@ -235,7 +306,8 @@ void fml_test_temp(datall* p_data)
 void fml_test_init(void)
 {	
 	blow_fan_off();
-	light_off();	
+	light_off();
+	absorb_fan_off();	
 	rav_off();
 	PTC_off();
 
@@ -289,7 +361,7 @@ void fml_test_logic(datall* p_data)
 			case 0:
 				s_step++;
 				p_data->buzzer.burn_bee_on = ON;	
-				fml_test_uart(0);
+				fml_test_uart(2);
 				fml_test_temp(p_data);
 				break;
 			case 1:

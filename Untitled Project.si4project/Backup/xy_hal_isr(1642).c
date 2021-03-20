@@ -96,7 +96,7 @@ void hal_irq_uart1_send(unsigned char* p_buffer, unsigned char length)
 {
 	static unsigned char i = 0;
 	static unsigned char s_count = 0;
-
+	
 	if(s_p_data->uart.send_data)
 	{	
 		if(s_p_data->uart.send_byte_ok)

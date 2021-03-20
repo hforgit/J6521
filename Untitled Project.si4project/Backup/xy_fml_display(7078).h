@@ -3,6 +3,39 @@
 
 #define DISPLAY_DATA_HEAD_PRI		(0x6801)
 
+#define DISPLAY_DATA_HEAD_XY		(0x5859)
+#define DISPLAY_DATA_VERSION		(10)
+#define DISPLAY_DATA_COMMAND		(0x20)			///< display cmd
+
+/* 0x10 - remote key command */
+#define DISPLAY_REMOTE_KEY_HEAD		(0x5AA5)
+
+#define DISPLAY_REMOTE_KEY_STANDBY	(0x01)
+#define DISPLAY_REMOTE_KEY_RAV		(0x02)
+#define DISPLAY_REMOTE_KEY_LIGHT	(0x03)
+#define DISPLAY_REMOTE_KEY_WARM		(0x04)
+#define DISPLAY_REMOTE_KEY_SWING	(0x05)
+#define DISPLAY_REMOTE_KEY_ABSORB	(0x06)
+#define DISPLAY_REMOTE_KEY_BLOW		(0x07)
+#define DISPLAY_REMOTE_KEY_WARMDRY	(0x08)
+#define DISPLAY_REMOTE_KEY_COLDDRY	(0x09)
+
+/* 0x20 - display command */
+#define DISPLAY_DATA_LENGTH			(7)
+
+#define DISPLAY_GET_KEY_VALUE(_V_)	(_V_ == DISPLAY_REMOTE_KEY_STANDBY 	? KEY_STANDBY :\
+									 _V_ == DISPLAY_REMOTE_KEY_RAV 		? KEY_RAV :\
+									 _V_ == DISPLAY_REMOTE_KEY_LIGHT 	? KEY_LIGHT :\
+									 _V_ == DISPLAY_REMOTE_KEY_WARM 	? KEY_WARM :\
+									 _V_ == DISPLAY_REMOTE_KEY_SWING 	? KEY_SWING :\
+									 _V_ == DISPLAY_REMOTE_KEY_ABSORB 	? KEY_ABSORB :\
+									 _V_ == DISPLAY_REMOTE_KEY_BLOW 	? KEY_BLOW :\
+									 _V_ == DISPLAY_REMOTE_KEY_WARMDRY 	? KEY_WARM_DRY :\
+									 _V_ == DISPLAY_REMOTE_KEY_COLDDRY 	? KEY_COLD_DRY :\
+									 									  KEY_RELEASE)
+
+#define DISPLAY_DATA_CHK_LEN(_L_)	(_L_ < 4 ? NO : (_L_ > 120 ? NO : YES))
+#define DISPLAY_DATA_CHK_VER(_V_)	(_V_ < 10 ? NO : (_V_ > 99 ? NO : YES))
 
 #define	DISPLAY_GET_ERR_NUMB(_V_)	 (_V_ & ((unsigned int)0x01<<0x0) ? 0x0:\
 									  _V_ & ((unsigned int)0x01<<0x1) ? 0x1:\
@@ -20,7 +53,7 @@
 									  _V_ & ((unsigned int)0x01<<0xD) ? 0xD:\
 									  _V_ & ((unsigned int)0x01<<0xE) ? 0xE:\
 									 				   				    0xF)
-																		
+
 #define DISPLAY_SYMBOL_BLOW_ON		(g_datall.display.disp_icon_data |= 0x01)
 #define DISPLAY_SYMBOL_BLOW_OFF		(g_datall.display.disp_icon_data &= ~0x01)
 #define DISPLAY_GET_SYMBOL_BLOW		(g_datall.display.disp_icon_data & 0x01)

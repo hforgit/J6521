@@ -26,6 +26,7 @@ typedef enum MotorStep
 	ANGLE_0_STEP 		= 0,
 	ANGLE_3_STEP 		= 36,
 	ANGLE_60_STEP 		= 683,
+	ANGLE_90_STEP 		= 1024,
 	ANGLE_120_STEP 		= 1365,
 	ANGLE_133_STEP		= 1500,
 

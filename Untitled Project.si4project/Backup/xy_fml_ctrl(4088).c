@@ -53,11 +53,11 @@ void fml_ctrl_init_data(datall* p_data)
 void fml_ctrl_chk_error(datall* p_data)
 {
 	datacommon 	 err;
-	unsigned int motor[2] = {0};
+	unsigned int motor[4] = {0};
 	switchstate  state[3] = {0};
 
 	motor[0] = p_data->motor.blow_target_step;
-	motor[1] = p_data->motor.blow_motor_step;
+	motor[2] = p_data->motor.blow_motor_step;
 	state[0] = p_data->remote.keyctrl.keystate_fan_blow;
 	state[1] = p_data->remote.keyctrl.keystate_fan_absorb;
 	state[2] = p_data->remote.keyctrl.keystate_ptc;
@@ -75,9 +75,9 @@ void fml_ctrl_chk_error(datall* p_data)
 		err.bits.b1 = 1;
 	}
 
-	if(YES == CTRL_CHECK_ERROR_NUMB_3(motor[0], motor[1], state[0], state[1], state[2]))
+	if(YES == CTRL_CHECK_ERROR_NUMB_3(motor[0], motor[2], state[0], state[1], state[2]))
 	{
-		if(p_data->motor.blow_motor_step && (NO == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))
+		if(p_data->motor.blow_motor_step && (ON == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))
 		{
 			p_data->remote.keyctrl.keystate_open_swing = OFF;
 		}
@@ -89,11 +89,11 @@ void fml_ctrl_chk_error(datall* p_data)
 		}
 	}
 	
-	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[0], motor[1], state[0], state[1], state[2]))
-	{
-		p_data->remote.keyctrl.keystate_ptc = OFF;
-		err.bits.b3 = 1;
-	}
+//	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[1], motor[3], state[0], state[1], state[2]))
+//	{
+//		p_data->remote.keyCtrl.keyState_fan_blow = OFF;
+//		err.bits.b3 = 1;
+//	}
 	
 	if(YES == CTRL_CHECK_ERROR_NUMB_5(motor[0], motor[1], state[0], state[1], state[2]))
 	{
@@ -106,7 +106,7 @@ void fml_ctrl_chk_error(datall* p_data)
 		p_data->remote.keyctrl.keystate_ptc = OFF;
 		err.bits.b5 = 1;
 	}
-	
+
 	p_data->error.dat = err.dat;	
 }
 

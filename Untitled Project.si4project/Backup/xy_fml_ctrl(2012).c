@@ -89,7 +89,7 @@ void fml_ctrl_chk_error(datall* p_data)
 		}
 	}
 	
-	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[0], motor[1], state[0], state[1], state[2]))
+	if(YES == CTRL_CHECK_ERROR_NUMB_4(motor[1], motor[1], state[0], state[1], state[2]))
 	{
 		p_data->remote.keyctrl.keystate_ptc = OFF;
 		err.bits.b3 = 1;

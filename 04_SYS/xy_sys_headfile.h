@@ -17,7 +17,6 @@
 #include "xy_hal_port.h"
 #include "xy_hal_serial.h"
 #include "xy_hal_timer.h"
-#include "xy_hal_alg.h"
 
 #include "xy_fml_motor.h"
 #include "xy_fml_buzzer.h"

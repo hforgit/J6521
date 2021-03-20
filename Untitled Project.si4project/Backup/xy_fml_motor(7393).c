@@ -8,7 +8,7 @@
 ***********************************************************************************************************************/
 void fml_motor_init_data(datall* p_data)
 {
-	memset((char *)&p_data->motor, 0, sizeof(p_data->motor));		//reset motor step
+	memset((char *)&p_data->motor, 0, sizeof(p_data->motor));				//reset motor step
 
 	p_data->motor.blow_target_step_pri	= TARGET_LOW_SWING;
 	p_data->motor.blow_motor_step_pri   = TARGET_HIGH_SWING;
@@ -26,7 +26,7 @@ void fml_motor_reset_step(motorcontrol* p_motor)
 {
 	static switchstate s_onetime[2] = {RESET, RESET};
 	static switchstate s_resetstep = STEP1;
-
+	
 	if(STEP2 == s_resetstep)
 	{
 		if(RESET_STEP_ZERO == p_motor->blow_target_step)

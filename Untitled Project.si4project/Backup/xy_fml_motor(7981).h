@@ -16,6 +16,12 @@
 
 #define  MOTOR_CHK_MOVE_TO_TARGET		( g_datall.motor.blow_target_step != g_datall.motor.blow_motor_step ? NO : YES)
 
+/*
+#define  MOTOR_CHK_ABSORB_STEP(_X_)		( g_dataAll.motor.absorb_target_step > g_dataAll.motor.absorb_motor_step\
+										? (g_dataAll.motor.absorb_target_step - g_dataAll.motor.absorb_motor_step > _X_ ? YES : NO)\
+										: (g_dataAll.motor.absorb_motor_step - g_dataAll.motor.absorb_target_step > _X_ ? YES : NO))
+*/
+
 #define  MOTOR_CHK_STEP_IS_LEGAL(_X_)	( _X_ < TARGET_LOW_SWING  ? NO\
 										: _X_ > TARGET_HIGH_SWING ? NO\
 										: YES)

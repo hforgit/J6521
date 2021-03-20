@@ -429,16 +429,6 @@
           <GroupName>HAL</GroupName>
           <Files>
             <File>
-              <FileName>xy_hal_ad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\03_HAL\xy_hal_ad.c</FilePath>
-            </File>
-            <File>
-              <FileName>xy_hal_alg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\03_HAL\xy_hal_alg.c</FilePath>
-            </File>
-            <File>
               <FileName>xy_hal_isr.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\03_HAL\xy_hal_isr.c</FilePath>

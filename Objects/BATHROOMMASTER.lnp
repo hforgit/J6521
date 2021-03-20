@@ -8,7 +8,6 @@
 ".\Objects\xy_fml_relay.obj",
 ".\Objects\xy_fml_test.obj",
 ".\Objects\xy_fml_touch.obj",
-".\Objects\xy_hal_alg.obj",
 ".\Objects\xy_hal_isr.obj",
 ".\Objects\xy_hal_port.obj",
 ".\Objects\xy_hal_serial.obj",

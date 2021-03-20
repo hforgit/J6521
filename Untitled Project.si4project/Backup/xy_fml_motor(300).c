@@ -26,7 +26,7 @@ void fml_motor_reset_step(motorcontrol* p_motor)
 {
 	static switchstate s_onetime[2] = {RESET, RESET};
 	static switchstate s_resetstep = STEP1;
-
+	
 	if(STEP2 == s_resetstep)
 	{
 		if(RESET_STEP_ZERO == p_motor->blow_target_step)
