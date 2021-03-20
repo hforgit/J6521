@@ -774,7 +774,10 @@ void fml_ctrl_deal_fan(datall* p_data)
 			{
 				p_data->remote.keyctrl.keystate_fan_blow 	= OFF;
 				p_data->remote.keyctrl.keystate_move_target = OFF;
-				p_data->remote.keyctrl.keystate_fan_absorb	= ON;
+					if(YES == MOTOR_CHK_MOVE_TO_TARGET)
+					{
+						p_data->remote.keyctrl.keystate_fan_absorb 	= ON;
+					}
 			}
 			break;
 		default:

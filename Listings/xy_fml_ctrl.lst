@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 1   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_CTRL
@@ -62,7 +62,7 @@ line level    source
              -**************
   48          * Function Name: 
   49          * Description  : 
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 2   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 2   
 
   50          * Arguments    : None
   51          * Return Value : None
@@ -126,7 +126,7 @@ line level    source
  108   2              }
  109   1              
  110   1              p_data->error.dat = err.dat;    
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 3   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 3   
 
  111   1      }
  112          
@@ -190,7 +190,7 @@ line level    source
  168   2                              p_data->display.disp_icon_blow     = SYM_BLOW_OFF;
  169   2                              break;
  170   2              }
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 4   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 4   
 
  171   1      }
  172          
@@ -254,7 +254,7 @@ line level    source
  228   3                      }
  229   2                      else if(p_data->remote.key.keyremote.bits.b8)
  230   2                      {
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 5   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 5   
 
  231   3                              p_data->remote.key.keysta = KEY_WARM_DRY;
  232   3                      }
@@ -318,7 +318,7 @@ line level    source
  286   3                                      p_data->buzzer.burn_bee_on = ON;
  287   3                              }
  288   2                              break;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 6   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 6   
 
  289   2                      case KEY_BLOW:
  290   2                              if(KEY_BLOW != p_data->remote.key.keysta_pri)
@@ -382,7 +382,7 @@ line level    source
  348   2                              else
  349   2                              {
  350   3                                      p_data->buzzer.burn_bee_on = ON;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 7   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 7   
 
  351   3                              }
  352   2                              break;
@@ -446,7 +446,7 @@ line level    source
  409          * Function Name: 
  410          * Description  : 
  411          * Arguments    : None
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 8   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 8   
 
  412          * Return Value : None
  413          **********************************************************************************************************
@@ -510,7 +510,7 @@ line level    source
  470   2                      if(YES == CTRL_EXCEED_DELAY_TIMER(1, p_mode->workdelay_cyc, s_time_dry_tmp))
  471   2                      {
  472   3                              s_time_dry_tmp = p_mode->workdelay_cyc;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 9   
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 9   
 
  473   3                              s_time_dry_min++;
  474   3                              if(s_time_dry_min >= CLOCK_WORKDRY_ALL_60MIN)
@@ -574,7 +574,7 @@ line level    source
  530   2                              {
  531   3                                      if(ON == p_data->remote.keyctrl.keystate_move_target)                   ///< move target step
  532   3                                      {
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 10  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 10  
 
  533   4                                              if(ON == p_data->remote.keyctrl.keystate_ptc_wait)
  534   4                                              {
@@ -638,7 +638,7 @@ line level    source
  592   4                              }
  593   3                              s_onetime[1] = SET;
  594   3                      }
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 11  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 11  
 
  595   2                      else
  596   2                      {
@@ -702,7 +702,7 @@ line level    source
  652   4                                              p_data->remote.keyctrl.keystate_enter_swing = SET;
  653   4                                              p_data->motor.blow_target_step     = TARGET_STEP_BLOW;
  654   4                                              p_data->motor.blow_motor_step_pri  = TARGET_STEP_BLOW;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 12  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 12  
 
  655   4                                              p_data->motor.blow_target_step_pri = TARGET_LOW_SWING;
  656   4                                      }
@@ -766,7 +766,7 @@ line level    source
  714   2                              break;
  715   2                      case WORKMODULE_ABSORB:
  716   2                              if(p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 13  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 13  
 
  717   2                              {
  718   3                                      p_data->motor.blow_target_step   = RESET_STEP_ZERO;
@@ -830,183 +830,180 @@ line level    source
  774   2                              {
  775   3                                      p_data->remote.keyctrl.keystate_fan_blow        = OFF;
  776   3                                      p_data->remote.keyctrl.keystate_move_target = OFF;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 14  
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 14  
 
- 777   3                                              if(YES == MOTOR_CHK_MOVE_TO_TARGET)
- 778   3                                              {
- 779   4                                                      p_data->remote.keyctrl.keystate_fan_absorb      = ON;
- 780   4                                              }
- 781   3                              }
- 782   2                              break;
- 783   2                      default:
- 784   2                              break;
- 785   2              }
- 786   1      }
- 787          
- 788          /*********************************************************************************************************
+ 777   3                                      p_data->remote.keyctrl.keystate_fan_absorb      = ON;
+ 778   3                              }
+ 779   2                              break;
+ 780   2                      default:
+ 781   2                              break;
+ 782   2              }
+ 783   1      }
+ 784          
+ 785          /*********************************************************************************************************
              -**************
- 789          * Function Name: 
- 790          * Description  : 
- 791          * Arguments    : None
- 792          * Return Value : None
- 793          **********************************************************************************************************
+ 786          * Function Name: 
+ 787          * Description  : 
+ 788          * Arguments    : None
+ 789          * Return Value : None
+ 790          **********************************************************************************************************
              -*************/
- 794          void fml_ctrl_deal_swing(datall* p_data)
- 795          {
- 796   1              switch(p_data->remote.workmode.workmode_current)
- 797   1              {
- 798   2                      case WORKMODULE_STANDBY:
- 799   2                              p_data->remote.keyctrl.keystate_open_swing = OFF;
- 800   2                              p_data->remote.keyctrl.keystate_swing      = OFF;
- 801   2                              break;
- 802   2                      case WORKMODULE_BLOW:
- 803   2                      case WORKMODULE_WARM:
- 804   2                              if(p_data->remote.keyctrl.keystate_swing_pri != p_data->remote.keyctrl.keystate_swing)
- 805   2                              {
- 806   3                                      p_data->remote.keyctrl.keystate_swing_pri = p_data->remote.keyctrl.keystate_swing;
- 807   3                                      if(ON == p_data->remote.keyctrl.keystate_swing)                                         //?
- 808   3                                      {
- 809   4                                              p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S;
- 810   4                                      }
- 811   3                                      p_data->remote.keyctrl.keystate_enter_swing = SET;
- 812   3                                      p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;     ///< move to last step
- 813   3                              }
- 814   2                              else
- 815   2                              {
- 816   3                                      if((ON == p_data->remote.keyctrl.keystate_swing)                                ///< open swing func
- 817   3                                              && (ON == p_data->remote.keyctrl.keystate_move_target))         ///< move to target step
- 818   3                                      {
- 819   4                                              p_data->remote.keyctrl.keystate_open_swing = ON;
- 820   4                                      }
- 821   3                                      else
- 822   3                                      {
- 823   4                                              p_data->remote.keyctrl.keystate_open_swing = OFF;
- 824   4                                      }
- 825   3                              }
- 826   2                              break;
- 827   2                      case WORKMODULE_ABSORB:
- 828   2                              p_data->remote.keyctrl.keystate_open_swing = OFF;
- 829   2                              if((NO == p_data->remote.workmode.flag_work_warmdry)
- 830   2                                      && (NO == p_data->remote.workmode.flag_work_colddry))
- 831   2                              {
- 832   3                                      p_data->remote.keyctrl.keystate_swing      = OFF;
- 833   3                              }
- 834   2                              break;
- 835   2                      default:
- 836   2                              break;
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 15  
+ 791          void fml_ctrl_deal_swing(datall* p_data)
+ 792          {
+ 793   1              switch(p_data->remote.workmode.workmode_current)
+ 794   1              {
+ 795   2                      case WORKMODULE_STANDBY:
+ 796   2                              p_data->remote.keyctrl.keystate_open_swing = OFF;
+ 797   2                              p_data->remote.keyctrl.keystate_swing      = OFF;
+ 798   2                              break;
+ 799   2                      case WORKMODULE_BLOW:
+ 800   2                      case WORKMODULE_WARM:
+ 801   2                              if(p_data->remote.keyctrl.keystate_swing_pri != p_data->remote.keyctrl.keystate_swing)
+ 802   2                              {
+ 803   3                                      p_data->remote.keyctrl.keystate_swing_pri = p_data->remote.keyctrl.keystate_swing;
+ 804   3                                      if(ON == p_data->remote.keyctrl.keystate_swing)                                         //?
+ 805   3                                      {
+ 806   4                                              p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S;
+ 807   4                                      }
+ 808   3                                      p_data->remote.keyctrl.keystate_enter_swing = SET;
+ 809   3                                      p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;     ///< move to last step
+ 810   3                              }
+ 811   2                              else
+ 812   2                              {
+ 813   3                                      if((ON == p_data->remote.keyctrl.keystate_swing)                                ///< open swing func
+ 814   3                                              && (ON == p_data->remote.keyctrl.keystate_move_target))         ///< move to target step
+ 815   3                                      {
+ 816   4                                              p_data->remote.keyctrl.keystate_open_swing = ON;
+ 817   4                                      }
+ 818   3                                      else
+ 819   3                                      {
+ 820   4                                              p_data->remote.keyctrl.keystate_open_swing = OFF;
+ 821   4                                      }
+ 822   3                              }
+ 823   2                              break;
+ 824   2                      case WORKMODULE_ABSORB:
+ 825   2                              p_data->remote.keyctrl.keystate_open_swing = OFF;
+ 826   2                              if((NO == p_data->remote.workmode.flag_work_warmdry)
+ 827   2                                      && (NO == p_data->remote.workmode.flag_work_colddry))
+ 828   2                              {
+ 829   3                                      p_data->remote.keyctrl.keystate_swing      = OFF;
+ 830   3                              }
+ 831   2                              break;
+ 832   2                      default:
+ 833   2                              break;
+ 834   2              }
+ 835   1      }
+ 836          
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 15  
 
- 837   2              }
- 838   1      }
- 839          
- 840          /*********************************************************************************************************
+ 837          /*********************************************************************************************************
              -**************
- 841          * Function Name: 
- 842          * Description  : 
- 843          * Arguments    : None
- 844          * Return Value : None
- 845          **********************************************************************************************************
+ 838          * Function Name: 
+ 839          * Description  : 
+ 840          * Arguments    : None
+ 841          * Return Value : None
+ 842          **********************************************************************************************************
              -*************/
- 846          void fml_ctrl_deal_timer(datall* p_data)
- 847          {
- 848   1              if(REMOTE != p_data->keytype)
- 849   1                      return;
- 850   1              
- 851   1              hal_timer_mode_deal(&p_data->remote.workmode);
- 852   1      }
- 853          /*********************************************************************************************************
+ 843          void fml_ctrl_deal_timer(datall* p_data)
+ 844          {
+ 845   1              if(REMOTE != p_data->keytype)
+ 846   1                      return;
+ 847   1              
+ 848   1              hal_timer_mode_deal(&p_data->remote.workmode);
+ 849   1      }
+ 850          /*********************************************************************************************************
              -**************
- 854          * Function Name: 
- 855          * Description  : 
- 856          * Arguments    : None
- 857          * Return Value : None
- 858          **********************************************************************************************************
+ 851          * Function Name: 
+ 852          * Description  : 
+ 853          * Arguments    : None
+ 854          * Return Value : None
+ 855          **********************************************************************************************************
              -*************/
- 859          void fml_ctrl_key_logic(datall* p_data)
- 860          {
- 861   1              #ifdef XY_SYS_TEST_MODE
- 862   1                      if(YES == p_data->testmode)
- 863   1                              return;
- 864   1              #endif
- 865   1              
- 866   1              fml_ctrl_recv_display(p_data);                                                  ///< recive remote key value
- 867   1              if(REMOTE != p_data->keytype)
- 868   1                      return;
- 869   1      
- 870   1              fml_ctrl_deal_key(p_data);                                                              ///< analysis key value 
- 871   1              fml_ctrl_deal_mode(p_data);                                                             ///< control relay by diff mode
- 872   1              fml_ctrl_deal_motor(p_data);                                                    ///< update motor step
- 873   1              fml_ctrl_deal_swing(p_data);                                                    ///< control swing func
- 874   1              fml_ctrl_deal_fan(p_data);                                                              ///< control fan machine
- 875   1              fml_ctrl_chk_error(p_data);                                                             ///< check data result legal
- 876   1      }
- 877          
- 878          /*********************************************************************************************************
+ 856          void fml_ctrl_key_logic(datall* p_data)
+ 857          {
+ 858   1              #ifdef XY_SYS_TEST_MODE
+ 859   1                      if(YES == p_data->testmode)
+ 860   1                              return;
+ 861   1              #endif
+ 862   1              
+ 863   1              fml_ctrl_recv_display(p_data);                                                  ///< recive remote key value
+ 864   1              if(REMOTE != p_data->keytype)
+ 865   1                      return;
+ 866   1      
+ 867   1              fml_ctrl_deal_key(p_data);                                                              ///< analysis key value 
+ 868   1              fml_ctrl_deal_mode(p_data);                                                             ///< control relay by diff mode
+ 869   1              fml_ctrl_deal_motor(p_data);                                                    ///< update motor step
+ 870   1              fml_ctrl_deal_swing(p_data);                                                    ///< control swing func
+ 871   1              fml_ctrl_deal_fan(p_data);                                                              ///< control fan machine
+ 872   1              fml_ctrl_chk_error(p_data);                                                             ///< check data result legal
+ 873   1      }
+ 874          
+ 875          /*********************************************************************************************************
              -**************
- 879          * Function Name: 
- 880          * Description  : 
- 881          * Arguments    : None
- 882          * Return Value : None
- 883          **********************************************************************************************************
+ 876          * Function Name: 
+ 877          * Description  : 
+ 878          * Arguments    : None
+ 879          * Return Value : None
+ 880          **********************************************************************************************************
              -*************/
- 884          void fml_ctrl_work_time(datall* p_data)
- 885          {
- 886   1              static workmodule  s_workmode = WORKMODULE_STANDBY;
- 887   1              static unsigned int  s_work_min = 0;
- 888   1      
- 889   1              if(REMOTE != p_data->keytype)
- 890   1                      return;
- 891   1              
- 892   1              if(s_workmode != p_data->remote.workmode.workmode_current)
-C51 COMPILER V9.01   XY_FML_CTRL                                                           03/19/2021 15:22:56 PAGE 16  
+ 881          void fml_ctrl_work_time(datall* p_data)
+ 882          {
+ 883   1              static workmodule  s_workmode = WORKMODULE_STANDBY;
+ 884   1              static unsigned int  s_work_min = 0;
+ 885   1      
+ 886   1              if(REMOTE != p_data->keytype)
+ 887   1                      return;
+ 888   1              
+ 889   1              if(s_workmode != p_data->remote.workmode.workmode_current)
+ 890   1              {
+ 891   2                      s_workmode = p_data->remote.workmode.workmode_current;
+ 892   2                      s_work_min = 0;
+C51 COMPILER V9.01   XY_FML_CTRL                                                           03/20/2021 09:36:21 PAGE 16  
 
- 893   1              {
- 894   2                      s_workmode = p_data->remote.workmode.workmode_current;
- 895   2                      s_work_min = 0;
- 896   2              }       
- 897   1              switch(p_data->remote.workmode.workmode_current)
- 898   1              {
- 899   2                      case WORKMODULE_STANDBY:
- 900   2                              s_work_min = 0;
- 901   2                              break;
- 902   2                      case WORKMODULE_BLOW:
- 903   2                      case WORKMODULE_WARM:
- 904   2                      case WORKMODULE_ABSORB:
- 905   2                              if((NO == p_data->remote.workmode.flag_work_warmdry)
- 906   2                                      && (NO == p_data->remote.workmode.flag_work_colddry))
- 907   2                              {
- 908   3                                      s_work_min++;
- 909   3                              }
- 910   2                              break;
- 911   2                      default:
- 912   2                              break;
- 913   2              }       
- 914   1              if(s_work_min >= CLOCK_WORKTIME_120MIN)
- 915   1              {
- 916   2                      p_data->remote.workmode.workmode_current = WORKMODULE_STANDBY;
- 917   2              }
- 918   1      }
- 919          
- 920          /*********************************************************************************************************
+ 893   2              }       
+ 894   1              switch(p_data->remote.workmode.workmode_current)
+ 895   1              {
+ 896   2                      case WORKMODULE_STANDBY:
+ 897   2                              s_work_min = 0;
+ 898   2                              break;
+ 899   2                      case WORKMODULE_BLOW:
+ 900   2                      case WORKMODULE_WARM:
+ 901   2                      case WORKMODULE_ABSORB:
+ 902   2                              if((NO == p_data->remote.workmode.flag_work_warmdry)
+ 903   2                                      && (NO == p_data->remote.workmode.flag_work_colddry))
+ 904   2                              {
+ 905   3                                      s_work_min++;
+ 906   3                              }
+ 907   2                              break;
+ 908   2                      default:
+ 909   2                              break;
+ 910   2              }       
+ 911   1              if(s_work_min >= CLOCK_WORKTIME_120MIN)
+ 912   1              {
+ 913   2                      p_data->remote.workmode.workmode_current = WORKMODULE_STANDBY;
+ 914   2              }
+ 915   1      }
+ 916          
+ 917          /*********************************************************************************************************
              -**************
- 921          * Function Name: 
- 922          * Description  : 
- 923          * Arguments    : None
- 924          * Return Value : None
- 925          **********************************************************************************************************
+ 918          * Function Name: 
+ 919          * Description  : 
+ 920          * Arguments    : None
+ 921          * Return Value : None
+ 922          **********************************************************************************************************
              -*************/
- 926          void fml_ctrl_deal_alarm(datall* p_data)
- 927          {
- 928   1              if((p_data->temperature.value >= ALARM_HIGH_TEMP))
- 929   1              {
- 930   2                      p_data->remote.workmode.workmode_current = WORKMODULE_STANDBY;
- 931   2              }
- 932   1      }
- 933          
+ 923          void fml_ctrl_deal_alarm(datall* p_data)
+ 924          {
+ 925   1              if((p_data->temperature.value >= ALARM_HIGH_TEMP))
+ 926   1              {
+ 927   2                      p_data->remote.workmode.workmode_current = WORKMODULE_STANDBY;
+ 928   2              }
+ 929   1      }
+ 930          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   4043    ----
+   CODE SIZE        =   4016    ----
    CONSTANT SIZE    =     18    ----
    XDATA SIZE       =     14      36
    PDATA SIZE       =   ----    ----
