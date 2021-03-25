@@ -81,7 +81,7 @@ void fml_ctrl_chk_error(datall* p_data)
 		{
 			p_data->remote.keyctrl.keystate_open_swing = OFF;
 		}
-
+ 
 		if(OFF == p_data->remote.keyctrl.keystate_open_swing)
 		{
 			p_data->remote.keyctrl.keystate_fan_blow = OFF;
