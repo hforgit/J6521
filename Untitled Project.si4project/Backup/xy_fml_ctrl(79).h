@@ -11,7 +11,7 @@
 	_A_ ? NO : (_C_ == ON ? YES : NO))
 
 #define CTRL_CHECK_ERROR_NUMB_3(_A_, _B_, _C_, _D_, _E_)		(\
-	_C_ == ON ? (YES == MOTOR_CHK_BLOW_STEP(36) ? YES : NO) : NO)
+	_C_ == ON ? (YES == MOTOR_CHK_BLOW_STEP(10) ? YES : NO) : NO)
 
 #define CTRL_CHECK_ERROR_NUMB_4(_A_, _B_, _C_, _D_, _E_)		(\
 	_D_ == ON ? (_E_ == ON ? YES : NO) : NO)

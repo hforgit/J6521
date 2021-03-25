@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/23/2021 15:30:00 PAGE 1   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/25/2021 08:30:01 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_MOTOR
@@ -62,7 +62,7 @@ line level    source
   48   2              }
   49   1              else
   50   1              {
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/23/2021 15:30:00 PAGE 2   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/25/2021 08:30:01 PAGE 2   
 
   51   2                      /* only enter work one time about checkself. */
   52   2                      p_motor->blow_target_step_real = RESET_STEP_ZERO;
@@ -126,7 +126,7 @@ line level    source
  106   2                              break;  
  107   2                      case 4:
  108   2                              blow_motor_step1_off();blow_motor_step2_off();blow_motor_step3_on();blow_motor_step4_off();
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/23/2021 15:30:00 PAGE 3   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/25/2021 08:30:01 PAGE 3   
 
  109   2                              break;
  110   2                      case 5:
@@ -190,7 +190,7 @@ line level    source
  164   2              }
  165   1      }
  166          
-C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/23/2021 15:30:00 PAGE 4   
+C51 COMPILER V9.01   XY_FML_MOTOR                                                          03/25/2021 08:30:01 PAGE 4   
 
  167          /*********************************************************************************************************
              -**************

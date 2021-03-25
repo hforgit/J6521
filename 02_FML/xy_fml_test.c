@@ -182,7 +182,9 @@ void fml_test_motor(void)
 	fml_test_delay();
 	blow_motor_step1_off();
 	#endif
-
+	fml_test_delay();
+	fml_test_delay();
+	fml_test_delay();
 }
 
 /***********************************************************************************************************************

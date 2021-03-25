@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.41                                                               03/23/2021  15:30:02  PAGE 1
+LX51 LINKER/LOCATER V4.41                                                               03/25/2021  08:30:04  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.41, INVOKED BY:
@@ -67,7 +67,7 @@ INPUT MODULES INCLUDED:
   D:\MDK5\C51\LIB\C51L.LIB (?C?ISTOPTR)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   D:\MDK5\C51\LIB\C51L.LIB (?C?SLCMP)
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 2
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 2
 
 
          COMMENT TYPE 1: A51 / ASM51 Assembler
@@ -81,7 +81,7 @@ ACTIVE MEMORY CLASSES OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:00FFFFH   00288BH   CODE
+C:000000H   C:000000H   C:00FFFFH   002893H   CODE
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 X:000000H   X:000000H   X:00FFFFH   0000D4H   XDATA
 C:000000H   C:000000H   C:00FFFFH   000017H   CONST
@@ -135,7 +135,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 001D66H   001DE8H   000083H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_INIT_DATA?XY_FML_CTRL
 001DE9H   001E6AH   000082H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_KEY_LOGIC?XY_FML_CTRL
 001E6BH   001EE3H   000079H   BYTE   UNIT     CODE           ?PR?HAL_IRQ_TIM2_ISR?XY_HAL_ISR
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 3
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 3
 
 
 001EE4H   001F54H   000071H   BYTE   UNIT     CODE           ?PR?_FML_TOUCH_CTRL_LOGIC?XY_FML_TOUCH
@@ -164,30 +164,30 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 002678H   0026A1H   00002AH   BYTE   UNIT     CODE           ?PR?APL_CONFIG_DATA?XY_APL_LOGIC
 0026A2H   0026CBH   00002AH   BYTE   UNIT     CODE           ?PR?HAL_TIMER_INIT?XY_HAL_TIMER
 0026CCH   0026F1H   000026H   BYTE   UNIT     CODE           ?PR?_HAL_TIMER_BUZZER?XY_HAL_TIMER
-0026F2H   002716H   000025H   BYTE   UNIT     CODE           ?PR?_FML_TOUCH_DEAL_MOTOR?XY_FML_TOUCH
-002717H   002737H   000021H   BYTE   UNIT     CODE           ?PR?_HAL_TIMER_MOTOR_BLOW?XY_HAL_TIMER
-002738H   002756H   00001FH   BYTE   UNIT     CODE           ?PR?HAL_PORT_INIT?XY_HAL_PORT
-002757H   002773H   00001DH   BYTE   UNIT     CODE           ?PR?FML_TEST_MOTOR?XY_FML_TEST
-002774H   002790H   00001DH   BYTE   UNIT     CODE           ?PR?FML_TEST_CHECK?XY_FML_TEST
-002791H   0027A6H   000016H   BYTE   UNIT     CODE           ?PR?_FML_DISPLAY_CONF_BLOW?XY_FML_DISPLAY
-0027A7H   0027BCH   000016H   BYTE   UNIT     CODE           ?PR?_FML_DISPLAY_CONF_ABSORB?XY_FML_DISPLAY
-0027BDH   0027D0H   000014H   BYTE   UNIT     CODE           ?PR?_FML_TEST_UART?XY_FML_TEST
-0027D1H   0027E3H   000013H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_RECV_DISPLAY?XY_FML_CTRL
-0027E4H   0027F6H   000013H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_DEAL_ALARM?XY_FML_CTRL
-0027F7H   002808H   000012H   BYTE   UNIT     CODE           ?PR?HAL_SERIAL_INIT?XY_HAL_SERIAL
-002809H   002819H   000011H   BYTE   UNIT     CODE           ?PR?FML_TEST_INIT?XY_FML_TEST
-00281AH   002828H   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_LIGHT?XY_FML_RELAY
-002829H   002837H   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_PTC?XY_FML_RELAY
-002838H   002846H   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_FAN_BLOW?XY_FML_RELAY
-002847H   002855H   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_FAN_ABSORB?XY_FML_RELAY
-002856H   002864H   00000FH   BYTE   UNIT     CODE           ?PR?HAL_IRQ_EX2_ISR?XY_HAL_ISR
-002865H   00286DH   000009H   BYTE   UNIT     CODE           ?PR?APL_INITIALIZE?XY_APL_LOGIC
-00286EH   002876H   000009H   BYTE   UNIT     CODE           ?PR?FML_CTRL_INIT_REG?XY_FML_CTRL
-002877H   00287FH   000009H   BYTE   UNIT     CODE           ?PR?FML_MOTOR_CLOSE_BLOW?XY_FML_MOTOR
-002880H   002888H   000009H   BYTE   UNIT     CODE           ?PR?_FML_TOUCH_INIT_DATA?XY_FML_TOUCH
-002889H   00288BH   000003H   BYTE   UNIT     CODE           ?PR?_HAL_SERIAL_UART_TX_DISPLAY?XY_HAL_SERIAL
-00288CH   00289DH   000012H   BYTE   UNIT     CONST          ?CO?XY_FML_CTRL
-00289EH   0028A2H   000005H   BYTE   UNIT     CONST          ?CO?XY_FML_TOUCH
+0026F2H   002716H   000025H   BYTE   UNIT     CODE           ?PR?FML_TEST_MOTOR?XY_FML_TEST
+002717H   00273BH   000025H   BYTE   UNIT     CODE           ?PR?_FML_TOUCH_DEAL_MOTOR?XY_FML_TOUCH
+00273CH   00275CH   000021H   BYTE   UNIT     CODE           ?PR?_HAL_TIMER_MOTOR_BLOW?XY_HAL_TIMER
+00275DH   00277BH   00001FH   BYTE   UNIT     CODE           ?PR?HAL_PORT_INIT?XY_HAL_PORT
+00277CH   002798H   00001DH   BYTE   UNIT     CODE           ?PR?FML_TEST_CHECK?XY_FML_TEST
+002799H   0027AEH   000016H   BYTE   UNIT     CODE           ?PR?_FML_DISPLAY_CONF_BLOW?XY_FML_DISPLAY
+0027AFH   0027C4H   000016H   BYTE   UNIT     CODE           ?PR?_FML_DISPLAY_CONF_ABSORB?XY_FML_DISPLAY
+0027C5H   0027D8H   000014H   BYTE   UNIT     CODE           ?PR?_FML_TEST_UART?XY_FML_TEST
+0027D9H   0027EBH   000013H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_RECV_DISPLAY?XY_FML_CTRL
+0027ECH   0027FEH   000013H   BYTE   UNIT     CODE           ?PR?_FML_CTRL_DEAL_ALARM?XY_FML_CTRL
+0027FFH   002810H   000012H   BYTE   UNIT     CODE           ?PR?HAL_SERIAL_INIT?XY_HAL_SERIAL
+002811H   002821H   000011H   BYTE   UNIT     CODE           ?PR?FML_TEST_INIT?XY_FML_TEST
+002822H   002830H   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_LIGHT?XY_FML_RELAY
+002831H   00283FH   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_PTC?XY_FML_RELAY
+002840H   00284EH   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_FAN_BLOW?XY_FML_RELAY
+00284FH   00285DH   00000FH   BYTE   UNIT     CODE           ?PR?_FML_RELAY_FAN_ABSORB?XY_FML_RELAY
+00285EH   00286CH   00000FH   BYTE   UNIT     CODE           ?PR?HAL_IRQ_EX2_ISR?XY_HAL_ISR
+00286DH   002875H   000009H   BYTE   UNIT     CODE           ?PR?APL_INITIALIZE?XY_APL_LOGIC
+002876H   00287EH   000009H   BYTE   UNIT     CODE           ?PR?FML_CTRL_INIT_REG?XY_FML_CTRL
+00287FH   002887H   000009H   BYTE   UNIT     CODE           ?PR?FML_MOTOR_CLOSE_BLOW?XY_FML_MOTOR
+002888H   002890H   000009H   BYTE   UNIT     CODE           ?PR?_FML_TOUCH_INIT_DATA?XY_FML_TOUCH
+002891H   002893H   000003H   BYTE   UNIT     CODE           ?PR?_HAL_SERIAL_UART_TX_DISPLAY?XY_HAL_SERIAL
+002894H   0028A5H   000012H   BYTE   UNIT     CONST          ?CO?XY_FML_CTRL
+0028A6H   0028AAH   000005H   BYTE   UNIT     CONST          ?CO?XY_FML_TOUCH
 
 * * * * * * * * * * *  X D A T A   M E M O R Y  * * * * * * * * * * * * *
 000000H   000068H   000069H   BYTE   UNIT     XDATA          ?XD?XY_SYS_VARIABLE
@@ -203,7 +203,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 
 
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 4
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 4
 
 
 OVERLAY MAP OF MODULE:   .\Objects\BATHROOMMASTER (MAIN)
@@ -271,7 +271,7 @@ APL_LOGIC_CTRL/XY_APL_LOGIC                   ----- -----
   +--> ?PR?_FML_TEST_LOGIC?XY_FML_TEST
   +--> ?PR?_FML_CTRL_DEAL_TIMER?XY_FML_CTRL
   +--> ?PR?_FML_CTRL_WORK_TIME?XY_FML_CTRL
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 5
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 5
 
 
   +--> ?PR?_FML_CTRL_DEAL_ALARM?XY_FML_CTRL
@@ -339,7 +339,7 @@ _FML_CTRL_CHK_ERROR/XY_FML_CTRL               006CH 0077H
 _FML_TOUCH_CTRL_LOGIC/XY_FML_TOUCH            0069H 006BH
   +--> ?PR?_FML_TOUCH_RECV_DATA?XY_FML_TOUCH
   +--> ?PR?_FML_TOUCH_DEAL_DISP?XY_FML_TOUCH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 6
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 6
 
 
   +--> ?PR?_FML_TOUCH_DEAL_RELAY?XY_FML_TOUCH
@@ -407,7 +407,7 @@ _FML_TEST_UART/XY_FML_TEST                    ----- -----
 
 _FML_TEST_OLD_DIS/XY_FML_TEST                 ----- -----
 
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 7
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 7
 
 
 _HAL_SERIAL_UART_TX_DISPLAY/XY_HAL_SE...      ----- -----
@@ -475,7 +475,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000192H   CODE     ---       ?C?CILDOPTR
       01000165H   CODE     ---       ?C?CLDOPTR
       0100014CH   CODE     ---       ?C?CLDPTR
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 8
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 8
 
 
       00000000H   NUMBER   ---       ?C?CODESEG
@@ -497,7 +497,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002292H   CODE     ---       _fml_buzzer_timer_cnt
       0100002EH   CODE     ---       _fml_buzzer_timer_ctrl
       010005EBH   CODE     ---       _fml_ctrl_chk_error
-      010027E4H   CODE     ---       _fml_ctrl_deal_alarm
+      010027ECH   CODE     ---       _fml_ctrl_deal_alarm
       01000EDBH   CODE     ---       _fml_ctrl_deal_automode
       01001B05H   CODE     ---       _fml_ctrl_deal_fan
       01001062H   CODE     ---       _fml_ctrl_deal_key
@@ -508,11 +508,11 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100185CH   CODE     ---       _fml_ctrl_icon_display
       01001D66H   CODE     ---       _fml_ctrl_init_data
       01001DE9H   CODE     ---       _fml_ctrl_key_logic
-      010027D1H   CODE     ---       _fml_ctrl_recv_display
+      010027D9H   CODE     ---       _fml_ctrl_recv_display
       01000AEFH   CODE     ---       _fml_ctrl_recv_old_version
       010020A2H   CODE     ---       _fml_ctrl_work_time
-      010027A7H   CODE     ---       _fml_display_conf_absorb
-      01002791H   CODE     ---       _fml_display_conf_blow
+      010027AFH   CODE     ---       _fml_display_conf_absorb
+      01002799H   CODE     ---       _fml_display_conf_blow
       0100255AH   CODE     ---       _fml_display_conf_symbol
       01002393H   CODE     ---       _fml_display_conf_warm
       01000871H   CODE     ---       _fml_display_tx_data
@@ -524,32 +524,32 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002645H   CODE     ---       _fml_motor_save_step
       01002612H   CODE     ---       _fml_motor_timer_ctrl
       01002431H   CODE     ---       _fml_relay_ctrl
-      01002847H   CODE     ---       _fml_relay_fan_absorb
-      01002838H   CODE     ---       _fml_relay_fan_blow
-      0100281AH   CODE     ---       _fml_relay_light
-      01002829H   CODE     ---       _fml_relay_ptc
+      0100284FH   CODE     ---       _fml_relay_fan_absorb
+      01002840H   CODE     ---       _fml_relay_fan_blow
+      01002822H   CODE     ---       _fml_relay_light
+      01002831H   CODE     ---       _fml_relay_ptc
       01002034H   CODE     ---       _fml_test_logic
       010014A4H   CODE     ---       _fml_test_old_dis
       01001BA7H   CODE     ---       _fml_test_temp
-      010027BDH   CODE     ---       _fml_test_uart
+      010027C5H   CODE     ---       _fml_test_uart
       01001EE4H   CODE     ---       _fml_touch_ctrl_logic
       010024CAH   CODE     ---       _fml_touch_deal_disp
-      010026F2H   CODE     ---       _fml_touch_deal_motor
+      01002717H   CODE     ---       _fml_touch_deal_motor
       010022EAH   CODE     ---       _fml_touch_deal_relay
       0100190FH   CODE     ---       _fml_touch_deal_swing
-      01002880H   CODE     ---       _fml_touch_init_data
+      01002888H   CODE     ---       _fml_touch_init_data
       010015C1H   CODE     ---       _fml_touch_recv_data
       01001C49H   CODE     ---       _hal_irq_uart1_send
       01002515H   CODE     ---       _hal_irq_uart2_send
       010016D9H   CODE     ---       _hal_serial_uart_rx_display
       010019B9H   CODE     ---       _hal_serial_uart_rx_touch
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 9
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 9
 
 
-      01002889H   CODE     ---       _hal_serial_uart_tx_display
+      01002891H   CODE     ---       _hal_serial_uart_tx_display
       010026CCH   CODE     ---       _hal_timer_buzzer
       01001FC5H   CODE     ---       _hal_timer_mode_deal
-      01002717H   CODE     ---       _hal_timer_motor_blow
+      0100273CH   CODE     ---       _hal_timer_motor_blow
 *SFR* 000000D0H.6 DATA     BIT       AC
 *SFR* 000000E0H   DATA     BYTE      ACC
 *SFR* 000000ABH   DATA     BYTE      ADCCFG0
@@ -561,7 +561,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002678H   CODE     ---       apl_config_data
       01000038H   CODE     ---       apl_config_register
       010025DAH   CODE     ---       apl_init_data
-      01002865H   CODE     ---       apl_initialize
+      0100286DH   CODE     ---       apl_initialize
       010011DCH   CODE     ---       apl_logic_ctrl
 *SFR* 000000F0H   DATA     BYTE      B
 *SFR* 000000CEH   DATA     BYTE      BTMCON
@@ -590,28 +590,28 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
 *SFR* 000000C8H.6 DATA     BIT       EXF2
 *SFR* 000000D0H.5 DATA     BIT       F0
 *SFR* 000000D0H.1 DATA     BIT       F1
-      0100286EH   CODE     ---       fml_ctrl_init_reg
-      01002877H   CODE     ---       fml_motor_close_blow
-      01002774H   CODE     ---       fml_test_check
+      01002876H   CODE     ---       fml_ctrl_init_reg
+      0100287FH   CODE     ---       fml_motor_close_blow
+      0100277CH   CODE     ---       fml_test_check
       01001F55H   CODE     ---       fml_test_delay
-      01002809H   CODE     ---       fml_test_init
-      01002757H   CODE     ---       fml_test_motor
+      01002811H   CODE     ---       fml_test_init
+      010026F2H   CODE     ---       fml_test_motor
       0100000EH   CODE     ---       fml_test_port
       02000008H   XDATA    ---       g_datall
       02000000H   XDATA    ---       g_timebase
-      01002856H   CODE     ---       hal_irq_ex2_isr
+      0100285EH   CODE     ---       hal_irq_ex2_isr
       01002341H   CODE     ---       hal_irq_tim0_isr
       01001E6BH   CODE     ---       hal_irq_tim2_isr
       0100210BH   CODE     ---       hal_irq_uart1_isr
-      01002738H   CODE     ---       hal_port_init
-      010027F7H   CODE     ---       hal_serial_Init
+      0100275DH   CODE     ---       hal_port_init
+      010027FFH   CODE     ---       hal_serial_Init
       010026A2H   CODE     ---       hal_timer_Init
 *SFR* 000000F4H   DATA     BYTE      IAPADE
 *SFR* 000000F3H   DATA     BYTE      IAPADH
 *SFR* 000000F2H   DATA     BYTE      IAPADL
 *SFR* 000000F6H   DATA     BYTE      IAPCTL
 *SFR* 000000F5H   DATA     BYTE      IAPDAT
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 10
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 10
 
 
 *SFR* 000000F1H   DATA     BYTE      IAPKEY
@@ -679,7 +679,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
 *SFR* 000000D8H.1 DATA     BIT       P51
 *SFR* 000000D9H   DATA     BYTE      P5CON
 *SFR* 000000DAH   DATA     BYTE      P5PH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 11
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 11
 
 
 *SFR* 00000087H   DATA     BYTE      PCON
@@ -747,7 +747,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 12
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 12
 
 
       00000090H   SFRSYM    DATA     BYTE      P1
@@ -815,7 +815,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000090H.2 SFRSYM    DATA     BIT       P12
       00000080H.3 SFRSYM    DATA     BIT       P03
       000000A0H.2 SFRSYM    DATA     BIT       P22
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 13
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 13
 
 
       00000090H.3 SFRSYM    DATA     BIT       P13
@@ -883,7 +883,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000C8H.2 SFRSYM    DATA     BIT       TR2
       000000D3H   SFRSYM    DATA     BYTE      PWMPRD
       00000083H   SFRSYM    DATA     BYTE      DPH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 14
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 14
 
 
       00000082H   SFRSYM    DATA     BYTE      DPL
@@ -951,13 +951,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001CDEH   LINE      CODE     ---       #136
       01001CE0H   LINE      CODE     ---       #185
       01001CE3H   LINE      CODE     ---       #196
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 15
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 15
 
 
 
       ---         MODULE    ---      ---       XY_APL_LOGIC
       010011DCH   PUBLIC    CODE     ---       apl_logic_ctrl
-      01002865H   PUBLIC    CODE     ---       apl_initialize
+      0100286DH   PUBLIC    CODE     ---       apl_initialize
       01000038H   PUBLIC    CODE     ---       apl_config_register
       01002678H   PUBLIC    CODE     ---       apl_config_data
       010025DAH   PUBLIC    CODE     ---       apl_init_data
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000C8H.4 SFRSYM    DATA     BIT       TCLK
       00000080H   SFRSYM    DATA     BIT       P00
       00000090H   SFRSYM    DATA     BIT       P10
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 16
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 16
 
 
       00000080H.1 SFRSYM    DATA     BIT       P01
@@ -1087,7 +1087,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000CFH   SFRSYM    DATA     BYTE      WDTCON
       0000008BH   SFRSYM    DATA     BYTE      TL1
       00000098H.5 SFRSYM    DATA     BIT       SM2
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 17
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 17
 
 
       000000CCH   SFRSYM    DATA     BYTE      TL2
@@ -1149,13 +1149,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000038H   LINE      CODE     ---       #40
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002865H   BLOCK     CODE     ---       LVL=0
-      01002865H   LINE      CODE     ---       #49
-      01002865H   LINE      CODE     ---       #50
-      01002865H   LINE      CODE     ---       #51
-      01002868H   LINE      CODE     ---       #52
-      0100286BH   LINE      CODE     ---       #53
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 18
+      0100286DH   BLOCK     CODE     ---       LVL=0
+      0100286DH   LINE      CODE     ---       #49
+      0100286DH   LINE      CODE     ---       #50
+      0100286DH   LINE      CODE     ---       #51
+      01002870H   LINE      CODE     ---       #52
+      01002873H   LINE      CODE     ---       #53
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 18
 
 
       ---         BLOCKEND  ---      ---       LVL=0
@@ -1223,7 +1223,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_FML_BUZZER
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 19
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 19
 
 
       0100134CH   PUBLIC    CODE     ---       _fml_buzzer_deal
@@ -1291,7 +1291,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000080H.1 SFRSYM    DATA     BIT       P01
       00000099H   SFRSYM    DATA     BYTE      SBUF
       00000087H   SFRSYM    DATA     BYTE      PCON
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 20
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 20
 
 
       000000A0H   SFRSYM    DATA     BIT       P20
@@ -1359,7 +1359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000CCH   SFRSYM    DATA     BYTE      TL2
       000000D0H.3 SFRSYM    DATA     BIT       RS0
       00000088H.4 SFRSYM    DATA     BIT       TR0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 21
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 21
 
 
       000000D0H.4 SFRSYM    DATA     BIT       RS1
@@ -1427,7 +1427,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010022B5H   LINE      CODE     ---       #45
       010022B5H   LINE      CODE     ---       #46
       010022BFH   LINE      CODE     ---       #47
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 22
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 22
 
 
       010022C7H   LINE      CODE     ---       #48
@@ -1495,7 +1495,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100144CH   LINE      CODE     ---       #113
       0100144CH   LINE      CODE     ---       #114
       01001454H   LINE      CODE     ---       #115
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 23
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 23
 
 
       0100145DH   LINE      CODE     ---       #116
@@ -1517,7 +1517,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_FML_CTRL
-      010027E4H   PUBLIC    CODE     ---       _fml_ctrl_deal_alarm
+      010027ECH   PUBLIC    CODE     ---       _fml_ctrl_deal_alarm
       010020A2H   PUBLIC    CODE     ---       _fml_ctrl_work_time
       01001DE9H   PUBLIC    CODE     ---       _fml_ctrl_key_logic
       0100003EH   PUBLIC    CODE     ---       _fml_ctrl_deal_timer
@@ -1527,12 +1527,12 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000358H   PUBLIC    CODE     ---       _fml_ctrl_deal_mode
       01000EDBH   PUBLIC    CODE     ---       _fml_ctrl_deal_automode
       01001062H   PUBLIC    CODE     ---       _fml_ctrl_deal_key
-      010027D1H   PUBLIC    CODE     ---       _fml_ctrl_recv_display
+      010027D9H   PUBLIC    CODE     ---       _fml_ctrl_recv_display
       01000AEFH   PUBLIC    CODE     ---       _fml_ctrl_recv_old_version
       0100185CH   PUBLIC    CODE     ---       _fml_ctrl_icon_display
       010005EBH   PUBLIC    CODE     ---       _fml_ctrl_chk_error
       01001D66H   PUBLIC    CODE     ---       _fml_ctrl_init_data
-      0100286EH   PUBLIC    CODE     ---       fml_ctrl_init_reg
+      01002876H   PUBLIC    CODE     ---       fml_ctrl_init_reg
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -1563,7 +1563,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000FCH   SFRSYM    DATA     BYTE      CHKSUML
       000000D7H   SFRSYM    DATA     BYTE      PWMDTY2
       00000092H   SFRSYM    DATA     BYTE      P1PH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 24
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 24
 
 
       00000098H   SFRSYM    DATA     BIT       RI
@@ -1631,7 +1631,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000095H   SFRSYM    DATA     BYTE      SSCON2
       000000F6H   SFRSYM    DATA     BYTE      IAPCTL
       000000A9H   SFRSYM    DATA     BYTE      IE1
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 25
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 25
 
 
       000000F0H   SFRSYM    DATA     BYTE      B
@@ -1696,19 +1696,19 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H.5 SFRSYM    DATA     BIT       F0
       000000D0H.1 SFRSYM    DATA     BIT       F1
       000000D0H   SFRSYM    DATA     BYTE      PSW
-      0100288CH   SYMBOL    CONST    ---       _?ix1000
-      01002890H   SYMBOL    CONST    ---       _?ix1001
-      01002893H   SYMBOL    CONST    ---       _?ix1002
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 26
+      01002894H   SYMBOL    CONST    ---       _?ix1000
+      01002898H   SYMBOL    CONST    ---       _?ix1001
+      0100289BH   SYMBOL    CONST    ---       _?ix1002
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 26
 
 
 
-      0100286EH   BLOCK     CODE     ---       LVL=0
-      0100286EH   LINE      CODE     ---       #9
-      0100286EH   LINE      CODE     ---       #10
-      0100286EH   LINE      CODE     ---       #11
-      01002871H   LINE      CODE     ---       #12
-      01002874H   LINE      CODE     ---       #13
+      01002876H   BLOCK     CODE     ---       LVL=0
+      01002876H   LINE      CODE     ---       #9
+      01002876H   LINE      CODE     ---       #10
+      01002876H   LINE      CODE     ---       #11
+      01002879H   LINE      CODE     ---       #12
+      0100287CH   LINE      CODE     ---       #13
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001D66H   BLOCK     CODE     ---       LVL=0
@@ -1767,7 +1767,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000796H   LINE      CODE     ---       #81
       01000796H   LINE      CODE     ---       #82
       0100079EH   LINE      CODE     ---       #83
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 27
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 27
 
 
       0100079EH   LINE      CODE     ---       #85
@@ -1835,7 +1835,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010018EFH   LINE      CODE     ---       #163
       010018F4H   LINE      CODE     ---       #164
       010018F6H   LINE      CODE     ---       #165
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 28
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 28
 
 
       010018F6H   LINE      CODE     ---       #166
@@ -1903,7 +1903,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000C87H   LINE      CODE     ---       #231
       01000C9AH   LINE      CODE     ---       #232
       01000C9AH   LINE      CODE     ---       #234
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 29
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 29
 
 
       01000CADH   LINE      CODE     ---       #235
@@ -1919,16 +1919,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000CFEH   LINE      CODE     ---       #246
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010027D1H   BLOCK     CODE     ---       LVL=0
+      010027D9H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      010027D1H   LINE      CODE     ---       #254
-      010027D1H   LINE      CODE     ---       #255
-      010027D1H   LINE      CODE     ---       #256
-      010027D9H   LINE      CODE     ---       #257
-      010027D9H   LINE      CODE     ---       #258
-      010027E0H   LINE      CODE     ---       #259
-      010027E3H   LINE      CODE     ---       #260
-      010027E3H   LINE      CODE     ---       #261
+      010027D9H   LINE      CODE     ---       #254
+      010027D9H   LINE      CODE     ---       #255
+      010027D9H   LINE      CODE     ---       #256
+      010027E1H   LINE      CODE     ---       #257
+      010027E1H   LINE      CODE     ---       #258
+      010027E8H   LINE      CODE     ---       #259
+      010027EBH   LINE      CODE     ---       #260
+      010027EBH   LINE      CODE     ---       #261
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001062H   BLOCK     CODE     ---       LVL=0
@@ -1971,7 +1971,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010010FFH   LINE      CODE     ---       #317
       010010FFH   LINE      CODE     ---       #318
       010010FFH   LINE      CODE     ---       #319
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 30
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 30
 
 
       010010FFH   LINE      CODE     ---       #320
@@ -2039,7 +2039,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010011D5H   LINE      CODE     ---       #400
       010011D5H   LINE      CODE     ---       #401
       010011D5H   LINE      CODE     ---       #402
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 31
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 31
 
 
       010011D5H   LINE      CODE     ---       #403
@@ -2107,7 +2107,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001028H   LINE      CODE     ---       #474
       01001037H   LINE      CODE     ---       #475
       01001037H   LINE      CODE     ---       #476
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 32
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 32
 
 
       0100103BH   LINE      CODE     ---       #477
@@ -2175,7 +2175,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000455H   LINE      CODE     ---       #543
       01000455H   LINE      CODE     ---       #544
       01000457H   LINE      CODE     ---       #546
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 33
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 33
 
 
       01000457H   LINE      CODE     ---       #547
@@ -2243,7 +2243,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010005EAH   LINE      CODE     ---       #614
       010005EAH   LINE      CODE     ---       #615
       ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 34
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 34
 
 
 
@@ -2311,7 +2311,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000E35H   LINE      CODE     ---       #685
       01000E37H   LINE      CODE     ---       #686
       01000E3DH   LINE      CODE     ---       #687
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 35
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 35
 
 
       01000E3DH   LINE      CODE     ---       #688
@@ -2379,7 +2379,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001B53H   LINE      CODE     ---       #759
       01001B58H   LINE      CODE     ---       #760
       01001B5AH   LINE      CODE     ---       #762
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 36
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 36
 
 
       01001B5AH   LINE      CODE     ---       #763
@@ -2447,7 +2447,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001B04H   LINE      CODE     ---       #832
       01001B04H   LINE      CODE     ---       #833
       01001B04H   LINE      CODE     ---       #834
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 37
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 37
 
 
       01001B04H   LINE      CODE     ---       #835
@@ -2515,26 +2515,26 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100210AH   LINE      CODE     ---       #915
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 38
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 38
 
 
-      010027E4H   BLOCK     CODE     ---       LVL=0
+      010027ECH   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      010027E4H   LINE      CODE     ---       #923
-      010027E4H   LINE      CODE     ---       #924
-      010027E4H   LINE      CODE     ---       #925
-      010027EFH   LINE      CODE     ---       #926
-      010027EFH   LINE      CODE     ---       #927
-      010027F6H   LINE      CODE     ---       #928
-      010027F6H   LINE      CODE     ---       #929
+      010027ECH   LINE      CODE     ---       #923
+      010027ECH   LINE      CODE     ---       #924
+      010027ECH   LINE      CODE     ---       #925
+      010027F7H   LINE      CODE     ---       #926
+      010027F7H   LINE      CODE     ---       #927
+      010027FEH   LINE      CODE     ---       #928
+      010027FEH   LINE      CODE     ---       #929
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_FML_DISPLAY
       01000871H   PUBLIC    CODE     ---       _fml_display_tx_data
       0100255AH   PUBLIC    CODE     ---       _fml_display_conf_symbol
-      010027A7H   PUBLIC    CODE     ---       _fml_display_conf_absorb
+      010027AFH   PUBLIC    CODE     ---       _fml_display_conf_absorb
       01002393H   PUBLIC    CODE     ---       _fml_display_conf_warm
-      01002791H   PUBLIC    CODE     ---       _fml_display_conf_blow
+      01002799H   PUBLIC    CODE     ---       _fml_display_conf_blow
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -2583,7 +2583,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0000009CH   SFRSYM    DATA     BYTE      P0VO
       000000CAH   SFRSYM    DATA     BYTE      RCAP2L
       000000EEH   SFRSYM    DATA     BYTE      EXBH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 39
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 39
 
 
       000000F3H   SFRSYM    DATA     BYTE      IAPADH
@@ -2651,7 +2651,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000C8H.7 SFRSYM    DATA     BIT       TF2
       000000AAH   SFRSYM    DATA     BYTE      ADCCFG2
       0000008CH   SFRSYM    DATA     BYTE      TH0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 40
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 40
 
 
       0000008DH   SFRSYM    DATA     BYTE      TH1
@@ -2699,18 +2699,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H.1 SFRSYM    DATA     BIT       F1
       000000D0H   SFRSYM    DATA     BYTE      PSW
 
-      01002791H   BLOCK     CODE     ---       LVL=0
+      01002799H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      01002791H   LINE      CODE     ---       #9
-      01002791H   LINE      CODE     ---       #10
-      01002791H   LINE      CODE     ---       #11
-      0100279DH   LINE      CODE     ---       #12
-      0100279DH   LINE      CODE     ---       #13
-      010027A1H   LINE      CODE     ---       #14
-      010027A2H   LINE      CODE     ---       #16
-      010027A2H   LINE      CODE     ---       #17
-      010027A6H   LINE      CODE     ---       #18
-      010027A6H   LINE      CODE     ---       #19
+      01002799H   LINE      CODE     ---       #9
+      01002799H   LINE      CODE     ---       #10
+      01002799H   LINE      CODE     ---       #11
+      010027A5H   LINE      CODE     ---       #12
+      010027A5H   LINE      CODE     ---       #13
+      010027A9H   LINE      CODE     ---       #14
+      010027AAH   LINE      CODE     ---       #16
+      010027AAH   LINE      CODE     ---       #17
+      010027AEH   LINE      CODE     ---       #18
+      010027AEH   LINE      CODE     ---       #19
       ---         BLOCKEND  ---      ---       LVL=0
 
       01002393H   BLOCK     CODE     ---       LVL=0
@@ -2719,7 +2719,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       020000B8H   SYMBOL    XDATA    BYTE      s_count_2s
       ---         BLOCKEND  ---      ---       LVL=1
       01002393H   LINE      CODE     ---       #27
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 41
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 41
 
 
       01002393H   LINE      CODE     ---       #28
@@ -2744,18 +2744,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010023E2H   LINE      CODE     ---       #57
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010027A7H   BLOCK     CODE     ---       LVL=0
+      010027AFH   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      010027A7H   LINE      CODE     ---       #65
-      010027A7H   LINE      CODE     ---       #66
-      010027A7H   LINE      CODE     ---       #67
-      010027B3H   LINE      CODE     ---       #68
-      010027B3H   LINE      CODE     ---       #69
-      010027B7H   LINE      CODE     ---       #70
-      010027B8H   LINE      CODE     ---       #72
-      010027B8H   LINE      CODE     ---       #73
-      010027BCH   LINE      CODE     ---       #74
-      010027BCH   LINE      CODE     ---       #75
+      010027AFH   LINE      CODE     ---       #65
+      010027AFH   LINE      CODE     ---       #66
+      010027AFH   LINE      CODE     ---       #67
+      010027BBH   LINE      CODE     ---       #68
+      010027BBH   LINE      CODE     ---       #69
+      010027BFH   LINE      CODE     ---       #70
+      010027C0H   LINE      CODE     ---       #72
+      010027C0H   LINE      CODE     ---       #73
+      010027C4H   LINE      CODE     ---       #74
+      010027C4H   LINE      CODE     ---       #75
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100255AH   BLOCK     CODE     ---       LVL=0
@@ -2787,7 +2787,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100089DH   LINE      CODE     ---       #120
       010008AAH   LINE      CODE     ---       #121
       010008AAH   LINE      CODE     ---       #122
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 42
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 42
 
 
       010008B0H   LINE      CODE     ---       #123
@@ -2821,7 +2821,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100259AH   PUBLIC    CODE     ---       _fml_motor_ctrl_move
       01002645H   PUBLIC    CODE     ---       _fml_motor_save_step
       010021D3H   PUBLIC    CODE     ---       _fml_motor_blow_move
-      01002877H   PUBLIC    CODE     ---       fml_motor_close_blow
+      0100287FH   PUBLIC    CODE     ---       fml_motor_close_blow
       01002233H   PUBLIC    CODE     ---       _fml_motor_blow_step
       01002612H   PUBLIC    CODE     ---       _fml_motor_timer_ctrl
       01002173H   PUBLIC    CODE     ---       _fml_motor_reset_step
@@ -2855,7 +2855,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000B8H   SFRSYM    DATA     BYTE      IP
       000000FCH   SFRSYM    DATA     BYTE      CHKSUML
       000000D7H   SFRSYM    DATA     BYTE      PWMDTY2
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 43
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 43
 
 
       00000092H   SFRSYM    DATA     BYTE      P1PH
@@ -2923,7 +2923,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0000009EH   SFRSYM    DATA     BYTE      SSCON1
       00000095H   SFRSYM    DATA     BYTE      SSCON2
       000000F6H   SFRSYM    DATA     BYTE      IAPCTL
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 44
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 44
 
 
       000000A9H   SFRSYM    DATA     BYTE      IE1
@@ -2991,7 +2991,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H   SFRSYM    DATA     BYTE      PSW
 
       0100247FH   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 45
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 45
 
 
       02000069H   SYMBOL    XDATA    ---       p_data
@@ -3059,7 +3059,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002636H   LINE      CODE     ---       #81
       01002644H   LINE      CODE     ---       #82
       01002644H   LINE      CODE     ---       #83
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 46
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 46
 
 
       ---         BLOCKEND  ---      ---       LVL=0
@@ -3100,14 +3100,14 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002291H   LINE      CODE     ---       #122
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002877H   BLOCK     CODE     ---       LVL=0
-      01002877H   LINE      CODE     ---       #130
-      01002877H   LINE      CODE     ---       #131
-      01002877H   LINE      CODE     ---       #132
-      01002879H   LINE      CODE     ---       #133
-      0100287BH   LINE      CODE     ---       #134
-      0100287DH   LINE      CODE     ---       #135
-      0100287FH   LINE      CODE     ---       #136
+      0100287FH   BLOCK     CODE     ---       LVL=0
+      0100287FH   LINE      CODE     ---       #130
+      0100287FH   LINE      CODE     ---       #131
+      0100287FH   LINE      CODE     ---       #132
+      01002881H   LINE      CODE     ---       #133
+      01002883H   LINE      CODE     ---       #134
+      01002885H   LINE      CODE     ---       #135
+      01002887H   LINE      CODE     ---       #136
       ---         BLOCKEND  ---      ---       LVL=0
 
       010021D3H   BLOCK     CODE     ---       LVL=0
@@ -3127,7 +3127,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002219H   LINE      CODE     ---       #156
       01002219H   LINE      CODE     ---       #157
       01002225H   LINE      CODE     ---       #158
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 47
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 47
 
 
       0100222FH   LINE      CODE     ---       #159
@@ -3165,10 +3165,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
 
       ---         MODULE    ---      ---       XY_FML_RELAY
       01002431H   PUBLIC    CODE     ---       _fml_relay_ctrl
-      01002847H   PUBLIC    CODE     ---       _fml_relay_fan_absorb
-      01002838H   PUBLIC    CODE     ---       _fml_relay_fan_blow
-      01002829H   PUBLIC    CODE     ---       _fml_relay_ptc
-      0100281AH   PUBLIC    CODE     ---       _fml_relay_light
+      0100284FH   PUBLIC    CODE     ---       _fml_relay_fan_absorb
+      01002840H   PUBLIC    CODE     ---       _fml_relay_fan_blow
+      01002831H   PUBLIC    CODE     ---       _fml_relay_ptc
+      01002822H   PUBLIC    CODE     ---       _fml_relay_light
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -3195,7 +3195,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000EFH   SFRSYM    DATA     BYTE      OPERCON
       000000D6H   SFRSYM    DATA     BYTE      PWMDTY1
       0000009BH   SFRSYM    DATA     BYTE      P0PH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 48
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 48
 
 
       000000B8H   SFRSYM    DATA     BYTE      IP
@@ -3263,7 +3263,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000090H.7 SFRSYM    DATA     BIT       P17
       0000009DH   SFRSYM    DATA     BYTE      SSCON0
       000000A0H.7 SFRSYM    DATA     BIT       P27
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 49
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 49
 
 
       0000009EH   SFRSYM    DATA     BYTE      SSCON1
@@ -3331,65 +3331,65 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000C7H   SFRSYM    DATA     BYTE      INT2R
       000000D0H.5 SFRSYM    DATA     BIT       F0
       000000D0H.1 SFRSYM    DATA     BIT       F1
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 50
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 50
 
 
       000000D0H   SFRSYM    DATA     BYTE      PSW
 
-      0100281AH   BLOCK     CODE     ---       LVL=0
+      01002822H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      0100281AH   LINE      CODE     ---       #9
-      0100281AH   LINE      CODE     ---       #10
-      0100281AH   LINE      CODE     ---       #11
-      01002823H   LINE      CODE     ---       #12
-      01002823H   LINE      CODE     ---       #13
-      01002825H   LINE      CODE     ---       #14
-      01002826H   LINE      CODE     ---       #16
-      01002826H   LINE      CODE     ---       #17
-      01002828H   LINE      CODE     ---       #18
-      01002828H   LINE      CODE     ---       #19
+      01002822H   LINE      CODE     ---       #9
+      01002822H   LINE      CODE     ---       #10
+      01002822H   LINE      CODE     ---       #11
+      0100282BH   LINE      CODE     ---       #12
+      0100282BH   LINE      CODE     ---       #13
+      0100282DH   LINE      CODE     ---       #14
+      0100282EH   LINE      CODE     ---       #16
+      0100282EH   LINE      CODE     ---       #17
+      01002830H   LINE      CODE     ---       #18
+      01002830H   LINE      CODE     ---       #19
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002829H   BLOCK     CODE     ---       LVL=0
+      01002831H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      01002829H   LINE      CODE     ---       #27
-      01002829H   LINE      CODE     ---       #28
-      01002829H   LINE      CODE     ---       #29
-      01002832H   LINE      CODE     ---       #30
-      01002832H   LINE      CODE     ---       #31
-      01002834H   LINE      CODE     ---       #32
-      01002835H   LINE      CODE     ---       #34
-      01002835H   LINE      CODE     ---       #35
-      01002837H   LINE      CODE     ---       #36
-      01002837H   LINE      CODE     ---       #37
+      01002831H   LINE      CODE     ---       #27
+      01002831H   LINE      CODE     ---       #28
+      01002831H   LINE      CODE     ---       #29
+      0100283AH   LINE      CODE     ---       #30
+      0100283AH   LINE      CODE     ---       #31
+      0100283CH   LINE      CODE     ---       #32
+      0100283DH   LINE      CODE     ---       #34
+      0100283DH   LINE      CODE     ---       #35
+      0100283FH   LINE      CODE     ---       #36
+      0100283FH   LINE      CODE     ---       #37
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002838H   BLOCK     CODE     ---       LVL=0
+      01002840H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      01002838H   LINE      CODE     ---       #45
-      01002838H   LINE      CODE     ---       #46
-      01002838H   LINE      CODE     ---       #47
-      01002841H   LINE      CODE     ---       #48
-      01002841H   LINE      CODE     ---       #49
-      01002843H   LINE      CODE     ---       #50
-      01002844H   LINE      CODE     ---       #52
-      01002844H   LINE      CODE     ---       #53
-      01002846H   LINE      CODE     ---       #54
-      01002846H   LINE      CODE     ---       #55
+      01002840H   LINE      CODE     ---       #45
+      01002840H   LINE      CODE     ---       #46
+      01002840H   LINE      CODE     ---       #47
+      01002849H   LINE      CODE     ---       #48
+      01002849H   LINE      CODE     ---       #49
+      0100284BH   LINE      CODE     ---       #50
+      0100284CH   LINE      CODE     ---       #52
+      0100284CH   LINE      CODE     ---       #53
+      0100284EH   LINE      CODE     ---       #54
+      0100284EH   LINE      CODE     ---       #55
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002847H   BLOCK     CODE     ---       LVL=0
+      0100284FH   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      01002847H   LINE      CODE     ---       #62
-      01002847H   LINE      CODE     ---       #63
-      01002847H   LINE      CODE     ---       #64
-      01002850H   LINE      CODE     ---       #65
-      01002850H   LINE      CODE     ---       #66
-      01002852H   LINE      CODE     ---       #67
-      01002853H   LINE      CODE     ---       #69
-      01002853H   LINE      CODE     ---       #70
-      01002855H   LINE      CODE     ---       #71
-      01002855H   LINE      CODE     ---       #72
+      0100284FH   LINE      CODE     ---       #62
+      0100284FH   LINE      CODE     ---       #63
+      0100284FH   LINE      CODE     ---       #64
+      01002858H   LINE      CODE     ---       #65
+      01002858H   LINE      CODE     ---       #66
+      0100285AH   LINE      CODE     ---       #67
+      0100285BH   LINE      CODE     ---       #69
+      0100285BH   LINE      CODE     ---       #70
+      0100285DH   LINE      CODE     ---       #71
+      0100285DH   LINE      CODE     ---       #72
       ---         BLOCKEND  ---      ---       LVL=0
 
       01002431H   BLOCK     CODE     ---       LVL=0
@@ -3399,7 +3399,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100243CH   LINE      CODE     ---       #83
       01002451H   LINE      CODE     ---       #87
       01002454H   LINE      CODE     ---       #88
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 51
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 51
 
 
       01002462H   LINE      CODE     ---       #89
@@ -3409,13 +3409,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
 
       ---         MODULE    ---      ---       XY_FML_TEST
       01002034H   PUBLIC    CODE     ---       _fml_test_logic
-      01002774H   PUBLIC    CODE     ---       fml_test_check
-      01002809H   PUBLIC    CODE     ---       fml_test_init
+      0100277CH   PUBLIC    CODE     ---       fml_test_check
+      01002811H   PUBLIC    CODE     ---       fml_test_init
       01001BA7H   PUBLIC    CODE     ---       _fml_test_temp
-      01002757H   PUBLIC    CODE     ---       fml_test_motor
+      010026F2H   PUBLIC    CODE     ---       fml_test_motor
       0100000EH   PUBLIC    CODE     ---       fml_test_port
       01001F55H   PUBLIC    CODE     ---       fml_test_delay
-      010027BDH   PUBLIC    CODE     ---       _fml_test_uart
+      010027C5H   PUBLIC    CODE     ---       _fml_test_uart
       010014A4H   PUBLIC    CODE     ---       _fml_test_old_dis
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
@@ -3467,7 +3467,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000EEH   SFRSYM    DATA     BYTE      EXBH
       000000F3H   SFRSYM    DATA     BYTE      IAPADH
       000000D4H   SFRSYM    DATA     BYTE      PWMDTYA
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 52
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 52
 
 
       000000DCH   SFRSYM    DATA     BYTE      PWMDTYB
@@ -3535,7 +3535,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0000008CH   SFRSYM    DATA     BYTE      TH0
       0000008DH   SFRSYM    DATA     BYTE      TH1
       00000098H.3 SFRSYM    DATA     BIT       TB8
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 53
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 53
 
 
       000000CDH   SFRSYM    DATA     BYTE      TH2
@@ -3603,7 +3603,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010014EAH   LINE      CODE     ---       #27
       0100150FH   LINE      CODE     ---       #28
       01001539H   LINE      CODE     ---       #29
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 54
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 54
 
 
       01001539H   LINE      CODE     ---       #30
@@ -3636,23 +3636,23 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010015B9H   LINE      CODE     ---       #57
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010027BDH   BLOCK     CODE     ---       LVL=0
+      010027C5H   BLOCK     CODE     ---       LVL=0
       00000007H   SYMBOL    DATA     BYTE      mode
-      010027BDH   BLOCK     CODE     NEAR LAB  LVL=1
+      010027C5H   BLOCK     CODE     NEAR LAB  LVL=1
       02000097H   SYMBOL    XDATA    ---       s_table
       ---         BLOCKEND  ---      ---       LVL=1
-      010027BDH   LINE      CODE     ---       #66
-      010027BDH   LINE      CODE     ---       #67
-      010027BDH   LINE      CODE     ---       #70
-      010027C0H   LINE      CODE     ---       #71
-      010027C0H   LINE      CODE     ---       #72
-      010027C0H   LINE      CODE     ---       #73
-      010027C9H   LINE      CODE     ---       #75
-      010027D0H   LINE      CODE     ---       #76
-      010027D0H   LINE      CODE     ---       #77
-      010027D0H   LINE      CODE     ---       #78
-      010027D0H   LINE      CODE     ---       #79
-      010027D0H   LINE      CODE     ---       #80
+      010027C5H   LINE      CODE     ---       #66
+      010027C5H   LINE      CODE     ---       #67
+      010027C5H   LINE      CODE     ---       #70
+      010027C8H   LINE      CODE     ---       #71
+      010027C8H   LINE      CODE     ---       #72
+      010027C8H   LINE      CODE     ---       #73
+      010027D1H   LINE      CODE     ---       #75
+      010027D8H   LINE      CODE     ---       #76
+      010027D8H   LINE      CODE     ---       #77
+      010027D8H   LINE      CODE     ---       #78
+      010027D8H   LINE      CODE     ---       #79
+      010027D8H   LINE      CODE     ---       #80
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001F55H   BLOCK     CODE     ---       LVL=0
@@ -3671,7 +3671,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001F7CH   LINE      CODE     ---       #99
       01001F87H   LINE      CODE     ---       #100
       01001F8AH   LINE      CODE     ---       #101
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 55
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 55
 
 
       01001F92H   LINE      CODE     ---       #102
@@ -3702,22 +3702,24 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100002AH   LINE      CODE     ---       #148
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002757H   BLOCK     CODE     ---       LVL=0
-      01002757H   LINE      CODE     ---       #156
-      01002757H   LINE      CODE     ---       #157
-      01002757H   LINE      CODE     ---       #160
-      01002759H   LINE      CODE     ---       #161
-      0100275CH   LINE      CODE     ---       #162
-      0100275EH   LINE      CODE     ---       #167
-      01002760H   LINE      CODE     ---       #168
-      01002763H   LINE      CODE     ---       #169
-      01002765H   LINE      CODE     ---       #174
-      01002767H   LINE      CODE     ---       #175
-      0100276AH   LINE      CODE     ---       #176
-      0100276CH   LINE      CODE     ---       #181
-      0100276EH   LINE      CODE     ---       #182
-      01002771H   LINE      CODE     ---       #183
-      01002773H   LINE      CODE     ---       #186
+      010026F2H   BLOCK     CODE     ---       LVL=0
+      010026F2H   LINE      CODE     ---       #156
+      010026F2H   LINE      CODE     ---       #157
+      010026F2H   LINE      CODE     ---       #160
+      010026F4H   LINE      CODE     ---       #161
+      010026F7H   LINE      CODE     ---       #162
+      010026F9H   LINE      CODE     ---       #167
+      010026FBH   LINE      CODE     ---       #168
+      010026FEH   LINE      CODE     ---       #169
+      01002700H   LINE      CODE     ---       #174
+      01002702H   LINE      CODE     ---       #175
+      01002705H   LINE      CODE     ---       #176
+      01002707H   LINE      CODE     ---       #181
+      01002709H   LINE      CODE     ---       #182
+      0100270CH   LINE      CODE     ---       #183
+      0100270EH   LINE      CODE     ---       #185
+      01002711H   LINE      CODE     ---       #186
+      01002714H   LINE      CODE     ---       #187
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001BA7H   BLOCK     CODE     ---       LVL=0
@@ -3725,77 +3727,77 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001BB2H   BLOCK     CODE     NEAR LAB  LVL=1
       0200006FH   SYMBOL    XDATA    WORD      timeout
       ---         BLOCKEND  ---      ---       LVL=1
-      01001BA7H   LINE      CODE     ---       #194
-      01001BB2H   LINE      CODE     ---       #195
-      01001BB2H   LINE      CODE     ---       #196
-      01001BB7H   LINE      CODE     ---       #198
-      01001BB7H   LINE      CODE     ---       #199
+      01001BA7H   LINE      CODE     ---       #196
+      01001BB2H   LINE      CODE     ---       #197
+      01001BB2H   LINE      CODE     ---       #198
       01001BB7H   LINE      CODE     ---       #200
-      01001BCAH   LINE      CODE     ---       #201
-      01001BCAH   LINE      CODE     ---       #202
+      01001BB7H   LINE      CODE     ---       #201
+      01001BB7H   LINE      CODE     ---       #202
       01001BCAH   LINE      CODE     ---       #203
       01001BCAH   LINE      CODE     ---       #204
-      01001BD8H   LINE      CODE     ---       #205
-      01001BEFH   LINE      CODE     ---       #206
-      01001BEFH   LINE      CODE     ---       #207
-      01001BF9H   LINE      CODE     ---       #208
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 56
+      01001BCAH   LINE      CODE     ---       #205
+      01001BCAH   LINE      CODE     ---       #206
+      01001BD8H   LINE      CODE     ---       #207
+      01001BEFH   LINE      CODE     ---       #208
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 56
 
 
-      01001BF9H   LINE      CODE     ---       #209
-      01001BFCH   LINE      CODE     ---       #210
-      01001BFEH   LINE      CODE     ---       #211
-      01001C12H   LINE      CODE     ---       #212
-      01001C12H   LINE      CODE     ---       #213
-      01001C17H   LINE      CODE     ---       #214
-      01001C18H   LINE      CODE     ---       #215
-      01001C1EH   LINE      CODE     ---       #216
-      01001C1EH   LINE      CODE     ---       #217
-      01001C24H   LINE      CODE     ---       #218
-      01001C25H   LINE      CODE     ---       #219
-      01001C3CH   LINE      CODE     ---       #220
-      01001C3CH   LINE      CODE     ---       #221
-      01001C42H   LINE      CODE     ---       #222
-      01001C43H   LINE      CODE     ---       #224
-      01001C43H   LINE      CODE     ---       #225
-      01001C48H   LINE      CODE     ---       #226
-      01001C48H   LINE      CODE     ---       #227
+      01001BEFH   LINE      CODE     ---       #209
+      01001BF9H   LINE      CODE     ---       #210
+      01001BF9H   LINE      CODE     ---       #211
+      01001BFCH   LINE      CODE     ---       #212
+      01001BFEH   LINE      CODE     ---       #213
+      01001C12H   LINE      CODE     ---       #214
+      01001C12H   LINE      CODE     ---       #215
+      01001C17H   LINE      CODE     ---       #216
+      01001C18H   LINE      CODE     ---       #217
+      01001C1EH   LINE      CODE     ---       #218
+      01001C1EH   LINE      CODE     ---       #219
+      01001C24H   LINE      CODE     ---       #220
+      01001C25H   LINE      CODE     ---       #221
+      01001C3CH   LINE      CODE     ---       #222
+      01001C3CH   LINE      CODE     ---       #223
+      01001C42H   LINE      CODE     ---       #224
+      01001C43H   LINE      CODE     ---       #226
+      01001C43H   LINE      CODE     ---       #227
+      01001C48H   LINE      CODE     ---       #228
+      01001C48H   LINE      CODE     ---       #229
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002809H   BLOCK     CODE     ---       LVL=0
-      01002809H   LINE      CODE     ---       #235
-      01002809H   LINE      CODE     ---       #236
-      01002809H   LINE      CODE     ---       #237
-      0100280BH   LINE      CODE     ---       #238
-      0100280DH   LINE      CODE     ---       #239
-      0100280FH   LINE      CODE     ---       #240
-      01002811H   LINE      CODE     ---       #242
-      01002813H   LINE      CODE     ---       #243
-      01002815H   LINE      CODE     ---       #244
-      01002817H   LINE      CODE     ---       #245
-      01002819H   LINE      CODE     ---       #246
+      01002811H   BLOCK     CODE     ---       LVL=0
+      01002811H   LINE      CODE     ---       #237
+      01002811H   LINE      CODE     ---       #238
+      01002811H   LINE      CODE     ---       #239
+      01002813H   LINE      CODE     ---       #240
+      01002815H   LINE      CODE     ---       #241
+      01002817H   LINE      CODE     ---       #242
+      01002819H   LINE      CODE     ---       #244
+      0100281BH   LINE      CODE     ---       #245
+      0100281DH   LINE      CODE     ---       #246
+      0100281FH   LINE      CODE     ---       #247
+      01002821H   LINE      CODE     ---       #248
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002774H   BLOCK     CODE     ---       LVL=0
-      01002774H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100277CH   BLOCK     CODE     ---       LVL=0
+      0100277CH   BLOCK     CODE     NEAR LAB  LVL=1
       020000A7H   SYMBOL    XDATA    BYTE      s_count
       ---         BLOCKEND  ---      ---       LVL=1
-      01002774H   LINE      CODE     ---       #254
-      01002774H   LINE      CODE     ---       #255
-      01002774H   LINE      CODE     ---       #258
-      01002777H   LINE      CODE     ---       #259
-      01002777H   LINE      CODE     ---       #260
-      0100277DH   LINE      CODE     ---       #261
-      01002783H   LINE      CODE     ---       #262
-      01002783H   LINE      CODE     ---       #263
-      01002786H   LINE      CODE     ---       #264
-      01002789H   LINE      CODE     ---       #265
-      01002789H   LINE      CODE     ---       #266
-      01002789H   LINE      CODE     ---       #268
-      01002789H   LINE      CODE     ---       #269
-      0100278EH   LINE      CODE     ---       #270
-      0100278EH   LINE      CODE     ---       #271
-      01002790H   LINE      CODE     ---       #272
+      0100277CH   LINE      CODE     ---       #256
+      0100277CH   LINE      CODE     ---       #257
+      0100277CH   LINE      CODE     ---       #260
+      0100277FH   LINE      CODE     ---       #261
+      0100277FH   LINE      CODE     ---       #262
+      01002785H   LINE      CODE     ---       #263
+      0100278BH   LINE      CODE     ---       #264
+      0100278BH   LINE      CODE     ---       #265
+      0100278EH   LINE      CODE     ---       #266
+      01002791H   LINE      CODE     ---       #267
+      01002791H   LINE      CODE     ---       #268
+      01002791H   LINE      CODE     ---       #270
+      01002791H   LINE      CODE     ---       #271
+      01002796H   LINE      CODE     ---       #272
+      01002796H   LINE      CODE     ---       #273
+      01002798H   LINE      CODE     ---       #274
       ---         BLOCKEND  ---      ---       LVL=0
 
       01002034H   BLOCK     CODE     ---       LVL=0
@@ -3803,45 +3805,45 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100203FH   BLOCK     CODE     NEAR LAB  LVL=1
       020000A8H   SYMBOL    XDATA    BYTE      s_step
       ---         BLOCKEND  ---      ---       LVL=1
-      01002034H   LINE      CODE     ---       #280
-      0100203FH   LINE      CODE     ---       #281
-      0100203FH   LINE      CODE     ---       #284
-      01002049H   LINE      CODE     ---       #285
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 57
+      01002034H   LINE      CODE     ---       #282
+      0100203FH   LINE      CODE     ---       #283
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 57
 
 
-      01002049H   LINE      CODE     ---       #286
-      0100204CH   LINE      CODE     ---       #287
-      01002056H   LINE      CODE     ---       #288
-      01002056H   LINE      CODE     ---       #289
+      0100203FH   LINE      CODE     ---       #286
+      01002049H   LINE      CODE     ---       #287
+      01002049H   LINE      CODE     ---       #288
+      0100204CH   LINE      CODE     ---       #289
       01002056H   LINE      CODE     ---       #290
-      0100205CH   LINE      CODE     ---       #291
-      0100206FH   LINE      CODE     ---       #292
-      01002074H   LINE      CODE     ---       #293
-      01002082H   LINE      CODE     ---       #294
-      01002082H   LINE      CODE     ---       #295
+      01002056H   LINE      CODE     ---       #291
+      01002056H   LINE      CODE     ---       #292
+      0100205CH   LINE      CODE     ---       #293
+      0100206FH   LINE      CODE     ---       #294
+      01002074H   LINE      CODE     ---       #295
       01002082H   LINE      CODE     ---       #296
-      01002096H   LINE      CODE     ---       #297
-      01002096H   LINE      CODE     ---       #298
-      01002099H   LINE      CODE     ---       #299
-      0100209CH   LINE      CODE     ---       #300
-      010020A1H   LINE      CODE     ---       #301
-      010020A1H   LINE      CODE     ---       #302
+      01002082H   LINE      CODE     ---       #297
+      01002082H   LINE      CODE     ---       #298
+      01002096H   LINE      CODE     ---       #299
+      01002096H   LINE      CODE     ---       #300
+      01002099H   LINE      CODE     ---       #301
+      0100209CH   LINE      CODE     ---       #302
       010020A1H   LINE      CODE     ---       #303
       010020A1H   LINE      CODE     ---       #304
       010020A1H   LINE      CODE     ---       #305
       010020A1H   LINE      CODE     ---       #306
       010020A1H   LINE      CODE     ---       #307
+      010020A1H   LINE      CODE     ---       #308
+      010020A1H   LINE      CODE     ---       #309
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_FML_TOUCH
       01001EE4H   PUBLIC    CODE     ---       _fml_touch_ctrl_logic
       0100190FH   PUBLIC    CODE     ---       _fml_touch_deal_swing
-      010026F2H   PUBLIC    CODE     ---       _fml_touch_deal_motor
+      01002717H   PUBLIC    CODE     ---       _fml_touch_deal_motor
       010022EAH   PUBLIC    CODE     ---       _fml_touch_deal_relay
       010024CAH   PUBLIC    CODE     ---       _fml_touch_deal_disp
       010015C1H   PUBLIC    CODE     ---       _fml_touch_recv_data
-      01002880H   PUBLIC    CODE     ---       _fml_touch_init_data
+      01002888H   PUBLIC    CODE     ---       _fml_touch_init_data
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -3873,11 +3875,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D7H   SFRSYM    DATA     BYTE      PWMDTY2
       00000092H   SFRSYM    DATA     BYTE      P1PH
       00000098H   SFRSYM    DATA     BIT       RI
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 58
+
+
       000000DDH   SFRSYM    DATA     BYTE      PWMDTY3
       000000A2H   SFRSYM    DATA     BYTE      P2PH
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 58
-
-
       000000D0H.7 SFRSYM    DATA     BIT       CY
       000000DEH   SFRSYM    DATA     BYTE      PWMDTY4
       00000098H.1 SFRSYM    DATA     BIT       TI
@@ -3941,11 +3943,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000F6H   SFRSYM    DATA     BYTE      IAPCTL
       000000A9H   SFRSYM    DATA     BYTE      IE1
       000000F0H   SFRSYM    DATA     BYTE      B
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 59
+
+
       00000097H   SFRSYM    DATA     BYTE      IOHCON
       000000F1H   SFRSYM    DATA     BYTE      IAPKEY
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 59
-
-
       000000CEH   SFRSYM    DATA     BYTE      BTMCON
       000000D1H   SFRSYM    DATA     BYTE      PWMCFG
       000000E0H   SFRSYM    DATA     BYTE      ACC
@@ -4005,16 +4007,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H.5 SFRSYM    DATA     BIT       F0
       000000D0H.1 SFRSYM    DATA     BIT       F1
       000000D0H   SFRSYM    DATA     BYTE      PSW
-      0100289EH   SYMBOL    CONST    ---       _?ix1000
+      010028A6H   SYMBOL    CONST    ---       _?ix1000
 
-      01002880H   BLOCK     CODE     ---       LVL=0
+      01002888H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_data
-      01002880H   LINE      CODE     ---       #9
-      01002880H   LINE      CODE     ---       #10
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 60
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 60
 
 
-      01002880H   LINE      CODE     ---       #11
+      01002888H   LINE      CODE     ---       #9
+      01002888H   LINE      CODE     ---       #10
+      01002888H   LINE      CODE     ---       #11
       ---         BLOCKEND  ---      ---       LVL=0
 
       010015C1H   BLOCK     CODE     ---       LVL=0
@@ -4077,11 +4079,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100250BH   LINE      CODE     ---       #77
       0100250BH   LINE      CODE     ---       #78
       0100250DH   LINE      CODE     ---       #79
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 61
+
+
       0100250FH   LINE      CODE     ---       #81
       0100250FH   LINE      CODE     ---       #82
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 61
-
-
       01002514H   LINE      CODE     ---       #83
       01002514H   LINE      CODE     ---       #84
       ---         BLOCKEND  ---      ---       LVL=0
@@ -4121,21 +4123,21 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002340H   LINE      CODE     ---       #127
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010026F2H   BLOCK     CODE     ---       LVL=0
+      01002717H   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_motor
-      010026F2H   LINE      CODE     ---       #135
-      010026F2H   LINE      CODE     ---       #136
-      010026F2H   LINE      CODE     ---       #137
-      010026F9H   LINE      CODE     ---       #138
-      010026F9H   LINE      CODE     ---       #139
-      01002703H   LINE      CODE     ---       #140
-      01002703H   LINE      CODE     ---       #141
-      0100270BH   LINE      CODE     ---       #143
-      0100270BH   LINE      CODE     ---       #144
-      0100270DH   LINE      CODE     ---       #146
-      0100270DH   LINE      CODE     ---       #147
-      01002716H   LINE      CODE     ---       #149
-      01002716H   LINE      CODE     ---       #150
+      01002717H   LINE      CODE     ---       #135
+      01002717H   LINE      CODE     ---       #136
+      01002717H   LINE      CODE     ---       #137
+      0100271EH   LINE      CODE     ---       #138
+      0100271EH   LINE      CODE     ---       #139
+      01002728H   LINE      CODE     ---       #140
+      01002728H   LINE      CODE     ---       #141
+      01002730H   LINE      CODE     ---       #143
+      01002730H   LINE      CODE     ---       #144
+      01002732H   LINE      CODE     ---       #146
+      01002732H   LINE      CODE     ---       #147
+      0100273BH   LINE      CODE     ---       #149
+      0100273BH   LINE      CODE     ---       #150
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100190FH   BLOCK     CODE     ---       LVL=0
@@ -4145,11 +4147,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100190FH   LINE      CODE     ---       #160
       0100191BH   LINE      CODE     ---       #161
       0100191BH   LINE      CODE     ---       #162
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 62
+
+
       01001923H   LINE      CODE     ---       #163
       01001932H   LINE      CODE     ---       #164
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 62
-
-
       01001932H   LINE      CODE     ---       #165
       0100193DH   LINE      CODE     ---       #166
       0100194BH   LINE      CODE     ---       #167
@@ -4192,7 +4194,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       ---         MODULE    ---      ---       XY_HAL_ISR
       01002515H   PUBLIC    CODE     ---       _hal_irq_uart2_send
       01001C49H   PUBLIC    CODE     ---       _hal_irq_uart1_send
-      01002856H   PUBLIC    CODE     ---       hal_irq_ex2_isr
+      0100285EH   PUBLIC    CODE     ---       hal_irq_ex2_isr
       0100210BH   PUBLIC    CODE     ---       hal_irq_uart1_isr
       01001E6BH   PUBLIC    CODE     ---       hal_irq_tim2_isr
       01002341H   PUBLIC    CODE     ---       hal_irq_tim0_isr
@@ -4213,11 +4215,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000E9H   SFRSYM    DATA     BYTE      EXA0
       000000EAH   SFRSYM    DATA     BYTE      EXA1
       000000FEH   SFRSYM    DATA     BYTE      OPINX
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 63
+
+
       000000EBH   SFRSYM    DATA     BYTE      EXA2
       000000ECH   SFRSYM    DATA     BYTE      EXA3
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 63
-
-
       000000C8H   SFRSYM    DATA     BIT       CP
       000000C8H.6 SFRSYM    DATA     BIT       EXF2
       000000FDH   SFRSYM    DATA     BYTE      CHKSUMH
@@ -4281,11 +4283,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000A0H.4 SFRSYM    DATA     BIT       P24
       00000090H.5 SFRSYM    DATA     BIT       P15
       00000080H.6 SFRSYM    DATA     BIT       P06
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 64
+
+
       000000B8H   SFRSYM    DATA     BIT       IPINT0
       000000A0H.5 SFRSYM    DATA     BIT       P25
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 64
-
-
       00000090H.6 SFRSYM    DATA     BIT       P16
       00000080H.7 SFRSYM    DATA     BIT       P07
       000000B8H.2 SFRSYM    DATA     BIT       IPINT1
@@ -4349,11 +4351,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000098H.4 SFRSYM    DATA     BIT       REN
       000000D9H   SFRSYM    DATA     BYTE      P5CON
       000000AFH   SFRSYM    DATA     BYTE      ADCVH
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 65
+
+
       000000C9H   SFRSYM    DATA     BYTE      T2MOD
       000000C8H   SFRSYM    DATA     BYTE      T2CON
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 65
-
-
       000000F7H   SFRSYM    DATA     BYTE      EXADH
       000000AEH   SFRSYM    DATA     BYTE      ADCVL
       000000BBH   SFRSYM    DATA     BYTE      INT0R
@@ -4417,18 +4419,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01002158H   LINE      CODE     ---       #71
       01002158H   LINE      CODE     ---       #72
       ---         BLOCKEND  ---      ---       LVL=0
-
-      01002856H   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 66
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 66
 
 
-      01002856H   LINE      CODE     ---       #80
-      01002856H   LINE      CODE     ---       #82
-      01002859H   LINE      CODE     ---       #83
-      0100285CH   LINE      CODE     ---       #84
-      0100285EH   LINE      CODE     ---       #85
-      01002861H   LINE      CODE     ---       #86
-      01002864H   LINE      CODE     ---       #87
+
+      0100285EH   BLOCK     CODE     ---       LVL=0
+      0100285EH   LINE      CODE     ---       #80
+      0100285EH   LINE      CODE     ---       #82
+      01002861H   LINE      CODE     ---       #83
+      01002864H   LINE      CODE     ---       #84
+      01002866H   LINE      CODE     ---       #85
+      01002869H   LINE      CODE     ---       #86
+      0100286CH   LINE      CODE     ---       #87
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001C49H   BLOCK     CODE     ---       LVL=0
@@ -4485,14 +4487,14 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0100253CH   LINE      CODE     ---       #144
       0100254FH   LINE      CODE     ---       #145
       01002556H   LINE      CODE     ---       #146
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 67
+
+
       01002559H   LINE      CODE     ---       #147
       ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 67
-
-
 
       ---         MODULE    ---      ---       XY_HAL_PORT
-      01002738H   PUBLIC    CODE     ---       hal_port_init
+      0100275DH   PUBLIC    CODE     ---       hal_port_init
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -4553,11 +4555,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000090H   SFRSYM    DATA     BIT       P10
       00000080H.1 SFRSYM    DATA     BIT       P01
       00000099H   SFRSYM    DATA     BYTE      SBUF
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 68
+
+
       00000087H   SFRSYM    DATA     BYTE      PCON
       000000A0H   SFRSYM    DATA     BIT       P20
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 68
-
-
       00000090H.1 SFRSYM    DATA     BIT       P11
       00000080H.2 SFRSYM    DATA     BIT       P02
       000000A0H.1 SFRSYM    DATA     BIT       P21
@@ -4621,11 +4623,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000098H.5 SFRSYM    DATA     BIT       SM2
       000000CCH   SFRSYM    DATA     BYTE      TL2
       000000D0H.3 SFRSYM    DATA     BIT       RS0
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 69
+
+
       00000088H.4 SFRSYM    DATA     BIT       TR0
       000000D0H.4 SFRSYM    DATA     BIT       RS1
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 69
-
-
       000000D2H   SFRSYM    DATA     BYTE      PWMCON
       00000088H.6 SFRSYM    DATA     BIT       TR1
       000000B8H.4 SFRSYM    DATA     BIT       IPUART
@@ -4657,27 +4659,27 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H.1 SFRSYM    DATA     BIT       F1
       000000D0H   SFRSYM    DATA     BYTE      PSW
 
-      01002738H   BLOCK     CODE     ---       LVL=0
-      01002738H   LINE      CODE     ---       #3
-      01002738H   LINE      CODE     ---       #4
-      01002738H   LINE      CODE     ---       #5
-      0100273BH   LINE      CODE     ---       #6
-      0100273EH   LINE      CODE     ---       #7
-      01002741H   LINE      CODE     ---       #8
-      01002744H   LINE      CODE     ---       #9
-      01002747H   LINE      CODE     ---       #10
-      0100274AH   LINE      CODE     ---       #12
-      0100274DH   LINE      CODE     ---       #13
-      01002750H   LINE      CODE     ---       #14
-      01002753H   LINE      CODE     ---       #15
-      01002756H   LINE      CODE     ---       #16
+      0100275DH   BLOCK     CODE     ---       LVL=0
+      0100275DH   LINE      CODE     ---       #3
+      0100275DH   LINE      CODE     ---       #4
+      0100275DH   LINE      CODE     ---       #5
+      01002760H   LINE      CODE     ---       #6
+      01002763H   LINE      CODE     ---       #7
+      01002766H   LINE      CODE     ---       #8
+      01002769H   LINE      CODE     ---       #9
+      0100276CH   LINE      CODE     ---       #10
+      0100276FH   LINE      CODE     ---       #12
+      01002772H   LINE      CODE     ---       #13
+      01002775H   LINE      CODE     ---       #14
+      01002778H   LINE      CODE     ---       #15
+      0100277BH   LINE      CODE     ---       #16
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_HAL_SERIAL
-      01002889H   PUBLIC    CODE     ---       _hal_serial_uart_tx_display
+      01002891H   PUBLIC    CODE     ---       _hal_serial_uart_tx_display
       010016D9H   PUBLIC    CODE     ---       _hal_serial_uart_rx_display
       010019B9H   PUBLIC    CODE     ---       _hal_serial_uart_rx_touch
-      010027F7H   PUBLIC    CODE     ---       hal_serial_Init
+      010027FFH   PUBLIC    CODE     ---       hal_serial_Init
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
@@ -4689,11 +4691,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       0000008FH   SFRSYM    DATA     BYTE      OTCON
       000000D8H   SFRSYM    DATA     BYTE      P5
       000000A8H.7 SFRSYM    DATA     BIT       EA
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 70
+
+
       000000C8H.1 SFRSYM    DATA     BIT       T2
       000000A8H.6 SFRSYM    DATA     BIT       EADC
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 70
-
-
       000000A8H   SFRSYM    DATA     BYTE      IE
       000000E9H   SFRSYM    DATA     BYTE      EXA0
       000000EAH   SFRSYM    DATA     BYTE      EXA1
@@ -4757,11 +4759,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000090H.4 SFRSYM    DATA     BIT       P14
       00000080H.5 SFRSYM    DATA     BIT       P05
       000000F5H   SFRSYM    DATA     BYTE      IAPDAT
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 71
+
+
       00000088H   SFRSYM    DATA     BYTE      TCON
       00000089H   SFRSYM    DATA     BYTE      TMOD
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 71
-
-
       000000D8H.1 SFRSYM    DATA     BIT       P51
       000000A0H.4 SFRSYM    DATA     BIT       P24
       00000090H.5 SFRSYM    DATA     BIT       P15
@@ -4825,11 +4827,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000BAH   SFRSYM    DATA     BYTE      INT0F
       00000091H   SFRSYM    DATA     BYTE      P1CON
       000000C8H.3 SFRSYM    DATA     BIT       EXEN2
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 72
+
+
       000000BCH   SFRSYM    DATA     BYTE      INT1F
       000000A1H   SFRSYM    DATA     BYTE      P2CON
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 72
-
-
       000000C6H   SFRSYM    DATA     BYTE      INT2F
       00000098H.4 SFRSYM    DATA     BIT       REN
       000000D9H   SFRSYM    DATA     BYTE      P5CON
@@ -4845,16 +4847,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D0H.1 SFRSYM    DATA     BIT       F1
       000000D0H   SFRSYM    DATA     BYTE      PSW
 
-      010027F7H   BLOCK     CODE     ---       LVL=0
-      010027F7H   LINE      CODE     ---       #9
-      010027F7H   LINE      CODE     ---       #10
-      010027F7H   LINE      CODE     ---       #11
-      010027FAH   LINE      CODE     ---       #12
-      010027FDH   LINE      CODE     ---       #13
-      01002800H   LINE      CODE     ---       #14
-      01002803H   LINE      CODE     ---       #15
-      01002806H   LINE      CODE     ---       #16
-      01002808H   LINE      CODE     ---       #17
+      010027FFH   BLOCK     CODE     ---       LVL=0
+      010027FFH   LINE      CODE     ---       #9
+      010027FFH   LINE      CODE     ---       #10
+      010027FFH   LINE      CODE     ---       #11
+      01002802H   LINE      CODE     ---       #12
+      01002805H   LINE      CODE     ---       #13
+      01002808H   LINE      CODE     ---       #14
+      0100280BH   LINE      CODE     ---       #15
+      0100280EH   LINE      CODE     ---       #16
+      01002810H   LINE      CODE     ---       #17
       ---         BLOCKEND  ---      ---       LVL=0
 
       010019B9H   BLOCK     CODE     ---       LVL=0
@@ -4893,11 +4895,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01001A52H   LINE      CODE     ---       #54
       01001A52H   LINE      CODE     ---       #55
       01001A52H   LINE      CODE     ---       #56
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 73
+
+
       01001A58H   LINE      CODE     ---       #57
       01001A5EH   LINE      CODE     ---       #58
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 73
-
-
       01001A5EH   LINE      CODE     ---       #59
       01001A60H   LINE      CODE     ---       #60
       01001A60H   LINE      CODE     ---       #61
@@ -4960,20 +4962,20 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010017A8H   LINE      CODE     ---       #128
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002889H   BLOCK     CODE     ---       LVL=0
+      01002891H   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 74
+
+
       00000001H   SYMBOL    DATA     ---       buffer
       00000004H   SYMBOL    DATA     WORD      len
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 74
-
-
-      01002889H   LINE      CODE     ---       #136
-      01002889H   LINE      CODE     ---       #137
-      01002889H   LINE      CODE     ---       #138
+      01002891H   LINE      CODE     ---       #136
+      01002891H   LINE      CODE     ---       #137
+      01002891H   LINE      CODE     ---       #138
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       XY_HAL_TIMER
       01001FC5H   PUBLIC    CODE     ---       _hal_timer_mode_deal
-      01002717H   PUBLIC    CODE     ---       _hal_timer_motor_blow
+      0100273CH   PUBLIC    CODE     ---       _hal_timer_motor_blow
       010026CCH   PUBLIC    CODE     ---       _hal_timer_buzzer
       010026A2H   PUBLIC    CODE     ---       hal_timer_Init
       000000FFH   SFRSYM    DATA     BYTE      OPREG
@@ -5029,11 +5031,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000DCH   SFRSYM    DATA     BYTE      PWMDTYB
       000000ADH   SFRSYM    DATA     BYTE      ADCCON
       000000EDH   SFRSYM    DATA     BYTE      EXBL
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 75
+
+
       000000C8H.5 SFRSYM    DATA     BIT       RCLK
       000000F2H   SFRSYM    DATA     BYTE      IAPADL
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 75
-
-
       000000C8H.4 SFRSYM    DATA     BIT       TCLK
       00000080H   SFRSYM    DATA     BIT       P00
       00000090H   SFRSYM    DATA     BIT       P10
@@ -5097,11 +5099,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000CDH   SFRSYM    DATA     BYTE      TH2
       000000D0H   SFRSYM    DATA     BIT       P
       00000098H.7 SFRSYM    DATA     BIT       SM0
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 76
+
+
       0000008AH   SFRSYM    DATA     BYTE      TL0
       00000098H.6 SFRSYM    DATA     BIT       SM1
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 76
-
-
       000000CFH   SFRSYM    DATA     BYTE      WDTCON
       0000008BH   SFRSYM    DATA     BYTE      TL1
       00000098H.5 SFRSYM    DATA     BIT       SM2
@@ -5165,11 +5167,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010026CCH   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_bee
       010026CCH   LINE      CODE     ---       #38
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 77
+
+
       010026CCH   LINE      CODE     ---       #39
       010026CCH   LINE      CODE     ---       #40
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 77
-
-
       010026D3H   LINE      CODE     ---       #41
       010026D3H   LINE      CODE     ---       #42
       010026DAH   LINE      CODE     ---       #43
@@ -5183,17 +5185,17 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       010026F1H   LINE      CODE     ---       #59
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01002717H   BLOCK     CODE     ---       LVL=0
+      0100273CH   BLOCK     CODE     ---       LVL=0
       00000001H   SYMBOL    DATA     ---       p_motor
-      01002717H   LINE      CODE     ---       #66
-      01002717H   LINE      CODE     ---       #67
-      01002717H   LINE      CODE     ---       #68
-      0100271FH   LINE      CODE     ---       #70
-      0100272AH   LINE      CODE     ---       #71
-      0100272AH   LINE      CODE     ---       #72
-      01002732H   LINE      CODE     ---       #73
-      01002737H   LINE      CODE     ---       #74
-      01002737H   LINE      CODE     ---       #75
+      0100273CH   LINE      CODE     ---       #66
+      0100273CH   LINE      CODE     ---       #67
+      0100273CH   LINE      CODE     ---       #68
+      01002744H   LINE      CODE     ---       #70
+      0100274FH   LINE      CODE     ---       #71
+      0100274FH   LINE      CODE     ---       #72
+      01002757H   LINE      CODE     ---       #73
+      0100275CH   LINE      CODE     ---       #74
+      0100275CH   LINE      CODE     ---       #75
       ---         BLOCKEND  ---      ---       LVL=0
 
       01001FC5H   BLOCK     CODE     ---       LVL=0
@@ -5233,11 +5235,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       ---         MODULE    ---      ---       XY_SYS_VARIABLE
       02000008H   PUBLIC    XDATA    ---       g_datall
       02000000H   PUBLIC    XDATA    ---       g_timebase
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 78
+
+
       000000FFH   SFRSYM    DATA     BYTE      OPREG
       00000080H   SFRSYM    DATA     BYTE      P0
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 78
-
-
       0000009FH   SFRSYM    DATA     BYTE      SSDAT
       00000090H   SFRSYM    DATA     BYTE      P1
       000000A0H   SFRSYM    DATA     BYTE      P2
@@ -5301,11 +5303,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       00000090H.1 SFRSYM    DATA     BIT       P11
       00000080H.2 SFRSYM    DATA     BIT       P02
       000000A0H.1 SFRSYM    DATA     BIT       P21
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 79
+
+
       00000090H.2 SFRSYM    DATA     BIT       P12
       00000080H.3 SFRSYM    DATA     BIT       P03
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 79
-
-
       000000A0H.2 SFRSYM    DATA     BIT       P22
       00000090H.3 SFRSYM    DATA     BIT       P13
       00000080H.4 SFRSYM    DATA     BIT       P04
@@ -5369,11 +5371,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       000000D2H   SFRSYM    DATA     BYTE      PWMCON
       00000088H.6 SFRSYM    DATA     BIT       TR1
       000000B8H.4 SFRSYM    DATA     BIT       IPUART
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 80
+
+
       000000C8H.2 SFRSYM    DATA     BIT       TR2
       000000D3H   SFRSYM    DATA     BYTE      PWMPRD
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 80
-
-
       00000083H   SFRSYM    DATA     BYTE      DPH
       00000082H   SFRSYM    DATA     BYTE      DPL
       000000A8H   SFRSYM    DATA     BIT       EINT0
@@ -5437,13 +5439,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\BATHROOMMASTER (MAIN)
       01000300H   PUBLIC    CODE     ---       ?C?SLCMP
 
       ---         MODULE    ---      ---       ?C?MEMSET
+LX51 LINKER/LOCATER V4.41                                                             03/25/2021  08:30:04  PAGE 81
+
+
       01000316H   PUBLIC    CODE     ---       ?C?MEMSET
-
-LX51 LINKER/LOCATER V4.41                                                             03/23/2021  15:30:02  PAGE 81
-
 
       ---         MODULE    ---      ---       ?C?IILDX
       01000342H   PUBLIC    CODE     ---       ?C?IILDX
 
-Program Size: data=9.0 xdata=212 const=23 code=10379
+Program Size: data=9.0 xdata=212 const=23 code=10387
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
