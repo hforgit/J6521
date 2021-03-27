@@ -11,8 +11,8 @@ static datall* s_p_data = &g_datall;
 void hal_irq_tim0_isr(void) interrupt 1
 {
 	TH0 = 0xF8;
-	TL0 = 0x6c;		//f830: 63536	 f860:63584
-
+	TL0 = 0x6c;		
+	
 	g_timebase.isTrigInterrupt = 1;
 	fml_buzzer_timer_ctrl(s_p_data);
 }
