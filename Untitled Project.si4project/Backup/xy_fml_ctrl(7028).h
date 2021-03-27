@@ -17,10 +17,10 @@
 	_A_ ? NO : (_B_ ? NO : (_C_ == ON ? YES : NO)))
 
 #define CTRL_CHECK_ERROR_NUMB_5(_A_, _B_, _C_, _D_, _E_)		(\
-	_C_ == ON ? (YES == MOTOR_CHK_BLOW_STEP(36) ? YES : NO) : NO)
+	_C_ == ON ? (YES == MOTOR_CHK_BLOW_STEP(10) ? YES : NO) : NO)
 
 #define CTRL_CHECK_ERROR_NUMB_6(_A_, _B_, _C_, _D_, _E_)		(\
-	_C_ == ON ? (YES == MOTOR_CHK_ABSORB_STEP(36) ? YES : NO) : NO)
+	_C_ == ON ? (YES == MOTOR_CHK_ABSORB_STEP(10) ? YES : NO) : NO)
 
 #define CTRL_CHECK_ERROR_NUMB_7(_A_, _B_, _C_, _D_, _E_)		(\
 	_C_ == OFF ? (_E_ == ON ? YES : NO) : NO)

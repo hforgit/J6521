@@ -284,7 +284,7 @@ void fml_test_temp(datall* p_data)
 			break;
 		}
 		timeout++;
-		if(timeout > 60000)
+		if(timeout >= 60000)
 		{
 			timeout = 60000;
 		}

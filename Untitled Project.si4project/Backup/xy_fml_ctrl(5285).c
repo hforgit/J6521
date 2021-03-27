@@ -93,7 +93,7 @@ void fml_ctrl_chk_error(datall* p_data)
 
 	if(YES == CTRL_CHECK_ERROR_NUMB_5(motor[0], motor[2], state[0], state[1], state[2]))
 	{
-		if(p_data->motor.blow_motor_step && (NO == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))
+		if(p_data->motor.blow_motor_step && (NO == MOTOR_CHK_STEP_IS_LEGAL(p_data->motor.blow_motor_step)))		//?
 		{
 			p_data->remote.keyctrl.keystate_open_swing = OFF;
 		}
@@ -567,6 +567,7 @@ void fml_ctrl_deal_automode(workmoduleflag* p_mode)							//check
 void fml_ctrl_deal_mode(datall* p_data)
 {	
 	static switchstate   s_onetime[2] = {STEP1, RESET};
+	static unsigned char s_timecount_cur = 0, s_timecount_pri = 0;
 	static unsigned char s_time_ptc_worktime = 0;
 
 	fml_ctrl_deal_automode(&p_data->remote.workmode);
@@ -608,7 +609,23 @@ void fml_ctrl_deal_mode(datall* p_data)
 					p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;		///< start from last step
 				}
 			}
-		
+			else
+			{
+				if(STEP3 == s_onetime[0])
+				{
+					if(ON == p_data->remote.keyctrl.keystate_ptc_wait)
+					{
+						if(NO == CTRL_EXCEED_DELAY_TIMER(10, s_timecount_cur, s_timecount_pri))
+						{
+							p_data->remote.workmode.flag_workdelay_1s = SET;
+							p_data->remote.keyctrl.keystate_ptc_wait = OFF;
+							p_data->remote.workmode.workdelay_10s = CLOCK_DELAYTIMER_10S;
+							p_data->remote.workmode.workdelay_1s = CLOCK_DELAYTIMER_1S;
+							p_data->remote.keyctrl.keystate_move_target = ON;
+						}
+					}
+				}
+			}		
 			if(p_data->remote.workmode.workdelay_1s >= CLOCK_DELAYTIMER_1S)
 			{
 				if((OFF == p_data->remote.keyctrl.keystate_ptc_wait) 
@@ -694,12 +711,10 @@ void fml_ctrl_deal_motor(datall* p_data)
 			break;	
 		case WORKMODULE_BLOW:
 		case WORKMODULE_WARM:
+			p_data->motor.absorb_target_step = RESET_STEP_ZERO;
 			if((p_data->remote.workmode.workdelay_10s >= CLOCK_DELAYTIMER_10S)
 				|| (ON == p_data->remote.keyctrl.keystate_open_swing))
 			{
-				
-				p_data->motor.absorb_target_step = RESET_STEP_ZERO;
-				
 				if(RESET == p_data->remote.keyctrl.keystate_enter_swing)
 				{
 					s_step = STEP1;
@@ -758,8 +773,8 @@ void fml_ctrl_deal_motor(datall* p_data)
 					{
 						p_data->motor.blow_target_step = p_data->motor.blow_motor_step_pri;
 					}
-					
-					
+//					p_data->motor.absorb_target_step = RESET_STEP_ZERO;
+
 					if(YES == MOTOR_CHK_MOVE_TO_TARGET)
 					{
 						p_data->remote.keyctrl.keystate_move_target = ON;

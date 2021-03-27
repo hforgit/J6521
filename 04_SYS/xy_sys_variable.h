@@ -140,7 +140,7 @@ typedef union DataCommon
 
 typedef struct timeBase	
 {
-    volatile unsigned char    isTrigInterrupt;
+    unsigned char    isTrigInterrupt;
 	unsigned char    timebase_125us;
     unsigned char    timebase_1ms;
     unsigned char    timebase_10ms;

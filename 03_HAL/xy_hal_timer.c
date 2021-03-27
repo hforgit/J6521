@@ -9,6 +9,7 @@
 void hal_timer_Init(void)
 {
 	TMCON |= 0X05;
+
 	/*	TIMER0	*/
 	TMOD |= 0x01;	  
 	TH0 = 0xF8; 	//F8
@@ -23,7 +24,8 @@ void hal_timer_Init(void)
 	TR2 = 0;
 	ET2 = 1;//¶¨Ê±Æ÷2ÔÊÐí
 	TR2 = 1;
-	IPT2 = 1;	
+	IPT2 = 1;
+
 	/*	WDT */
 	OPINX |= 0XC1;
 	OPREG |= 0X82;

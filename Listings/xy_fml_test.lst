@@ -1,4 +1,4 @@
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 1   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE XY_FML_TEST
@@ -62,7 +62,7 @@ line level    source
   50   2                              break;
   51   2                      default:
   52   2                              table[2] = 0x00;
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 2   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 2   
 
   53   2                              table[3] = 0x00;
   54   2                              break;
@@ -126,7 +126,7 @@ line level    source
  110          
  111          /*********************************************************************************************************
              -**************
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 3   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 3   
 
  112          * Function Name: 
  113          * Description  : 
@@ -190,7 +190,7 @@ line level    source
  168   3                              ;
  169   3                      }
  170   2              }       
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 4   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 4   
 
  171   1              watchdog();
  172   1      }
@@ -254,7 +254,7 @@ line level    source
  226   1              
  227   1              /*8*/
  228   1              #ifdef TEST_FUNC_NUMB_08
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 5   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 5   
 
  229   1              blow_motor_step2_on();
  230   1              fml_test_delay();
@@ -316,9 +316,9 @@ line level    source
  284   3                              break;
  285   3                      }
  286   2                      timeout++;
- 287   2                      if(timeout > 60000)
+ 287   2                      if(timeout >= 60000)
  288   2                      {
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 6   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 6   
 
  289   3                              timeout = 60000;
  290   3                      }
@@ -382,7 +382,7 @@ line level    source
  344   1              
  345   1              if(self_test() == 0)
  346   1              {
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 7   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 7   
 
  347   2                      s_count++;
  348   2                      if(s_count > 2)
@@ -446,7 +446,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
-C51 COMPILER V9.01   XY_FML_TEST                                                           03/17/2021 13:19:58 PAGE 8   
+C51 COMPILER V9.01   XY_FML_TEST                                                           03/27/2021 10:55:07 PAGE 8   
 
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----
